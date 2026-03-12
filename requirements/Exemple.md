@@ -4,7 +4,7 @@
 
 _RNF-7-01_
 
-### Type/Category: -- Tipus i Subtipus
+### Type/Category:
 
 _NO Funcional / Decisions de Disseny_
 
@@ -12,21 +12,21 @@ _NO Funcional / Decisions de Disseny_
 
 _1.0_
 
-### Title: -- Nom del requisit
+### Title:
 
 _SGBD PostgreSQL_
 
-### Description: -- Descripció del requisit
+### Description:
 
 _El Sistema Gestor de Bases de Dades haurà de ser PostgreSQL. Totes les dades
 del sistema hi seran en una BDD Relacional. Caldrà proporcionar un conjunt de
 d'arxius en format SQL per definir les taules i restriccions de la Base de Dades._
 
-### Relations: -- Requisits relacionats
+### Relations:
 
 _Sense completar (pending)_
 
-### Comments: -- Comentaris
+### Comments:
 
 _Caldrà definir en el disseny les versions especifiques a utilitzar i la plataforma a
 on s'executarà. També hi serà necessari definir un roadmap de manteniment
