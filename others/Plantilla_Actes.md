@@ -1,16 +1,16 @@
-\# Meeting Minutes Template
+# Meeting Minutes Template
 
-\### DATE: -- Data i Hora
+### DATE: -- Data i Hora
 
-\_Començament i finalització de la reunió\_
+_Començament i finalització de la reunió_
 
-\### Attendees: -- Asistents
+### Attendees: -- Asistents
 
-\_Noms (o codi) dels assistents a la reunió\_
+_Noms (o codi) dels assistents a la reunió_
 
-\### Minutes of the meeting: -- Acta de la reunió
+### Minutes of the meeting: -- Acta de la reunió
 
-\_Llista de les decisions resultants de la reunió\_
+_Llista de les decisions resultants de la reunió_
 
-\---
+---
 

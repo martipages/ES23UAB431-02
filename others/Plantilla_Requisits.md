@@ -1,32 +1,32 @@
-\# Requirements Template
+# Requirements Template
 
-\### ID: -- Identificador únic
+### ID: -- Identificador únic
 
-\_Nom codificat amb un codi\_
+_Nom codificat amb un codi_
 
-\### Type/Category: -- Tipus i Subtipus
+### Type/Category: -- Tipus i Subtipus
 
-\_Tipus (obligatori) del requisit i Subtipus (opcional)
+_Tipus (obligatori) del requisit i Subtipus (opcional)_
 
-\### Version: -- Número de versió
+### Version: -- Número de versió
 
-\_Codi incremental de versió\_
+_Codi incremental de versió_
 
-\### Title: -- Nom del requisit
+### Title: -- Nom del requisit
 
-\_Nom descriptiu del requisit\_
+_Nom descriptiu del requisit_
 
-\### Description: -- Descripció del requisit
+### Description: -- Descripció del requisit
 
-\_Descripció textual del requisit\_
+_Descripció textual del requisit_
 
-\### Relations: -- Requisits relacionats
+### Relations: -- Requisits relacionats
 
-\_Llista dels ID dels requisits relacionats\_
+_Llista dels ID dels requisits relacionats_
 
-\### Comments: -- Comentaris
+### Comments: -- Comentaris
 
-\_Comentaris addicionals que es vulguin afegir opcionalment\_
+_Comentaris addicionals que es vulguin afegir opcionalment_
 
-\---
+---
 
