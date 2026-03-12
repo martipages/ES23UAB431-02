@@ -1,32 +1,37 @@
 # Requirements Template
 
-### ID: -- Identificador únic
+### ID:
 
-_Nom codificat amb un codi_
+_RNF-7-01_
 
 ### Type/Category: -- Tipus i Subtipus
 
-_Tipus (obligatori) del requisit i Subtipus (opcional)_
+_NO Funcional / Decisions de Disseny_
 
-### Version: -- Número de versió
+### Version:
 
-_Codi incremental de versió_
+_1.0_
 
 ### Title: -- Nom del requisit
 
-_Nom descriptiu del requisit_
+_SGBD PostgreSQL_
 
 ### Description: -- Descripció del requisit
 
-_Descripció textual del requisit_
+_El Sistema Gestor de Bases de Dades haurà de ser PostgreSQL. Totes les dades
+del sistema hi seran en una BDD Relacional. Caldrà proporcionar un conjunt de
+d'arxius en format SQL per definir les taules i restriccions de la Base de Dades._
 
 ### Relations: -- Requisits relacionats
 
-_Llista dels ID dels requisits relacionats_
+_Sense completar (pending)_
 
 ### Comments: -- Comentaris
 
-_Comentaris addicionals que es vulguin afegir opcionalment_
+_Caldrà definir en el disseny les versions especifiques a utilitzar i la plataforma a
+on s'executarà. També hi serà necessari definir un roadmap de manteniment
+amb un mínim de 6 anys. En el cas de que el EOL no pugui garantir aquest
+període caldrà dissenyar un procés de migració._
 
 ---
 
