@@ -1,0 +1,72 @@
+@startuml
+left to right direction
+
+:Cuiner:
+:Client:
+:Repartidor:
+:Usuari Registrat: as UsuariRegistrat
+
+Repartidor <|-- Cuiner
+
+rectangle Comandes {
+
+(Acceptar comandes) as AcceptarComanda
+(Veure reserves de comandes) as VeureReserves
+
+}
+
+rectangle Propostes {
+
+(Veure el menú de propostes) as MenúPropostes
+(Acceptar proposta de plat) as AcceptarProposta
+
+}
+
+rectangle Perfil {
+
+(Modificar perfil cuiner) as ModificarPerfilCuiner 
+(Indicar disponibilitat) as Disponibilitat
+
+}
+
+rectangle Xats {
+
+(Xatejar entre cuiner i client) as Xatejar
+(Veure xats) as VeureXats
+
+}
+
+rectangle Ingrés {
+
+(Fer pagament) as Pagament
+
+}
+
+(Vincular compte bancari) as VincularCompteBancari
+
+UsuariRegistrat --> VincularCompteBancari
+
+UsuariRegistrat <|- Cuiner
+UsuariRegistrat <|- Client
+UsuariRegistrat <|- Repartidor
+
+Cuiner --> ModificarPerfilCuiner
+Cuiner --> Disponibilitat
+Cuiner --> AcceptarComanda
+Cuiner --> AcceptarProposta
+
+Cuiner --> Xatejar
+
+Client --> Xatejar
+
+Client --> Pagament
+Pagament --> Cuiner
+Pagament --> Repartidor
+
+AcceptarComanda ..> VeureReserves : include
+AcceptarProposta ..> AcceptarComanda : extend
+Xatejar ..> AcceptarProposta : extend
+AcceptarProposta ..> MenúPropostes : include
+Xatejar ..> VeureXats : include
+
+@enduml
