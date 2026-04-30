@@ -1,0 +1,18 @@
+@startuml
+left to right direction
+
+:Usuari General: as Usuari
+:Cuiner:
+:Repartidor:
+:Client:
+:Usuari no Registrat: as UsuariN
+
+Usuari --> (Omplir perfil)
+(Omplir perfil) ..> (Modificar perfil) : include
+Usuari --> (Donar-se de baixa)
+Client --|> Usuari
+Cuiner --|> Usuari
+Repartidor --|> Usuari
+Usuari --|> UsuariN
+
+@enduml
