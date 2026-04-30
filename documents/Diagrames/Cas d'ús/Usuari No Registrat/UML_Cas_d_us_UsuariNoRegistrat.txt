@@ -1,0 +1,19 @@
+@startuml
+left to right direction
+
+:Usuari No Registrat: as UsuariN
+:Usuari General: as Usuari
+:Cuiner:
+
+UsuariN <|-- Usuari
+Usuari <|-- Cuiner
+UsuariN --> (ConsultarMenu)
+UsuariN --> (Registrar-se)
+Cuiner --> (Oferir conjunt de plats)
+UsuariN --> (Cercar)
+(Cercar) --> Cuiner
+(Cercar) --> (Oferir conjunt de plats)
+UsuariN --> (Canviar entre 2 vistes)
+
+
+@enduml
