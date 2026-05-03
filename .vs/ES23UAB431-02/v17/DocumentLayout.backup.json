@@ -1,36 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\hugca\\OneDrive\\Escriptori\\universitat\\2n de carrera\\2n carrera\\Enginyeria del Software\\pract\\ES23UAB431-02\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\hugca\\OneDrive\\Escriptori\\universitat\\2n de carrera\\2n carrera\\Enginyeria del Software\\pract\\ES23UAB431-02\\documents\\Diagrames\\Cas d\u0027\u00FAs\\Usuari General\\UML_Cas_d_us_UsuariGeneral.png||{58961B49-13E0-48C0-9258-13CBC4D40279}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:documents\\Diagrames\\Cas d\u0027\u00FAs\\Usuari General\\UML_Cas_d_us_UsuariGeneral.png||{58961B49-13E0-48C0-9258-13CBC4D40279}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\hugca\\OneDrive\\Escriptori\\universitat\\2n de carrera\\2n carrera\\Enginyeria del Software\\pract\\ES23UAB431-02\\documents\\Diagrames\\Cas d\u0027\u00FAs\\Usuari No Registrat\\UML_Cas_d_us_UsuariNoRegistrat.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:documents\\Diagrames\\Cas d\u0027\u00FAs\\Usuari No Registrat\\UML_Cas_d_us_UsuariNoRegistrat.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\hugca\\OneDrive\\Escriptori\\universitat\\2n de carrera\\2n carrera\\Enginyeria del Software\\pract\\ES23UAB431-02\\documents\\Diagrames\\Cas d\u0027\u00FAs\\Usuari General\\UML_Cas_d_us_UsuariGeneral.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:documents\\Diagrames\\Cas d\u0027\u00FAs\\Usuari General\\UML_Cas_d_us_UsuariGeneral.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\hugca\\OneDrive\\Escriptori\\universitat\\2n de carrera\\2n carrera\\Enginyeria del Software\\pract\\ES23UAB431-02\\documents\\Diagrames\\Cas d\u0027\u00FAs\\Cuiner\\UML_Cas_d_us_Cuiner.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:documents\\Diagrames\\Cas d\u0027\u00FAs\\Cuiner\\UML_Cas_d_us_Cuiner.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\hugca\\OneDrive\\Escriptori\\universitat\\2n de carrera\\2n carrera\\Enginyeria del Software\\pract\\ES23UAB431-02\\documents\\Diagrames\\Cas d\u0027\u00FAs\\Client\\UML_Cas_d_us_Client.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:documents\\Diagrames\\Cas d\u0027\u00FAs\\Client\\UML_Cas_d_us_Client.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\hugca\\OneDrive\\Escriptori\\universitat\\2n de carrera\\2n carrera\\Enginyeria del Software\\pract\\ES23UAB431-02\\documents\\Diagrames\\Cas d\u0027\u00FAs\\Repartidor\\UML_Cas_d_us_Repartidor.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:documents\\Diagrames\\Cas d\u0027\u00FAs\\Repartidor\\UML_Cas_d_us_Repartidor.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\hugca\\OneDrive\\Escriptori\\universitat\\2n de carrera\\2n carrera\\Enginyeria del Software\\pract\\ES23UAB431-02\\documents\\Diagrames\\Cas d\u0027\u00FAs\\Repartidor\\UML_Cas_d_us_Repartidor.png||{58961B49-13E0-48C0-9258-13CBC4D40279}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:documents\\Diagrames\\Cas d\u0027\u00FAs\\Repartidor\\UML_Cas_d_us_Repartidor.png||{58961B49-13E0-48C0-9258-13CBC4D40279}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -38,7 +9,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -51,95 +22,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "UML_Cas_d_us_UsuariGeneral.png",
-              "DocumentMoniker": "C:\\Users\\hugca\\OneDrive\\Escriptori\\universitat\\2n de carrera\\2n carrera\\Enginyeria del Software\\pract\\ES23UAB431-02\\documents\\Diagrames\\Cas d\u0027\u00FAs\\Usuari General\\UML_Cas_d_us_UsuariGeneral.png",
-              "RelativeDocumentMoniker": "documents\\Diagrames\\Cas d\u0027\u00FAs\\Usuari General\\UML_Cas_d_us_UsuariGeneral.png",
-              "ToolTip": "C:\\Users\\hugca\\OneDrive\\Escriptori\\universitat\\2n de carrera\\2n carrera\\Enginyeria del Software\\pract\\ES23UAB431-02\\documents\\Diagrames\\Cas d\u0027\u00FAs\\Usuari General\\UML_Cas_d_us_UsuariGeneral.png",
-              "RelativeToolTip": "documents\\Diagrames\\Cas d\u0027\u00FAs\\Usuari General\\UML_Cas_d_us_UsuariGeneral.png",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
-              "WhenOpened": "2026-05-02T15:19:52.368Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "UML_Cas_d_us_Repartidor.png",
-              "DocumentMoniker": "C:\\Users\\hugca\\OneDrive\\Escriptori\\universitat\\2n de carrera\\2n carrera\\Enginyeria del Software\\pract\\ES23UAB431-02\\documents\\Diagrames\\Cas d\u0027\u00FAs\\Repartidor\\UML_Cas_d_us_Repartidor.png",
-              "RelativeDocumentMoniker": "documents\\Diagrames\\Cas d\u0027\u00FAs\\Repartidor\\UML_Cas_d_us_Repartidor.png",
-              "ToolTip": "C:\\Users\\hugca\\OneDrive\\Escriptori\\universitat\\2n de carrera\\2n carrera\\Enginyeria del Software\\pract\\ES23UAB431-02\\documents\\Diagrames\\Cas d\u0027\u00FAs\\Repartidor\\UML_Cas_d_us_Repartidor.png",
-              "RelativeToolTip": "documents\\Diagrames\\Cas d\u0027\u00FAs\\Repartidor\\UML_Cas_d_us_Repartidor.png",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
-              "WhenOpened": "2026-05-02T15:05:14.311Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "UML_Cas_d_us_UsuariNoRegistrat.txt",
-              "DocumentMoniker": "C:\\Users\\hugca\\OneDrive\\Escriptori\\universitat\\2n de carrera\\2n carrera\\Enginyeria del Software\\pract\\ES23UAB431-02\\documents\\Diagrames\\Cas d\u0027\u00FAs\\Usuari No Registrat\\UML_Cas_d_us_UsuariNoRegistrat.txt",
-              "RelativeDocumentMoniker": "documents\\Diagrames\\Cas d\u0027\u00FAs\\Usuari No Registrat\\UML_Cas_d_us_UsuariNoRegistrat.txt",
-              "ToolTip": "C:\\Users\\hugca\\OneDrive\\Escriptori\\universitat\\2n de carrera\\2n carrera\\Enginyeria del Software\\pract\\ES23UAB431-02\\documents\\Diagrames\\Cas d\u0027\u00FAs\\Usuari No Registrat\\UML_Cas_d_us_UsuariNoRegistrat.txt",
-              "RelativeToolTip": "documents\\Diagrames\\Cas d\u0027\u00FAs\\Usuari No Registrat\\UML_Cas_d_us_UsuariNoRegistrat.txt",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2026-05-02T15:04:32.338Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "UML_Cas_d_us_Cuiner.txt",
-              "DocumentMoniker": "C:\\Users\\hugca\\OneDrive\\Escriptori\\universitat\\2n de carrera\\2n carrera\\Enginyeria del Software\\pract\\ES23UAB431-02\\documents\\Diagrames\\Cas d\u0027\u00FAs\\Cuiner\\UML_Cas_d_us_Cuiner.txt",
-              "RelativeDocumentMoniker": "documents\\Diagrames\\Cas d\u0027\u00FAs\\Cuiner\\UML_Cas_d_us_Cuiner.txt",
-              "ToolTip": "C:\\Users\\hugca\\OneDrive\\Escriptori\\universitat\\2n de carrera\\2n carrera\\Enginyeria del Software\\pract\\ES23UAB431-02\\documents\\Diagrames\\Cas d\u0027\u00FAs\\Cuiner\\UML_Cas_d_us_Cuiner.txt",
-              "RelativeToolTip": "documents\\Diagrames\\Cas d\u0027\u00FAs\\Cuiner\\UML_Cas_d_us_Cuiner.txt",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2026-05-02T15:03:38.699Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "UML_Cas_d_us_Client.md",
-              "DocumentMoniker": "C:\\Users\\hugca\\OneDrive\\Escriptori\\universitat\\2n de carrera\\2n carrera\\Enginyeria del Software\\pract\\ES23UAB431-02\\documents\\Diagrames\\Cas d\u0027\u00FAs\\Client\\UML_Cas_d_us_Client.md",
-              "RelativeDocumentMoniker": "documents\\Diagrames\\Cas d\u0027\u00FAs\\Client\\UML_Cas_d_us_Client.md",
-              "ToolTip": "C:\\Users\\hugca\\OneDrive\\Escriptori\\universitat\\2n de carrera\\2n carrera\\Enginyeria del Software\\pract\\ES23UAB431-02\\documents\\Diagrames\\Cas d\u0027\u00FAs\\Client\\UML_Cas_d_us_Client.md",
-              "RelativeToolTip": "documents\\Diagrames\\Cas d\u0027\u00FAs\\Client\\UML_Cas_d_us_Client.md",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
-              "WhenOpened": "2026-05-02T15:03:35.058Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "UML_Cas_d_us_UsuariGeneral.txt",
-              "DocumentMoniker": "C:\\Users\\hugca\\OneDrive\\Escriptori\\universitat\\2n de carrera\\2n carrera\\Enginyeria del Software\\pract\\ES23UAB431-02\\documents\\Diagrames\\Cas d\u0027\u00FAs\\Usuari General\\UML_Cas_d_us_UsuariGeneral.txt",
-              "RelativeDocumentMoniker": "documents\\Diagrames\\Cas d\u0027\u00FAs\\Usuari General\\UML_Cas_d_us_UsuariGeneral.txt",
-              "ToolTip": "C:\\Users\\hugca\\OneDrive\\Escriptori\\universitat\\2n de carrera\\2n carrera\\Enginyeria del Software\\pract\\ES23UAB431-02\\documents\\Diagrames\\Cas d\u0027\u00FAs\\Usuari General\\UML_Cas_d_us_UsuariGeneral.txt",
-              "RelativeToolTip": "documents\\Diagrames\\Cas d\u0027\u00FAs\\Usuari General\\UML_Cas_d_us_UsuariGeneral.txt",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2026-05-02T15:02:41.863Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "UML_Cas_d_us_Repartidor.md",
-              "DocumentMoniker": "C:\\Users\\hugca\\OneDrive\\Escriptori\\universitat\\2n de carrera\\2n carrera\\Enginyeria del Software\\pract\\ES23UAB431-02\\documents\\Diagrames\\Cas d\u0027\u00FAs\\Repartidor\\UML_Cas_d_us_Repartidor.md",
-              "RelativeDocumentMoniker": "documents\\Diagrames\\Cas d\u0027\u00FAs\\Repartidor\\UML_Cas_d_us_Repartidor.md",
-              "ToolTip": "C:\\Users\\hugca\\OneDrive\\Escriptori\\universitat\\2n de carrera\\2n carrera\\Enginyeria del Software\\pract\\ES23UAB431-02\\documents\\Diagrames\\Cas d\u0027\u00FAs\\Repartidor\\UML_Cas_d_us_Repartidor.md",
-              "RelativeToolTip": "documents\\Diagrames\\Cas d\u0027\u00FAs\\Repartidor\\UML_Cas_d_us_Repartidor.md",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
-              "WhenOpened": "2026-05-02T15:01:36.476Z",
-              "EditorCaption": ""
             }
           ]
         }
