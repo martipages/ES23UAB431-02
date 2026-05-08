@@ -4,23 +4,27 @@ left to right direction
 
 
 
-
-
 ''Perfils:
 
 
 
 :Cuiner:
 
+
+
 :Client:
+
+
 
 :Repartidor:
 
+
+
 :Usuari General: as UsuariGeneral
 
+
+
 :Usuari No Registrat: as UsuariNoRegistrat
-
-
 
 
 
@@ -30,7 +34,11 @@ left to right direction
 
 rectangle Ingrés {
 
+
+
 (Fer pagament) as Pagament
+
+
 
 }
 
@@ -38,9 +46,35 @@ rectangle Ingrés {
 
 rectangle Accedir {
 
+
+
 (Login) as Login
 
+
+
 (Registrar-se) as Registrar
+
+
+
+}
+
+
+
+rectangle ModificacioPerfil {
+
+
+
+(Donar-se de baixa)
+
+
+
+(Omplir perfil)
+
+
+
+(Modificar perfil)
+
+
 
 }
 
@@ -48,7 +82,11 @@ rectangle Accedir {
 
 rectangle ProposarPlats {
 
+
+
 (Proposar plats) as PropPlats
+
+
 
 }
 
@@ -56,11 +94,23 @@ rectangle ProposarPlats {
 
 rectangle FerComanda {
 
-(Reservar comandes) as Reserva
+
+
+(Fer comandes) as Reserva
+
+
 
 (Modificar ingredients adicionals) as Modificar
 
+
+
 (Escollir qui reparteix) as RepartidorComanda
+
+
+
+(Triar data i hora) as DyT
+
+
 
 }
 
@@ -68,9 +118,15 @@ rectangle FerComanda {
 
 rectangle Xats {
 
+
+
 (Xatejar entre cuiner i client) as Xatejar
 
+
+
 (Veure xats) as VeureXats
+
+
 
 }
 
@@ -78,25 +134,35 @@ rectangle Xats {
 
 rectangle ComandesPrèvies {
 
+
+
 (Consultar comandes prèvies) as ConsultarPrevies
+
+
 
 (Repetir comandes prèvies) as RepetirPrevies
 
+
+
 }
 
 
 
-rectangle Seguiment {
+
 
 (Seguiment de la comanda) as Seg
 
-}
+
 
 
 
 rectangle Valoracio {
 
+
+
 (Valorar comandes) as Val
+
+
 
 }
 
@@ -104,7 +170,11 @@ rectangle Valoracio {
 
 rectangle Subscripció {
 
+
+
 (Subscripció pla mensual) as SubPla
+
+
 
 }
 
@@ -112,7 +182,11 @@ rectangle Subscripció {
 
 rectangle Ingrés {
 
+
+
 (Fer pagament) as Pagament
+
+
 
 }
 
@@ -120,9 +194,15 @@ rectangle Ingrés {
 
 rectangle RepartirComandes {
 
+
+
 (Acceptar comandes a repartir) as AcceptarComandes
 
+
+
 (Veure comandes pendents a repartir) as VeureComandes
+
+
 
 }
 
@@ -130,9 +210,15 @@ rectangle RepartirComandes {
 
 rectangle Comandes {
 
+
+
 (Acceptar comandes) as AcceptarComanda
 
+
+
 (Veure reserves de comandes) as VeureReserves
+
+
 
 }
 
@@ -140,9 +226,15 @@ rectangle Comandes {
 
 rectangle Propostes {
 
+
+
 (Veure el menú de propostes) as MenúPropostes
 
+
+
 (Acceptar proposta de plat) as AcceptarProposta
+
+
 
 }
 
@@ -150,9 +242,11 @@ rectangle Propostes {
 
 rectangle Perfil {
 
-(Modificar perfil cuiner) as ModificarPerfilCuiner 
+
 
 (Indicar disponibilitat) as Disponibilitat
+
+
 
 }
 
@@ -160,9 +254,15 @@ rectangle Perfil {
 
 rectangle Xats {
 
+
+
 (Xatejar entre cuiner i client) as Xatejar
 
+
+
 (Veure xats) as VeureXats
+
+
 
 }
 
@@ -170,13 +270,17 @@ rectangle Xats {
 
 rectangle Ingrés {
 
+
+
 (Fer pagament) as Pagament
+
+
 
 (Vincular compte bancari) as VincularCompteBancari
 
+
+
 }
-
-
 
 
 
@@ -186,17 +290,25 @@ rectangle Ingrés {
 
 Repartidor <|-- Client
 
+
+
 Repartidor <|-- Cuiner
+
+
 
 UsuariGeneral <|-- Client
 
+
+
 UsuariGeneral <|-- Repartidor
+
+
 
 UsuariGeneral <|-- Cuiner
 
+
+
 UsuariNoRegistrat <|-- UsuariGeneral
-
-
 
 
 
@@ -206,13 +318,17 @@ UsuariNoRegistrat <|-- UsuariGeneral
 
 Seg --> GPS
 
+
+
 Pagament --> EntitatBancaria
+
+
 
 Registrar --> CorreuElectronic
 
+
+
 Login --> CorreuElectronic
-
-
 
 
 
@@ -222,45 +338,75 @@ Login --> CorreuElectronic
 
 Client --> PropPlats
 
+
+
 Client --> Pagament
+
+
 
 Client --> Seg
 
+
+
 Client --> SubPla
 
-Client --> RepetirPrevies
+
+
+Client --> ConsultarPrevies
+
+
 
 Client --> Val
 
+
+
 Client --> Reserva
+
+
 
 Client --> Xatejar
 
 
 
-Repartidor --> AcceptarComandes
+Repartidor --> VeureComandes
 
 
 
 UsuariGeneral --> VincularCompteBancari
 
+
+
 UsuariGeneral --> Login
 
+
+
 UsuariGeneral --> (Donar-se de baixa)
+
+
 
 UsuariGeneral --> (Omplir perfil)
 
 
 
-Cuiner --> ModificarPerfilCuiner
+UsuariGeneral --> (Modificar perfil)
+
+
 
 Cuiner --> Disponibilitat
 
-Cuiner --> AcceptarComanda
 
-Cuiner --> AcceptarProposta
+
+Cuiner --> VeureReserves
+
+
+
+Cuiner --> MenúPropostes
+
+
 
 Cuiner --> Xatejar
+
+
 
 Cuiner --> (Oferir conjunt de plats)
 
@@ -268,7 +414,11 @@ Cuiner --> (Oferir conjunt de plats)
 
 UsuariNoRegistrat --> (ConsultarMenu)
 
+
+
 UsuariNoRegistrat --> Registrar
+
+
 
 UsuariNoRegistrat --> (Cercar)
 
@@ -276,13 +426,21 @@ UsuariNoRegistrat --> (Cercar)
 
 (Cercar) --> Cuiner
 
+
+
 Pagament --> Repartidor
 
+
+
 Pagament --> Cuiner
+
+
 
 PropPlats --> Cuiner
 
 
+
+Seg --> Repartidor
 
 
 
@@ -292,33 +450,49 @@ PropPlats --> Cuiner
 
 Val ..> ConsultarPrevies : include
 
+
+
 Reserva ..> Modificar : include
+
+
 
 Reserva ..> RepartidorComanda : include
 
+
+
+Reserva ..> DyT : include
+
+
+
 Reserva ..> RepetirPrevies : extend
 
-RepetirPrevies ..> ConsultarPrevies : include
 
-AcceptarComanda ..> VeureReserves : include
+
+ConsultarPrevies <.. RepetirPrevies : extend
+
+
+
+VeureReserves ..> AcceptarComanda : include
+
+
 
 AcceptarProposta ..> AcceptarComanda : extend
 
+
+
 Xatejar ..> AcceptarProposta : extend
 
-AcceptarProposta ..> MenúPropostes : include
+
+
+MenúPropostes ..> AcceptarProposta: include
+
+
 
 Xatejar ..> VeureXats : include
 
-AcceptarComandes ..> VeureComandes : include
-
-(Omplir perfil) ..> (Modificar perfil) : include
 
 
-
-
-
-
+VeureComandes <.. AcceptarComandes : extend
 
 @enduml
 
