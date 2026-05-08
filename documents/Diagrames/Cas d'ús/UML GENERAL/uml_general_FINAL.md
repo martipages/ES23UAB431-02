@@ -364,7 +364,7 @@ Client --> Reserva
 
 
 
-Client --> Xatejar
+Client --> VeureXats
 
 
 
@@ -404,7 +404,7 @@ Cuiner --> MenúPropostes
 
 
 
-Cuiner --> Xatejar
+Cuiner --> VeureXats
 
 
 
@@ -488,7 +488,7 @@ MenúPropostes ..> AcceptarProposta: include
 
 
 
-Xatejar ..> VeureXats : include
+VeureXats  ..> Xatejar : include
 
 
 
