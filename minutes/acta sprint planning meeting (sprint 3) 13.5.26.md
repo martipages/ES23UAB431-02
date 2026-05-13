@@ -2,22 +2,48 @@
 
 ### DATE: -- Data i Hora
 
-_27/04/2026_
+_13/05/2026_
 
 ### Attendees: -- Asistents
 
 _Martí Pagès Sànchez, Alejandro Ibarra, Marc Sala, Hug Capafons Cuadra_
 
-### Minutes of the meeting: 35 min
+### Minutes of the meeting: 45 min
 
 ### Acta de la reunió
 
-_Martí -> _
-_Alejandro -> _
-_Marc ->  _
-_Hug -> _
+_Martí -> 8 especificacions CU cuiner, DC cuiner, DC xat_
+_Alejandro -> 9 especificacions CU usuari general i CU usuari no registrat, DC client, DC usuari no registrat, DC entitat bancària_
+_Marc -> PowerPoint, Burndown chart, 4 especificacions CU client, 3 especificacions CU repartidor, DC Comanda/Reserva, DC correu electrònic, juntar diagrames_
+_Hug -> Acabar diagrama CU final, 6 especificacions CU client, DC repartidor, DC usuari general, DC GPS_
 
-_El Trello ha estat omplert i hem assignat els story points de manera conjunta basat en la dificultat projectada de les tasques considerant l’sprint anterior._
+_Llista Entitats:
+	- Cuiner (Martí)
+	- Client (Alejandro)
+	- Repartidor (Hug)
+	- Usuari General (Hug)
+	- Usuari no registrat (Alejandro)
+	- Comanda / Reserva (Marc)
+	- Xat (Martí)
+	- Entitat bancària (Alejandro)
+	- Gps (Hug)
+	- Correu electrònic (Marc)
+_
+
+_Llistes Especificacions:
+	- Martí -> CU cuiner (8 casos d'ús)
+	- Alejandro -> CU usuari general, no registrat (9 casos d'ús)
+	- Marc ->  CU Client (4 casos d'ús), CU repartidor (3 casos d'ús)
+	- Hug -> CU Client (6 casos d'ús)
+_
+
+_Conjuntament hem fet ho següent:
+	- Hem decidit que els diagrames de classes es farà amb PlantUML.
+	- Hem escollit que cada membre farà les especificacions dels casos d'ús fets en l'anterior sprint.
+	- Hem trobat 10 entitats i ens les hem repartit equitativament.
+	- Hem actualitzat el Trello i assignat els Story Points.
+_
+
 
 ---
 
