@@ -10,7 +10,7 @@
 
 ## Autors: _Martí Pagès Sánchez_
 
-## Descripció: <br>_Aquest cas d’ús descriu com el cuiner i el client veuen els xats que tenen entre ells._
+## Descripció: _<br>Aquest cas d’ús descriu com el cuiner i el client veuen els xats que tenen entre ells._
 
 ## Actors: <br>_Client, Cuiner_
 
