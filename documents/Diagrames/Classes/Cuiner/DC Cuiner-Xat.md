@@ -23,9 +23,8 @@ DadesUsuariGeneral <|-- DadesClient
 DadesUsuariGeneral - CompteBancari
 
 DadesCuiner "1" -- "1..*" Plat
-DadesClient "1" - "0..*" Comanda
+DadesClient "1" - "0..3" Comanda
 Plat "1..*" -- "0..*" Comanda
 Comanda - Xat
 Xat "1" *-- "1..*" Missatge
-
 @enduml
