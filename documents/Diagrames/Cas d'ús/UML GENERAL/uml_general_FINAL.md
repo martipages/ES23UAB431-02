@@ -98,7 +98,7 @@ rectangle Ingrés {
 
 Repartidor --> Demin
 Cuiner --> Demin
-GPS <-- Demin
+EntitatBancaria <-- Demin
 
 
 rectangle RepartirComandes {
