@@ -27,7 +27,7 @@ _1. L’usuari fa clic sobre la pestanya de xats.<br>
 ## Subfluxos: 
 
 ## Fluxos alternatius: 
-_**No hi ha xats actius**
+_**No hi ha xats actius**<br>
 Si no hi ha xats actius (l’usuari ha tingut 0 xats), es mostra un missatge d’error (tipus: “Vaja… Sembla ser que no tens cap xat iniciat. Torna quan en tinguis algun!”)._
 
 ## Postcondició: 
