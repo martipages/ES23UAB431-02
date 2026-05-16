@@ -15,7 +15,7 @@ _Martí Pagès Sànchez, Alejandro Ibarra, Marc Sala, Hug Capafons Cuadra_
 _Martí -> 8 especificacions, DC cuiner, DC xat (13)_
 _Alejandro -> 7 especificacions, DC client, DC usuari no registrat, DC entitat bancària (13)_
 _Marc -> PowerPoint, Burndown chart, 7 especificacions, DC Comanda/Reserva, DC correu electrònic, juntar diagrames (18)_
-_Hug -> Acabar diagrama CU final, 8 especificacions CU client, DC repartidor, DC usuari general, DC GPS (14)_
+_Hug -> Acabar diagrama CU final, 8 especificacions, DC repartidor, DC usuari general, DC GPS (14)_
 
 _Llista Entitats:
 	- Cuiner (Martí)
