@@ -4,13 +4,14 @@
     "\\documents",
     "\\documents\\Diagrames",
     "\\documents\\Diagrames\\Cas d'ús",
-    "\\documents\\Diagrames\\Cas d'ús\\Cuiner",
-    "\\documents\\Diagrames\\Cas d'ús\\Repartidor",
-    "\\documents\\Diagrames\\Cas d'ús\\UML GENERAL",
-    "\\documents\\Diagrames\\Cas d'ús\\Usuari General",
-    "\\documents\\Diagrames\\Cas d'ús\\Usuari No Registrat",
-    "\\minutes"
+    "\\documents\\Diagrames\\Cas d'ús\\Especificacions",
+    "\\documents\\Diagrames\\Cas d'ús\\Especificacions\\Hiro! ^3^",
+    "\\documents\\Diagrames\\Classes",
+    "\\documents\\Diagrames\\Classes\\Client",
+    "\\documents\\Diagrames\\Classes\\Cuiner",
+    "\\documents\\Diagrames\\Classes\\Entitat Bancaria",
+    "\\documents\\Diagrames\\Classes\\Usuari(No registrat + General)"
   ],
-  "SelectedNode": "\\documents\\Diagrames\\Cas d'ús\\UML GENERAL\\uml_general_FINAL.puml",
+  "SelectedNode": "\\documents\\Diagrames\\Classes\\Usuari(No registrat + General)\\DC Usuaris.png",
   "PreviewInSolutionExplorer": false
 }

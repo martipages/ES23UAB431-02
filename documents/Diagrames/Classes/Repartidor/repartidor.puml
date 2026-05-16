@@ -1,0 +1,30 @@
+@startuml
+skinparam groupInheritance 1
+
+skinparam package<<Layout>> {
+  borderColor Transparent
+  backgroundColor Transparent
+  fontColor Transparent
+  stereotypeFontColor Transparent
+  BorderThickness 10
+}
+
+namespace Persones #DDDDDD {
+class DadesUsuariGeneral
+class CompteBancari
+class DadesRepartidor
+}
+
+
+DadesUsuariGeneral <|-- DadesRepartidor
+
+
+DadesUsuariGeneral - CompteBancari
+'''
+
+class Comanda
+class DadesGPS
+Comanda -- DadesRepartidor
+DadesRepartidor *-- DadesGPS
+
+@enduml
