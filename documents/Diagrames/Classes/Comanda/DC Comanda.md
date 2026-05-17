@@ -1,0 +1,126 @@
+@startuml
+
+skinparam groupInheritance 1
+
+
+
+namespace Perfils{
+
+class DadesRepartidor
+
+class DadesCuiner
+
+class DadesClient
+
+}
+
+
+
+namespace GPS {
+
+class DadesGPS
+
+}
+
+
+
+namespace Comanda {
+
+class Plat
+
+class DadesComanda
+
+namespace Xats #DDDDDD {
+
+class Xat
+
+class Missatge
+
+}
+
+}
+
+
+
+namespace GestioSubscripcio {
+
+class DadesSubscripcio
+
+}
+
+
+
+namespace Usuari #DDDDDD{
+
+class DadesUsuariGeneral
+
+class DadesUsuariNoRegistrat
+
+}
+
+
+
+namespace CorreuElectronic {
+
+class DadesCorreuElectronic
+
+}
+
+namespace EntitatBancaria{
+
+class DadesCompteBancari
+
+}
+
+
+
+DadesClient -left- DadesSubscripcio
+
+
+
+DadesUsuariNoRegistrat <|-down- DadesUsuariGeneral
+
+DadesUsuariGeneral <|-down- DadesRepartidor
+
+DadesUsuariGeneral <|-down- DadesCuiner
+
+DadesUsuariGeneral <|-down- DadesClient
+
+DadesRepartidor \*-right- DadesGPS
+
+DadesRepartidor <|-down- DadesClient
+
+DadesRepartidor <|-down- DadesCuiner
+
+
+
+
+
+DadesUsuariGeneral -up- DadesCompteBancari
+
+DadesUsuariGeneral - DadesCorreuElectronic
+
+DadesUsuariNoRegistrat - DadesCorreuElectronic
+
+Xat - DadesComanda
+
+
+
+DadesCuiner "1" -down- "1.." Plat
+
+DadesClient "1" --down-- "0..3" DadesComanda
+
+DadesRepartidor "1" --down-- "0..\*" DadesComanda
+
+DadesCuiner "1" -- "0..\*" DadesComanda
+
+Plat "1.." -down- "0..\*" DadesComanda
+
+Xat "1" -- "1.." Missatge
+
+
+
+
+
+@enduml
+
