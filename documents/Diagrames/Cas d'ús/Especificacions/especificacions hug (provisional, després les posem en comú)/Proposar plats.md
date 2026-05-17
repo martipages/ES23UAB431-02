@@ -1,32 +1,42 @@
 # Especificacions casos d'ús
 
 
-### CAS D’ÚS: _nom del requeriment funcional o cas d’ús_
+### CAS D’ÚS: _Proposar plats_
 
 
 ## Versió: _Num.Versió_
 
-## Data: _13/05/2026_
+## Data: _17/05/2026_
 
-## Autors: _Autor del document_
+## Autors: _Hug Capafons Cuadra_
 
-## Descripció: _Descripció informal dels objectius del cas d’ús_
+## Descripció: 
+_El client pot proposar plats a un  cuiner sempre i quan estigui disponible._
 
-## Actors: _Actors que intervenen_
+## Actors: _Client, Cuiner_
 
-## Precondició: _Condicions que han de complir-se perquè es pugui realitzar el cas d’ús_
+## Precondició: 
+_El cuiner ha d'estar disponible_
 
-## Flux principal: _Flux principal d’events del cas d’ús_
+## Flux principal: 
+_1. El cuiner accedeix a la llista de cuiners disponibles<br>
+2. En cas que n'hi hagi algun, podrà proposar-li un plat per a que li faci<br>
+3. El cuiner podrà acceptar-lo o no acceptarlo (cas d'ús propi)<br>
+3.1. Si el cuiner l'accepta, es crearà una instància nova de plat en una comanda i si li notifacrà al client. Passarà a ser una comanda activa_
 
-## Subfluxos: _Diferents alternatives dins del flux principal_
 
-## Fluxos alternatius: _Variacions en els fluxos principals o casos d’excepció_
+## Subfluxos: 
+_Si el cuiner rebutja el plat, se li notifacrà al client._
+## Fluxos alternatius: 
+_Si no hi ha cap cuiner disponible, no es podràn proposar plats._
 
-## Postcondició: _Postcondició del cas d’ús_
+## Postcondició: _Restricció de rendiment estàtic: només es poden tenir tres comandes actives simultànicament_
 
-## Requeriments no funcionals: _Llista de restriccions relacionades amb aquest requeriment funcional_
+## Requeriments no funcionals: 
 
-## Prioritat: _{urgent, normal, no prioritari}_
+## Prioritat: 
+_no prioritari_
 
-## Comentaris: _Comentaris addicionals_
+## Comentaris: 
+
 

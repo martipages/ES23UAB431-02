@@ -33,7 +33,8 @@ _Si la comanda no està sent repartida (encara s'està cuinant) no es podrà veu
 _1. El seguiment es farà desde la pàgina web (Decisió de disseny)
 2. Per a fer el seguiment, dins de la pàgina s'utilitzarà google maps_ 
 
-## Prioritat: _{urgent, normal, no prioritari}_
+## Prioritat: 
+_normal_
 
 ## Comentaris: _Comentaris addicionals_
 
