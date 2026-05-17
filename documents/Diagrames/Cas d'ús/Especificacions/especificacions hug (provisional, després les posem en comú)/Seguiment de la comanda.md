@@ -17,11 +17,12 @@ _El client pot rastrejar la ubicació geogràfica de la seva comanda_
 _Client, GPS, Repartidor_
 
 ## Precondició: 
-_La comanda ha d'estar pagada_
+_La comanda ha d'estar pagada i repartint-se._
 
 ## Flux principal: 
 _1. El client accedeix a la comanda desde la llista de comandes actives <br>
-2. Si està sent repartida, accedirà a la posició del repartidor._ <br>
+2. Si el repartidor ja està repartint la comanda, podrà accedir a la finstra de google maps de la pàgina web
+per seguir la ubicació del repartidor en temps real._ <br>
 
 ## Subfluxos: 
 ## Fluxos alternatius:
@@ -36,5 +37,6 @@ _1. El seguiment es farà desde la pàgina web (Decisió de disseny)
 ## Prioritat: 
 _normal_
 
-## Comentaris: _Comentaris addicionals_
+## Comentaris: 
+_(una comanda està activa si està pagada i fent-se)._
 
