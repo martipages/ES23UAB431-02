@@ -25,11 +25,10 @@ _**Extensions point:** CU consultar comandes prèvies.
  2. Es crea una nova instància de comanda amb alguns atributs copiats de l'anterior, però altres no (com la data)_<br>
 
 ## Subfluxos: 
-_**Extension point:** Cu consultar ocmandes prèvies.
+_**Extension point:** Cu consultar comandes prèvies.
 Si no s'ha fet cap comanda, no es podrà veure cap comanda prèvia.<br>
 
-Si cap comanda prèvia està disponible, no es podrà repetir.<br>
-_
+Si cap comanda prèvia està disponible, no es podrà repetir<br>_
 
 ## Fluxos alternatius: 
 

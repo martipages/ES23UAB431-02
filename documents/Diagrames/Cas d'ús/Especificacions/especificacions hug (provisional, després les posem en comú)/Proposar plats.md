@@ -4,7 +4,7 @@
 ### CAS D’ÚS: _Proposar plats_
 
 
-## Versió: _Num.Versió_
+## Versió: _1.0_
 
 ## Data: _17/05/2026_
 
@@ -22,7 +22,7 @@ _El cuiner ha d'estar disponible_
 _1. El cuiner accedeix a la llista de cuiners disponibles<br>
 2. En cas que n'hi hagi algun, podrà proposar-li un plat per a que li faci<br>
 3. El cuiner podrà acceptar-lo o no acceptarlo (cas d'ús propi)<br>
-3.1. Si el cuiner l'accepta, es crearà una instància nova de plat en una comanda i si li notifacrà al client. Passarà a ser una comanda activa_
+3.1. Si el cuiner l'accepta, es crearà una instància nova de plat en una comanda i si li notificarà al client. Passarà a ser una comanda activa_
 
 
 ## Subfluxos: 
@@ -30,9 +30,10 @@ _Si el cuiner rebutja el plat, se li notifacrà al client._
 ## Fluxos alternatius: 
 _Si no hi ha cap cuiner disponible, no es podràn proposar plats._
 
-## Postcondició: _Restricció de rendiment estàtic: només es poden tenir tres comandes actives simultànicament_
+## Postcondició: 
 
 ## Requeriments no funcionals: 
+_Restricció de rendiment estàtic: només es poden tenir tres comandes actives simultànicament_
 
 ## Prioritat: 
 _no prioritari_

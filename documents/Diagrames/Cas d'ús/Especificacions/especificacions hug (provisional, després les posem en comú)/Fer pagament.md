@@ -26,7 +26,7 @@ _1. El client emet el pagament de l'improt de la comanda a l'entiat bancària. <
 	2.2. Els diners del pagament arriben al compte associat a l'aplicació (no directament al cuiner o el repartidor)._
  
 ## Subfluxos:
-_Si l'usuari ho deistja, pot cancelar el pagament abans de fer-lo._ <br>
+_Si l'usuari ho deistja, pot cancelar el pagament abans de fer-lo.<br>_
 
 ## Fluxos alternatius: _Variacions en els fluxos principals o casos d’excepció_
 _Si el pagament no és vàlid, l'aplicació el tornarà a demanar, fins que sigui vàlid<br>_

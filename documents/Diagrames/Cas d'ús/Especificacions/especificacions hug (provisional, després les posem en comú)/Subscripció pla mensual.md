@@ -1,7 +1,7 @@
 # Especificacions casos d'ús
 
 
-### CAS D’ÚS: _nom del requeriment funcional o cas d’ús_
+### CAS D’ÚS: _Subscripció al plà mensual_
 
 
 ## Versió: _1.0_
@@ -17,7 +17,7 @@ _El client es podrà subscriure a un plà mensual. El plà conté una tarifa pla
 _Client_
 
 ## Precondició: 
-_El client ha d'estar registrat_
+_El client ha d’estar registrat com a client i amb un compte bancari vàlid associat_
 
 ## Flux principal: 
 _El client es subscriu al plà mensual._

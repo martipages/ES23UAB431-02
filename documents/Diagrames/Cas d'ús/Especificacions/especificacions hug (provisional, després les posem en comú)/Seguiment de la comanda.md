@@ -38,5 +38,5 @@ _1. El seguiment es farà desde la pàgina web (Decisió de disseny)
 _normal_
 
 ## Comentaris: 
-_(una comanda està activa si està pagada i fent-se)._
+_(Una comanda està activa si està pagada pel client, i acceptada i fent-se per un cuiner)._
 
