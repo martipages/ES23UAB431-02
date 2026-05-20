@@ -13,15 +13,11 @@ namespace Perfils{
 class DadesRepartidor
 class DadesCuiner
 class DadesClient
-class DadesUsuariGeneral
 }
 
 namespace Comanda {
-class Ingredient
- package p2 <<Layout>>{
-class DadesComanda
-}
 class Plat
+class DadesComanda
 }
 
 namespace Xats {
@@ -29,7 +25,22 @@ namespace Xats {
 class Xat
 }
 class Missatge
-} 
+}
+
+namespace GestioSubscripcio {
+class DadesSubscripcio
+}
+
+namespace Usuari{
+class DadesUsuariGeneral
+}
+
+namespace CorreuElectronic {
+class DadesCorreuElectronic
+}
+
+DadesClient -left- DadesSubscripcio
+
 
 DadesUsuariGeneral <|-down- DadesRepartidor
 DadesUsuariGeneral <|-down- DadesCuiner
@@ -37,13 +48,16 @@ DadesUsuariGeneral <|-down- DadesClient
 DadesRepartidor <|-down- DadesClient
 DadesRepartidor <|-down- DadesCuiner
 
-DadesComanda -- Xat
+DadesUsuariGeneral - DadesCorreuElectronic
+DadesComanda -left- Xat
 
 DadesCuiner "1" -down- "1.." Plat
 DadesClient "1" --down-- "0..3" DadesComanda
 DadesRepartidor "1" --down-- "0..*" DadesComanda
 DadesCuiner "1" -- "0..*" DadesComanda
-Plat "1" -up-o "0..*" DadesComanda
-Xat "1" *- "1..*" Missatge
-Plat "1" *-- "1..*" Ingredient
+Plat "1.." -down- "0..*" DadesComanda
+Xat "1" *-- "1..*" Missatge
+
+DadesClient "1" -down- "0..*" Xat
+DadesCuiner "1" -down- "0..*" Xat
 @enduml
