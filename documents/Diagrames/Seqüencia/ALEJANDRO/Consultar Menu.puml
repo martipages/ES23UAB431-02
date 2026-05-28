@@ -4,8 +4,8 @@ actor Usuari_No_Registrat as UsuariN
 boundary Interficie_No_Registrat as interficie
 
 control Gestor_No_Registrat as gestor
-entity Plat
-entity cuiner
+entity Dades_Plat as Plat
+entity Dades_Cuiner as cuiner
 
 UsuariN --> interficie : 1. Accés menú principal
 note over interficie #Yellow : Hi ha plats al menu\nprincipal per default
