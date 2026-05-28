@@ -1,0 +1,27 @@
+@startuml
+
+actor Usuari_No_Registrat as UsuariN
+boundary Interficie_No_Registrat as interficie
+
+control Gestor_No_Registrat as gestor
+entity Plat
+entity cuiner
+
+UsuariN --> interficie : 1. Accés menú principal
+note over interficie #Yellow : Hi ha plats al menu\nprincipal per default
+alt accés per cerca de cuiner
+  interficie --> gestor : alt.1 Cercar cuiner
+  gestor --> cuiner : alt.2 Extraer datos cuiner
+  cuiner --> gestor : alt.3 Retornar llista menus
+  gestor --> interficie : alt.4 mostrar menus cuiner
+end
+interficie --> gestor : 2 Interactuar amb plats dels mostrats
+gestor --> Plat : 2.1 extraer dades plat
+Plat --> gestor : 2.2 retornar dades plat
+gestor --> interficie : 2.3 mostrar plats del menu
+
+
+
+
+@enduml
+
