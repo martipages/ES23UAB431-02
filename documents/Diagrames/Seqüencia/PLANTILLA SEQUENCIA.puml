@@ -1,0 +1,35 @@
+@startuml
+
+'TODA LA DOCUMENTACION NECESARIA EN:
+'https://plantuml.com/es/sequence-diagram
+
+
+box exampleBox #white
+'//caixes per separar info. No sempre sera necesari
+
+actor Foo1 
+boundary Foo2 #red 
+'//podem afegir colors
+end box
+
+control Foo3
+entity Foo4
+database Foo5
+collections Foo6
+'//tots els tipus de actos (crec)
+
+Foo1 -> Foo2 : To boundary
+Foo1 -> Foo3 : To control
+'//fletches normals. Crec que hauriem de numerar-les
+
+note over Foo6 #Yellow : es poden tambe fer notes
+Foo1 -> Foo4 ++ #LightGreen : To entity | Starting box
+ref over Foo5,Foo6 : Example ref
+Foo4 -> Foo1 -- : <<return>>
+loop 67 times
+   Foo1 -> Foo6 : To collections
+end
+'//altres tipus de interaccions que farem servir, amb alguns colors per si de cas
+
+@enduml
+
