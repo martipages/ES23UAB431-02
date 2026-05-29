@@ -1,5 +1,4 @@
 @startuml
-
 actor Cuiner
 boundary InterfíciePlat
 control GestorPlat
@@ -9,42 +8,44 @@ entity Ingredient
 loop as LoopGran
 
 note over InterfíciePlat: El loop gran es pot fer tantes vegades com es vulgui,\n fins que el cuiner deixi d'afegir plats
-Cuiner -> InterfíciePlat : CrearNouPlat()
-InterfíciePlat -> GestorPlat: nouPlat = CrearNouPlat(c)
+Cuiner -> InterfíciePlat++: CrearNouPlat()
+InterfíciePlat -> GestorPlat--++: nouPlat = CrearNouPlat(c)
 GestorPlat -> Plat: nouPlat = plat(c)
-...
-GestorPlat --> InterfíciePlat
+GestorPlat --> InterfíciePlat--
 ...
 loop
 note over InterfíciePlat: Loop fins que el nom no sigui igual
-Cuiner -> InterfíciePlat: AfegirInformació(n,d)
-InterfíciePlat -> GestorPlat: ConsultarNomIguals(nouPlat,n)
+Cuiner -> InterfíciePlat++: AfegirInformació(n,d)
+InterfíciePlat -> GestorPlat--++: ConsultarNomIguals(nouPlat,n)
 GestorPlat -> Plat: getNom()
 Plat-->GestorPlat
 group Alt: Nom igual
 GestorPlat->InterfíciePlat: NotificarClient("Error: Nom igual")
 end
 end
-InterfíciePlat -> GestorPlat: AfegirInformació(nouPlat,n,d)
+GestorPlat--
+
+InterfíciePlat -> GestorPlat--++: AfegirInformació(nouPlat,n,d)
 GestorPlat -> Plat: AfegirInformació(n,d)
+GestorPlat--
 
 loop
 note over InterfíciePlat: Loop fins que el cuiner deixi d'afegir imatges
-Cuiner -> InterfíciePlat: AfegirImatge(img)
-InterfíciePlat -> GestorPlat: AfegirImatge(nouPlat,img)
+Cuiner -> InterfíciePlat++: AfegirImatge(img)
+InterfíciePlat -> GestorPlat--++: AfegirImatge(nouPlat,img)
 GestorPlat -> Plat: AfegirImatge(img)
+GestorPlat--
 end
 
 ...
-Cuiner -> InterfíciePlat: AfegirIngredients(Ings)
-InterfíciePlat -> GestorPlat: AfegirIngredients(nouPlat,Ings)
+Cuiner -> InterfíciePlat++: AfegirIngredients(Ings)
+InterfíciePlat -> GestorPlat--++: AfegirIngredients(nouPlat,Ings)
 GestorPlat->Plat++: AfegirIngredients(Ings)
  loop
    Plat->Ingredient: GetData(i)
    Ingredient-->Plat
  end
  Plat-->GestorPlat--
- GestorPlat->InterfíciePlat: NotificarCuiner("Ok!")
+ GestorPlat->InterfíciePlat--: NotificarCuiner("Ok!")
 end
-
 @enduml

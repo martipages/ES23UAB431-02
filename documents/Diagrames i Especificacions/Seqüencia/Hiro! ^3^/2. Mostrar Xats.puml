@@ -1,0 +1,28 @@
+@startuml
+
+actor Usuari
+note over Usuari: L'usuari pot ser Client o Cuiner.
+boundary InterfícieXat
+control GestorXat
+entity Xat
+entity DadesComanda
+
+Usuari -> InterfícieXat++: PestanyaXats()
+InterfícieXat -> GestorXat--++: GetXats()
+loop
+GestorXat->Xat++: GetDades()
+Xat->DadesComanda: GetDades()
+DadesComanda-->Xat--
+Xat-->GestorXat--
+end
+GestorXat->InterfícieXat--: MostrarXats() 
+
+Usuari -> InterfícieXat++: EntrarXat(x)
+InterfícieXat -> GestorXat--++: GetDadesXat(x)
+GestorXat->Xat++: GetDades()
+Xat->DadesComanda: GetDades()
+DadesComanda-->Xat--
+Xat-->GestorXat--
+GestorXat->InterfícieXat--: EntrarXat(x) 
+
+@enduml
