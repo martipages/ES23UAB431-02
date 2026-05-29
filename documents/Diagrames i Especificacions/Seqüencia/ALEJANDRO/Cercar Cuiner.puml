@@ -6,21 +6,18 @@ boundary InterficieMenuPrincipal as interficie
 control Gestor_Cuiners as gestor
 entity Dades_Cuiner as cuiner
 
-UsuariN --> interficie : 1.1 CercaCuiner(DadesCerca)
-interficie --> gestor : 1.2 CercaCuiners(DadesCerca)
+UsuariN --> interficie ++: 1.1 CercaCuiner(DadesCerca)
+interficie --> gestor --++: 1.2 CercaCuiners(DadesCerca)
 
 loop per a tants cuiners coincidents
-gestor --> cuiner : 2.1 GetDadesCuiner(DadesCerca)
-cuiner --> gestor : 2.2 <<Return>>
-gestor --> interficie : 2.3 MostrarCuiners()
+gestor --> cuiner ++: 2.1 GetDadesCuiner(DadesCerca)
+cuiner --> gestor --: 2.2 <<Return>>
+gestor --> interficie --: 2.3 MostrarCuiners()
 end
 
 alt no hi ha cuiners coincidents
  gestor --> interficie : 2.alt NotificarError(ErrorCerca)
  note over interficie #Yellow : "Error: No hi ha cuiner amb\naquestes especificacions"
 end 
-
-
-
 
 @enduml
