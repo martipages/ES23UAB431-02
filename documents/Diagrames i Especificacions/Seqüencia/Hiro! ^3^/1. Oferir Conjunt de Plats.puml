@@ -1,0 +1,39 @@
+@startuml
+
+actor Cuiner
+boundary InterfíciePlat
+control GestorPlat
+entity Plat
+entity Ingredient
+
+loop as LoopGran
+
+note over InterfíciePlat: El loop gran es pot fer tantes vegades com es vulgui, fins que el cuiner deixi d'afegir plats
+Cuiner -> InterfíciePlat : CrearNouPlat()
+InterfíciePlat -> GestorPlat: nouPlat = CrearNouPlat(c)
+GestorPlat -> Plat: nouPlat = plat(c)
+...
+GestorPlat --> InterfíciePlat
+...
+Cuiner -> InterfíciePlat: AfegirInformació(n,d)
+InterfíciePlat -> GestorPlat: ConsultarNomIguals(nouPlat,n)
+GestorPlat -> Plat: getNom()
+Plat-->GestorPlat
+group Alt: Nom igual
+GestorPlat->InterfíciePlat: NotificarClient("Error: Nom igual")
+end
+InterfíciePlat -> GestorPlat: AfegirInformació(nouPlat,n,d)
+GestorPlat -> Plat: AfegirInformació(n,d)
+...
+Cuiner -> InterfíciePlat: AfegirIngredients(Ings)
+InterfíciePlat -> GestorPlat: AfegirIngredients(nouPlat,Ings)
+GestorPlat->Plat++ #LightGreen: AfegirIngredients(Ings)
+ loop
+   Plat->Ingredient: GetData(i)
+   Ingredient-->Plat
+ end
+ Plat-->GestorPlat--
+ GestorPlat->InterfíciePlat: NotificarCuiner("Ok!")
+end
+
+@enduml
