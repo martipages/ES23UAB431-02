@@ -1,5 +1,7 @@
 @startuml
 
+
+
 left to right direction
 
 
@@ -148,8 +150,6 @@ rectangle ComandesPrèvies {
 
 
 
-
-
 (Seguiment de la comanda) as Seg
 
 
@@ -184,6 +184,8 @@ rectangle Ingrés {
 
 (Fer pagament) as Pagament
 
+
+
 (Demanar ingrés) as Demin
 
 
@@ -192,15 +194,15 @@ rectangle Ingrés {
 
 
 
-
-
 Repartidor --> Demin
+
+
 
 Cuiner --> Demin
 
+
+
 EntitatBancaria <-- Demin
-
-
 
 
 
@@ -440,8 +442,6 @@ UsuariNoRegistrat --> (Cercar)
 
 
 
-
-
 PropPlats --> Cuiner
 
 
@@ -486,19 +486,17 @@ AcceptarProposta ..> AcceptarComanda : extend
 
 
 
-Xatejar ..> AcceptarProposta : extend
-
-
-
 MenúPropostes ..> AcceptarProposta: include
 
 
 
-VeureXats  ..> Xatejar : include
+VeureXats ..> Xatejar : include
 
 
 
 VeureComandes <.. AcceptarComandes : extend
+
+
 
 @enduml
 
