@@ -8,13 +8,15 @@ entity Ingredient
 
 loop as LoopGran
 
-note over InterfíciePlat: El loop gran es pot fer tantes vegades com es vulgui, fins que el cuiner deixi d'afegir plats
+note over InterfíciePlat: El loop gran es pot fer tantes vegades com es vulgui,\n fins que el cuiner deixi d'afegir plats
 Cuiner -> InterfíciePlat : CrearNouPlat()
 InterfíciePlat -> GestorPlat: nouPlat = CrearNouPlat(c)
 GestorPlat -> Plat: nouPlat = plat(c)
 ...
 GestorPlat --> InterfíciePlat
 ...
+loop
+note over InterfíciePlat: Loop fins que el nom no sigui igual
 Cuiner -> InterfíciePlat: AfegirInformació(n,d)
 InterfíciePlat -> GestorPlat: ConsultarNomIguals(nouPlat,n)
 GestorPlat -> Plat: getNom()
@@ -22,12 +24,21 @@ Plat-->GestorPlat
 group Alt: Nom igual
 GestorPlat->InterfíciePlat: NotificarClient("Error: Nom igual")
 end
+end
 InterfíciePlat -> GestorPlat: AfegirInformació(nouPlat,n,d)
 GestorPlat -> Plat: AfegirInformació(n,d)
+
+loop
+note over InterfíciePlat: Loop fins que el cuiner deixi d'afegir imatges
+Cuiner -> InterfíciePlat: AfegirImatge(img)
+InterfíciePlat -> GestorPlat: AfegirImatge(nouPlat,img)
+GestorPlat -> Plat: AfegirImatge(img)
+end
+
 ...
 Cuiner -> InterfíciePlat: AfegirIngredients(Ings)
 InterfíciePlat -> GestorPlat: AfegirIngredients(nouPlat,Ings)
-GestorPlat->Plat++ #LightGreen: AfegirIngredients(Ings)
+GestorPlat->Plat++: AfegirIngredients(Ings)
  loop
    Plat->Ingredient: GetData(i)
    Ingredient-->Plat
