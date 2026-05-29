@@ -1,0 +1,57 @@
+@startuml
+
+actor Usuari
+note over Usuari: L'usuari pot ser Client o Cuiner.
+boundary InterfícieXat
+control GestorXat
+entity Xat
+entity Missatge
+control ServeiNotificacions
+
+ref over Usuari,InterfícieXat: CU Veure Xats
+
+Usuari -> InterfícieXat++: CrearNouMissatge()
+InterfícieXat -> GestorXat--++: mId=CrearNouMissatge(x)
+GestorXat->Xat++: mId=CrearNouMissatge()
+Xat->Missatge: mId=Missatge()
+Xat-->GestorXat--
+GestorXat-->InterfícieXat--
+
+group Subflux Enviar Missatge
+Usuari -> InterfícieXat++: UpdateMissatge(txt)
+InterfícieXat -> GestorXat--++: UpdateMissatge(x, mId, txt)
+GestorXat->Xat++: UpdateMissatge(mId, txt)
+Xat->Missatge: UpdateText(txt)
+Xat-->GestorXat--
+GestorXat-->InterfícieXat-- 
+end
+
+group Subflux Adjuntar Imatge
+loop L'usuari podrà adjuntar tantes fotografies com vulgui
+Usuari -> InterfícieXat++: adjuntarImatge(img)
+end
+InterfícieXat -> GestorXat--++: adjuntarImatges(x, mId, imgs)
+GestorXat->Xat++: adjuntarImatges(mId, imgs)
+Xat->Missatge: adjuntarImatges(imgs)
+Xat-->GestorXat--
+GestorXat-->InterfícieXat-- 
+end
+
+group Subflux Missatge de veu
+Usuari -> InterfícieXat++: missatgeDeVeu(vMsg)
+InterfícieXat -> GestorXat--++: adjuntarMissatgeDeVeu(x, mId, vMsg)
+GestorXat->Xat++: adjuntarMissatgeDeVeu(mId, vMsg)
+Xat->Missatge: adjuntarMissatgeDeVeu(vMsg)
+Xat-->GestorXat--
+GestorXat-->InterfícieXat-- 
+end
+
+Usuari -> InterfícieXat++: enviarMissatge()
+InterfícieXat -> GestorXat--++: enviarMissatge(x, mId)
+GestorXat->Xat++: afegirMissatge(mId)
+Xat--
+GestorXat->ServeiNotificacions++: enviarNotificació(mId)
+ServeiNotificacions--
+GestorXat->InterfícieXat--: enviat(mId)
+
+@enduml

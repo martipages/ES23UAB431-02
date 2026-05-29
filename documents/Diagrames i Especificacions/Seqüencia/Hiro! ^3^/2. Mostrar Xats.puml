@@ -15,14 +15,19 @@ Xat->DadesComanda: GetDades()
 DadesComanda-->Xat--
 Xat-->GestorXat--
 end
+alt Hi ha xats actius
 GestorXat->InterfícieXat--: MostrarXats() 
+else No hi ha xats actius
+GestorXat->InterfícieXat: NotificarClient("Error: “No hi ha xats actius")
+end
+
 
 Usuari -> InterfícieXat++: EntrarXat(x)
 InterfícieXat -> GestorXat--++: GetDadesXat(x)
-GestorXat->Xat++: GetDades()
-Xat->DadesComanda: GetDades()
+GestorXat->Xat++: GetDadesXat()
+Xat->DadesComanda: GetDadesComanda()
 DadesComanda-->Xat--
 Xat-->GestorXat--
-GestorXat->InterfícieXat--: EntrarXat(x) 
+GestorXat->InterfícieXat--: MostrarXat(x) 
 
 @enduml

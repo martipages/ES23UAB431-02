@@ -1,0 +1,36 @@
+@startuml
+
+actor Cuiner
+boundary InterfíciePropostes
+control GestorPlat
+entity Plat
+entity Ingredient
+
+Cuiner -> InterfíciePropostes++: PestanyaPropostes()
+InterfíciePropostes -> GestorPlat--++: GetDadesPropostes()
+loop
+GestorPlat->Plat++: GetDades()
+loop
+Plat->Ingredient: GetDades(i)
+Ingredient-->Plat--
+end
+Plat-->GestorPlat--
+end
+alt Hi ha propostes sense confirmar
+GestorPlat->InterfíciePropostes--: MostrarPropostes() 
+else No hi ha propostes actives
+GestorPlat->InterfíciePropostes: NotificarClient("Error: “No hi ha propostes actives")
+end
+
+
+Cuiner -> InterfíciePropostes++: EntrarProposta(p)
+InterfíciePropostes -> GestorPlat--++: GetDadesPlat(p)
+GestorPlat->Plat++: GetDades()
+loop
+Plat->Ingredient: GetDades(i)
+Ingredient-->Plat--
+end
+Plat-->GestorPlat--
+GestorPlat->InterfíciePropostes--: MostrarProposta(p) 
+
+@enduml
