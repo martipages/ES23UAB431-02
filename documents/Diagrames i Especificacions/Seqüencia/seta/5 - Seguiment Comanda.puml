@@ -1,0 +1,34 @@
+@startuml
+
+actor Usuari
+boundary InterfícieComandes
+boundary InterfícieGPS
+control GestorComandes
+entity DadesComanda
+entity DadesEnviament
+
+Usuari -> InterfícieComandes++: MostrarComandesActives()
+InterfícieComandes -> GestorComandes--++: ConsultarComandesActives()
+alt Hi ha comandes actives
+GestorComandes->InterfícieComandes--: MostrarComandesActives() 
+else No hi ha comandes actives
+GestorComandes->InterfícieComandes: NotificarClient("Error: “No hi ha comandes actives")
+end
+
+Usuari -> InterfícieComandes++: MostrarUbicacióComandaEspecífica()
+InterfícieComandes -> GestorComandes++: MostrarUbicacióComandaEspecífica()
+GestorComandes -> DadesComanda++: GetData()
+DadesComanda -> DadesEnviament++: GetUbication()
+DadesEnviament --> DadesComanda
+DadesComanda --> GestorComandes
+
+alt La comanda s'està repartint
+GestorComandes->InterfícieGPS--: MostrarUbicacio()
+else La comanda no s'està repartint
+GestorComandes->InterfícieComandes: NotificarClient("Error: “No s'està repartint la comanda")
+end
+
+
+
+
+@enduml

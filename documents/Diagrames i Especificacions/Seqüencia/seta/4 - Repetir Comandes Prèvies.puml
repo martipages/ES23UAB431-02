@@ -1,0 +1,22 @@
+@startuml
+
+actor Usuari
+boundary InterfícieComandes
+control GestorComandes
+entity DadesComanda
+
+ref over Usuari,InterfícieComandes,GestorComandes,DadesComanda: CU Consultar Comandes Prèvies
+
+
+Usuari -> InterfícieComandes++: RepetirComanda()
+InterfícieComandes -> GestorComandes--++: RepetirComanda()
+GestorComandes -> DadesComanda++: RepetirComanda()
+'DadesComanda -> GestorComandes--: 
+
+GestorComandes -> InterfícieComandes--: NotificaClient("S'ha repetit la comanda")
+
+
+
+
+
+@enduml
