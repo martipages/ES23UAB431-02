@@ -1,0 +1,40 @@
+@startuml
+
+actor Usuari
+boundary InterfícieMenuPrincipal
+boundary InterfícieExternaBanc
+
+control GestorComptes
+entity DadesUsuariGeneral 
+'estaria be fer ref a la generalitzacio?
+
+
+Usuari -> InterfícieMenuPrincipal++: VincularCompteBancari()
+InterfícieMenuPrincipal -> GestorComptes++: VincularCompteBancari()
+GestorComptes -> DadesUsuariGeneral++: GetData()
+DadesUsuariGeneral --> GestorComptes
+
+alt El compte té NIF vinculat
+GestorComptes->InterfícieExternaBanc--: MostrarMenuIntroudïrIban()
+else El compte no té NIF vinculat
+GestorComptes->InterfícieMenuPrincipal--: NotificarClient("Error: “No hi ha NIF associat al compte, l'operació es cancela.")
+end
+
+
+
+loop Fins que IBAN sigui vàlid
+Usuari -> InterfícieExternaBanc++: IntroduïrIBAN(i)
+InterfícieExternaBanc -> GestorComptes++: IntroduïrIBAN(i)
+alt el IBAN és vàlid
+
+GestorComptes -> DadesUsuariGeneral++: ModificarIBAN(i)
+GestorComptes -> InterfícieExternaBanc--: NotificaUsuari("El IBAN ha estat modificat.")
+else
+GestorComptes -> InterfícieExternaBanc--: NotificaUsuari("El IBAN no és vàlid.")
+end
+end 
+
+
+
+
+@enduml

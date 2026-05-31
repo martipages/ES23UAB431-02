@@ -6,15 +6,16 @@ control GestorComandes
 entity DadesComanda
 
 ref over Usuari,InterfícieComandes,GestorComandes,DadesComanda: CU Consultar Comandes Prèvies
+loop
+note over InterfícieComandes: El loop gran es fa tants cops com el client vulgui repetir una comanda,\n (respectant el límit de 3 comandes actives)
 
-
-Usuari -> InterfícieComandes++: RepetirComanda()
-InterfícieComandes -> GestorComandes--++: RepetirComanda()
-GestorComandes -> DadesComanda++: RepetirComanda()
+Usuari -> InterfícieComandes++: RepetirComanda(c)
+InterfícieComandes -> GestorComandes--++: RepetirComanda(c)
+GestorComandes -> DadesComanda++: FerComanda()
 'DadesComanda -> GestorComandes--: 
 
 GestorComandes -> InterfícieComandes--: NotificaClient("S'ha repetit la comanda")
-
+end
 
 
 

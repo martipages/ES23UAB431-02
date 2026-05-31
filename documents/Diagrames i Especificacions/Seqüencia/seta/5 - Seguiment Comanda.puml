@@ -16,14 +16,14 @@ GestorComandes->InterfícieComandes: NotificarClient("Error: “No hi ha comande
 end
 
 Usuari -> InterfícieComandes++: MostrarUbicacióComandaEspecífica()
-InterfícieComandes -> GestorComandes++: MostrarUbicacióComandaEspecífica()
-GestorComandes -> DadesComanda++: GetData()
-DadesComanda -> DadesEnviament++: GetUbication()
+InterfícieComandes -> GestorComandes++: MostrarUbicacióComandaEspecífica(c)
+GestorComandes -> DadesComanda++: GetData(c)
+DadesComanda -> DadesEnviament++: GetUbication(c)
 DadesEnviament --> DadesComanda
 DadesComanda --> GestorComandes
 
 alt La comanda s'està repartint
-GestorComandes->InterfícieGPS--: MostrarUbicacio()
+GestorComandes->InterfícieGPS--: MostrarUbicacio(c)
 else La comanda no s'està repartint
 GestorComandes->InterfícieComandes: NotificarClient("Error: “No s'està repartint la comanda")
 end

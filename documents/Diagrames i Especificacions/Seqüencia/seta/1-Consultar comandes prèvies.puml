@@ -13,8 +13,8 @@ else No s'ha fet mai cap comanda
 GestorComandes->InterfícieComandes: NotificarClient("Error: “Mai s'ha fet cap comanda")
 end
 
-Usuari -> InterfícieComandes++: VeureComandaPrèvia()
-InterfícieComandes -> GestorComandes++: VeureComandaPrèvia()
+Usuari -> InterfícieComandes++: VeureComandesPrèvies()
+InterfícieComandes -> GestorComandes++: VeureComandesPrèvies()
 GestorComandes -> DadesComanda--++: GetDades()
 DadesComanda --> GestorComandes
 GestorComandes --> InterfícieComandes
