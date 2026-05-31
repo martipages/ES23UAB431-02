@@ -1,0 +1,37 @@
+@startuml
+
+actor Client
+boundary InterfícieComandes
+control GestorComandes
+entity DadesComanda
+control GestorComptes
+entity DadesCuiner
+
+ref over Client,InterfícieComandes: CU Consultar comandes prèvies
+
+Client -> InterfícieComandes: valorarComanda()
+InterfícieComandes -> GestorComandes: valorarComanda(comanda,val)
+GestorComandes -> DadesComanda: v=valoracio()
+
+
+alt Valorat anteriorment
+GestorComandes -> InterfícieComandes: denegarValoració()
+note over InterfícieComandes #Yellow : Error, no es pot modificar la valoració.
+
+else Valoració pendent
+alt Valoració fora de rang
+GestorComandes -> InterfícieComandes: puntuacióForaDeRang()
+note over InterfícieComandes #Yellow : Error, la puntuació ha de ser entre 0 i 10.
+
+else Valoració correcte
+GestorComandes -> DadesComanda: valorar(val)
+GestorComandes -> DadesComanda: nc = getNomCuiner()
+GestorComandes -> GestorComptes: valoracióCuiner(nc,comanda,val)
+GestorComptes -> DadesCuiner: aplicarValoració(comanda,val)
+GestorComptes -> DadesCuiner: actualitzarRepercussió()
+GestorComandes -> InterfícieComandes: valoracióCorrecte()
+end
+end
+
+
+@enduml
