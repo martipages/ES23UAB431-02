@@ -1,0 +1,35 @@
+@startuml
+
+actor Client
+boundary InterfícieEnviament
+control GestorComandes
+entity DadesComanda
+control GestorComptes
+entity DadesCuiner
+
+
+ref over Client,InterfícieEnviament: CU Fer comanda
+
+Client -> InterfícieEnviament: modificarDataHora()
+InterfícieEnviament -> GestorComandes: modificarDataHora(data,hora)
+alt Data en el passat
+GestorComandes -> InterfícieEnviament: dataErronea()
+note over DadesComanda #Yellow : Error 451: Motius legals. Segons el principi de causalitat, el repartiment de comandes al passat és ilegal, ja que podria causar una paradoxa temporal. Si us plau, indiqui una data en el futur.
+else Data correcte
+
+GestorComandes -> DadesComanda: nc = getNomCuiner()
+GestorComandes -> GestorComptes: horari = getHorariCuiner(nc)
+GestorComptes -> DadesCuiner: horari = getHorari()
+
+alt Cuiner no disponible
+GestorComandes -> InterfícieEnviament: horaNoDisponible(horari)
+note over InterfícieEnviament #Yellow : Error, l'hora no coincideix amb l'horari del cuiner. Torna-ho a intentar.
+
+else Horari correcte
+GestorComandes -> DadesComanda: modificarDataHora(data,hora)
+GestorComandes -> InterfícieEnviament: modificacioCorrecte()
+end
+end
+
+
+@enduml

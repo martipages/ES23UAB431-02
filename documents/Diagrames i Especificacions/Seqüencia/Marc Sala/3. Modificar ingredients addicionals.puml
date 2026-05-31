@@ -1,0 +1,32 @@
+@startuml
+
+actor Client
+boundary InterfícieComandes
+control GestorComandes
+entity DadesComanda
+
+ref over Client,InterfícieComandes: CU Fer comanda
+
+Client -> InterfícieComandes: mostrarIngredientsPlat()
+InterfícieComandes -> GestorComandes: mostrarIngredientsPlat(comanda,plat)
+
+loop 
+GestorComandes -> DadesComanda: ingredients = getIngredients(comanda,plat)
+end
+
+GestorComandes -> InterfícieComandes: mostrarIngredientsPlat(ingredients)
+Client -> InterfícieComandes: modificarIngredients()
+InterfícieComandes -> GestorComandes: modificarIngredients(ing)
+
+alt Modificació no permesa
+GestorComandes -> InterfícieComandes: denegarModificació()
+note over InterfícieComandes #Yellow : Error, s'ha intenta modificar un ingredient que no és opcional.
+
+else Modificació acceptada
+GestorComandes -> DadesComanda: modificarIngredients(comanda,plat,ing)
+GestorComandes -> DadesComanda: remarcarIngredients(comanda,plat,ing)
+GestorComandes -> InterfícieComandes: modificacióCorrecte()
+end
+
+
+@enduml
