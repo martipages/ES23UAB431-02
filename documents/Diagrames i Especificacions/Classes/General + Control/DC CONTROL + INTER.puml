@@ -1,5 +1,10 @@
 @startuml
 skinparam groupInheritance 1
+skinparam linetype ortho
+skinparam packageStyle rectangle
+skinparam shadowing false
+skinparam nodesep 25
+skinparam ranksep 60
 
 skinparam package<<Layout>> {
   borderColor Transparent
@@ -16,6 +21,8 @@ class DadesRepartidor
 class DadesCuiner
 class DadesClient
 class DadesUsuariGeneral
+interface InterfícieExternaCorreu
+interface InterfícieExternaGPS
 }
 
 namespace Comanda {
@@ -25,6 +32,9 @@ class DadesComanda
 class DadesPagament
 class DadesEnviament
 }
+interface InterfícieEnviaments
+interface InterfícieExternaBanc
+interface InterfícieComandes
 }
 
 namespace Menú {
@@ -33,6 +43,9 @@ class GestorPlat
 }
 class Plat
 class Ingredient
+interface InterfícieMenuPrincipal
+interface InterfíciePropostes
+interface InterfíciePlat
 }
 
 namespace Xats {
@@ -42,31 +55,19 @@ class Xat
 class Missatge
 class GestorXat
 class ServeiNotificacions
+interface InterfícieXat
 } 
 
-'interficies
-class InterfícieMenuPrincipal
-class InterfícieExternaCorreu
-
-class InterfícieEnviaments
-class InterfícieXat
-
-class InterfíciePropostes
-class InterfícieExternaBanc
-class InterfícieComandes
-
-'connexions interficies GOTO POSA CARDINALITATS
-InterfícieXat -- GestorXat
+InterfícieXat -right- GestorXat
 InterfícieMenuPrincipal -- GestorComptes
 InterfícieMenuPrincipal -- GestorPlat
 InterfícieMenuPrincipal -- GestorComandes
 InterfícieExternaCorreu -- GestorComptes
+InterfícieExternaGPS -- GestorComptes
 InterfíciePropostes -- GestorPlat
+InterfíciePlat -- GestorPlat
 InterfícieExternaBanc -- GestorComandes
-InterfícieEnviaments -- GestorComandes
 InterfícieComandes -- GestorComandes
-
-
 InterfícieEnviaments -- GestorComandes
 
 DadesUsuariGeneral <|-down- DadesRepartidor
