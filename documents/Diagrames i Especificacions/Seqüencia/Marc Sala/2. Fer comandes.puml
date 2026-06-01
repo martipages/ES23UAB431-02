@@ -15,13 +15,13 @@ GestorComandes -> InterfícieMenuPrincipal: maximComandesActives(nc)
 note over InterfícieMenuPrincipal #Yellow : No es pot completar la reserva, ja disposeu de 3 comandes en actiu.
 
 else Dins del limit
-GestorComandes -> DadesComanda: crearComanda(plats)
+GestorComandes -> DadesComanda: c = crearComanda(plats)
 GestorComandes -> InterfícieMenuPrincipal: comandaCreadaCorrectament(nc)
 Client -> InterfícieMenuPrincipal: modificarCaracteristiques()
 InterfícieMenuPrincipal -> GestorComandes: modificarCaracteristiques(data,hora,ingredients,repartidor)
 GestorComandes -> DadesComanda: modificarCaracteristiques(data,hora,ingredients,repartidor))
 
-GestorComandes -> GestorComandes: comandaPendentPagament()
+GestorComandes -> GestorComandes: comandaPendentPagament(c)
 GestorComandes -> InterfícieMenuPrincipal: comandaProcessadaCorrectament()
 note over InterfícieMenuPrincipal #Yellow : Comanda processada i guardada, pendent de pagament.
 end
