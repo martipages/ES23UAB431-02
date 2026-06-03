@@ -5,27 +5,27 @@ boundary InterficieMenuPrincipal as interficie
 control gestor_comptes as gestor
 entity DadesUsuariGeneral as dades
 
-Usuari - interficie ++ 1.1 Acces_Modif_perfil()
-interficie - gestor --++ 1.2 Acces_Modif_perfil()
-gestor - interficie-- 1.3 mostrar_opcions_omplir()
+Usuari - interficie ++ : 1.1 Acces_Modif_perfil()
+interficie - gestor --++ : 1.2 Acces_Modif_perfil()
+gestor - interficie-- : 1.3 mostrar_opcions_omplir()
 
-Usuari - interficie ++ 2.1 omplir_dades(dades)
+Usuari - interficie ++ : 2.1 omplir_dades(dades)
 alt afegir compte en modificacio
 ref over Usuari  CU OmplirCompteBancari
 end
-interficie - gestor --++ 2.2 omplir_dades(dades)
+interficie - gestor --++ : 2.2 omplir_dades(dades)
 
-gestor - interficie -- 3.1 demanar_contrassenya()
-Usuari - interficie ++  3.2 introduir_contrassenya(contr)
-interficie - gestor --++  3.3 introduir_contrassenya(contr)
-gestor - dades ++ 3.4 verificar_contrassenya(contr)
-dades -- gestor -- 3.5 return
+gestor - interficie -- : 3.1 demanar_contrassenya()
+Usuari - interficie ++  : 3.2 introduir_contrassenya(contr)
+interficie - gestor --++ : 3.3 introduir_contrassenya(contr)
+gestor - dades ++ : 3.4 verificar_contrassenya(contr)
+dades -- gestor -- : 3.5 return
 alt contrassenya incorecta
-gestor - interficie  3.alt NotificaError(contrasseya)
-note over interficie  torna a 3.2
+gestor - interficie : 3.alt NotificaError(contrasseya)
+note over interficie : torna a 3.2
 end
-gestor - dades  guardar_dades_perfil(dades)
-gestor - interficie -- 3.6 missatgeConfirmacio(modificarPerfil)
+gestor - dades : 3.6 guardar_dades_perfil(dades)
+gestor - interficie -- : 3.7 missatgeConfirmacio(modificarPerfil)
 
 
 @enduml
