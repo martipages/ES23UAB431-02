@@ -1,0 +1,61 @@
+@startuml
+
+actor Cuiner
+boundary InterfícieMenúPrincipal
+control GestorComptes
+entity DadesUsuariGeneral
+entity DadesCuiner
+
+Cuiner -> InterfícieMenúPrincipal++: PestanyaPerfil()
+InterfícieMenúPrincipal -> GestorComptes++: GetDadesPerfil(p)
+GestorComptes->DadesUsuariGeneral++: GetDadesPerfil()
+DadesUsuariGeneral->DadesCuiner: GetDades()
+
+DadesCuiner --> DadesUsuariGeneral
+DadesUsuariGeneral --> GestorComptes--
+GestorComptes -> InterfícieMenúPrincipal--: MostrarPerfil()
+InterfícieMenúPrincipal--
+
+Cuiner -> InterfícieMenúPrincipal++: IndicarDisponibilitat(disp)
+InterfícieMenúPrincipal -> GestorComptes++: SetDisp(p, disp)
+GestorComptes->DadesUsuariGeneral++: SetDisp(disp)
+DadesUsuariGeneral->DadesCuiner: SetDisp()
+
+DadesUsuariGeneral --> GestorComptes--
+GestorComptes -> InterfícieMenúPrincipal--: NotificarUsuari("Modificada Disponibilitat!")
+InterfícieMenúPrincipal--
+
+opt No disponible [disp == false]
+
+alt No ha marcat encara quan estarà disponible
+
+Cuiner -> InterfícieMenúPrincipal++: IndicarHoraDisponible(h)
+InterfícieMenúPrincipal -> GestorComptes++: SetHoraDisp(p, h)
+GestorComptes->DadesUsuariGeneral++: SetHoraDisp(h)
+DadesUsuariGeneral->DadesCuiner: SetHoraDisp(h)
+
+
+DadesUsuariGeneral --> GestorComptes--
+GestorComptes -> InterfícieMenúPrincipal--: NotificarUsuari("Modificada Hora Disponibilitat!")
+InterfícieMenúPrincipal--
+
+else Ja ha marcat quan estarà disponible
+
+opt Vol modificar l'hora marcada anteriorment
+
+Cuiner -> InterfícieMenúPrincipal++: IndicarHoraDisponible(h)
+InterfícieMenúPrincipal -> GestorComptes++: SetHoraDisp(p, h)
+GestorComptes->DadesUsuariGeneral++: SetHoraDisp(h)
+DadesUsuariGeneral->DadesCuiner: SetHoraDisp(h)
+
+DadesUsuariGeneral --> GestorComptes--
+GestorComptes -> InterfícieMenúPrincipal--: NotificarUsuari("Modificada Hora Disponibilitat!")
+InterfícieMenúPrincipal--
+
+end
+
+end
+
+end
+
+@enduml
