@@ -1,8 +1,7 @@
 @startuml
 
-actor Usuari
+actor Client
 boundary InterfícieComandes
-boundary InterfícieGPS
 boundary InterfícieGPS
 control GestorComandes
 control GestorComptes
@@ -10,9 +9,10 @@ control GestorComptes
 entity DadesComanda
 entity DadesEnviament
 entity DadesRepartidor
+boundary InterfícieGPS
 
 
-Usuari -> InterfícieComandes++: MostrarComandesActives()
+Client -> InterfícieComandes++: MostrarComandesActives()
 InterfícieComandes -> GestorComandes--++: ConsultarComandesActives()
 alt Hi ha comandes actives
 GestorComandes->InterfícieComandes--: MostrarComandesActives() 
@@ -20,24 +20,32 @@ else No hi ha comandes actives
 GestorComandes->InterfícieComandes: NotificarClient("Error: “No hi ha comandes actives")
 end
 
-Usuari -> InterfícieComandes++: MostrarUbicacióComandaEspecífica()
+Client -> InterfícieComandes++: MostrarUbicacióComandaEspecífica()
 InterfícieComandes -> GestorComandes++: MostrarUbicacióComandaEspecífica(c)
 GestorComandes -> DadesComanda++: GetData(c)
 DadesComanda -> DadesEnviament++: GetUbication(c)
-DadesEnviament --> DadesComanda
 DadesComanda --> GestorComandes
+GestorComandes--
 
 alt La comanda s'està repartint
 DadesEnviament->DadesRepartidor++: getUbicacio()
-DadesRepartidor->GestorComptes++: getUbicacio()
-GestorComptes->InterfícieGPS++: getUbicacio()
+DadesRepartidor-->DadesEnviament--
 
-'aaa
+DadesEnviament-->DadesComanda--
+DadesComanda->GestorComptes++: getUbicacio()
+DadesComanda--
+GestorComptes->InterfícieGPS++: getUbicacio()
+InterfícieGPS-->GestorComptes
+InterfícieGPS--
+GestorComptes--
 
 
 
 else La comanda no s'està repartint
 GestorComandes->InterfícieComandes: NotificarClient("Error: “No s'està repartint la comanda")
+GestorComandes++
+
+GestorComandes--
 end
 
 

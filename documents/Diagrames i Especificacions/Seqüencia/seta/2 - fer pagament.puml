@@ -13,8 +13,8 @@ boundary InterfícieExternaBanc
 
 
 Client -> InterfícieComandes++:FerPagament(comanda)
-InterfícieComandes -> GestorComandes++: import = getImport(comanda)
-GestorComandes -> DadesComanda++: import = getImport()
+InterfícieComandes -> GestorComandes++:getImport(comanda)
+GestorComandes -> DadesComanda++:getImport()
 DadesComanda -> GestorComandes--
 GestorComandes-->InterfícieComandes--
 

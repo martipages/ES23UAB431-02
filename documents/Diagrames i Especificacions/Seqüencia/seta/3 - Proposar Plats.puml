@@ -1,0 +1,57 @@
+@startuml
+
+actor Client
+actor Cuiner
+
+boundary InterfícieMenuPrincipal
+control GestorComptes
+entity DadesCuiner
+
+control GestorPlat
+boundary InterfíciePropostes
+boundary InterfíciePlat
+entity DadesPlat
+entity DadesIngredient
+entity DadesComanda
+boundary InterfícieComandes
+
+Client->InterfícieMenuPrincipal++:MostrarCuiners()
+InterfícieMenuPrincipal -> GestorComptes++:getCuinersDisponibles()
+alt Hi ha cuiners disponibles
+GestorComptes->InterfícieMenuPrincipal--:MostrarCuinersDisponibles()
+
+else No hi ha cuiners disponibles
+GestorComptes->InterfícieMenuPrincipal--: NotificarClient("No hi ha cuiners disponibles")
+end
+
+Client->InterfícieMenuPrincipal++:SeleccionarCuiner()
+GestorComptes->DadesCuiner++:SeleccionarCuiner()
+DadesCuiner-->GestorComptes
+GestorComptes-->InterfícieMenuPrincipal--
+
+InterfícieMenuPrincipal->GestorPlat++:ProposarPlat()
+GestorPlat->InterfíciePropostes++:NovaProposta()
+InterfíciePropostes->InterfíciePlat++:NouPlat()
+InterfíciePlat-->InterfíciePropostes
+GestorPlat->DadesPlat++: NouPlat()
+loop Per cada ingredient que es vulgui
+DadesPlat->DadesIngredient++:AfegirIngredient()
+DadesIngredient-->DadesPlat--
+end
+DadesPlat-->GestorPlat
+Client->InterfíciePropostes++:EnviarProposta()
+InterfíciePropostes->GestorPlat++:EnviarProposta()
+GestorPlat->DadesComanda++:FerComanda()
+ref over DadesComanda,GestorPlat: CU Fer Comanda
+
+Cuiner->InterfícieComandes++:AcceptarProposta()
+ref over Cuiner, InterfícieComandes: AcceptarPropostes de plats
+
+alt Si el cuiner ha acceptat la proposta
+InterfíciePropostes->Client++:NotificarClient("El cuiner ha accpetat la proposta")
+else Si no
+InterfíciePropostes->Client++:NotificarClient("El cuiner ha rebutjat la proposta")
+
+
+
+@enduml
