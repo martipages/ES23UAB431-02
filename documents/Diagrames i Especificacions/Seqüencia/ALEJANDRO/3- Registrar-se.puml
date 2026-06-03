@@ -5,17 +5,17 @@ boundary InterficieMenuPrincipal as interficie
 control gestor_comptes as gestor
 boundary IntertficieExt_Correu as correu
 
-UsuariN --> interficie ++: 1.1 registre_compte(correu, contr)
-interficie --> gestor --++: 1.2 registe_compte(correu, contr)
-gestor --> correu ++: 2.1 verificar_dades(correu, contr)
+UsuariN -> interficie ++: 1.1 registre_compte(correu, contr)
+interficie -> gestor --++: 1.2 registe_compte(correu, contr)
+gestor -> correu ++: 2.1 verificar_dades(correu, contr)
 correu --> gestor --: 2.2 <<Return>>
 alt Correu no existeix/ \nContrasenya no cumpleix requisits
-   gestor --> interficie : 2.alt.1 NotificaError(ErrorRegistre)
+   gestor -> interficie : 2.alt.1 NotificaError(ErrorRegistre)
 end
 alt Correu ja hi es a l'app
-   gestor --> interficie : 2.alt.2 NotificaError(ErrorCorreu)
+   gestor -> interficie : 2.alt.2 NotificaError(ErrorCorreu)
 end
-gestor --> interficie --: 2.3 realitzarRegistre()
+gestor -> interficie --: 2.3 realitzarRegistre()
 
 
 @enduml

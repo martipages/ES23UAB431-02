@@ -6,16 +6,18 @@ boundary InterficieMenuPrincipal as interficie
 control Gestor_Plats as gestor
 entity Dades_Plat as Plat
 
-UsuariN --> interficie ++: 1.1 Acces_menu_principal()
-interficie --> gestor --++: 1.2 Mostrar_plats_feed()
-gestor --> Plat ++: 1.3 get_plats_feed()
+UsuariN -> interficie ++: 1.1 Acces_menu_principal()
+interficie -> gestor --++: 1.2 Mostrar_plats_feed()
+gestor -> Plat ++: 1.3 get_plats_feed()
 Plat --> gestor --: 1.4 <<return>> //array de plats de feed precalculat
-gestor --> interficie --: 1.5 mostrar_plats_feed()
+gestor -> interficie --: 1.5 mostrar_plats_feed()
+alt acces per cerca
 ref over interficie : CU Cercar_cuiner 
-UsuariN --> interficie ++: 2.1 Interactuar_plat_menu()
-interficie --> gestor --++: 2.2 mostrar_plats_menu()
-gestor --> Plat ++: 2.1 get_dades_plat() //Array de plats de un menu concret
+end
+UsuariN -> interficie ++: 2.1 Interactuar_plat_menu()
+interficie -> gestor --++: 2.2 mostrar_plats_menu()
+gestor -> Plat ++: 2.1 get_dades_plat() //Array de plats de un menu concret
 Plat --> gestor --: 3.1 <<Return>>
-gestor --> interficie --: 3.2 mostrar plats del menu
+gestor -> interficie --: 3.2 mostrar plats del menu
 
 @enduml

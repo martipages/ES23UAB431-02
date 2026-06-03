@@ -3,19 +3,19 @@
 actor Usuari_No_Registrat as UsuariN
 boundary InterficieMenuPrincipal as interficie
 control gestor_comptes as gestor
-database BaseDeDadesApp as correu
+entity DadesUsuariGeneral as correu
 
 
-UsuariN --> interficie ++: 1.1 login(correu, contr)
-interficie --> gestor --++: 1.2 login(correu, contr)
-gestor --> correu ++: 2.1 verificar_dades(correu, contr)
+UsuariN -> interficie ++: 1.1 login(correu, contr)
+interficie -> gestor --++: 1.2 login(correu, contr)
+gestor -> correu ++: 2.1 verificar_dades(correu, contr)
 correu --> gestor --: 2.2 <<Return>>
 alt Correu no existeix/ \nContrasenya incorrecta
-   gestor --> interficie : 2.alt.1 NotificaError(ErrorLogin)
+   gestor -> interficie : 2.alt.1 NotificaError(ErrorLogin)
    note over interficie #yellow : Despres de notificar l'error\nes repeteix la sequencia (1.1)
 end
 
-gestor --> interficie --: 2.3 realitzarRegistre()
+gestor -> interficie --: 2.3 realitzarRegistre()
 
 
 @enduml
