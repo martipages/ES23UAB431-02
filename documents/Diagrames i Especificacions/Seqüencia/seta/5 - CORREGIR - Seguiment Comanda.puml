@@ -3,9 +3,14 @@
 actor Usuari
 boundary InterfícieComandes
 boundary InterfícieGPS
+boundary InterfícieGPS
 control GestorComandes
+control GestorComptes
+
 entity DadesComanda
 entity DadesEnviament
+entity DadesRepartidor
+
 
 Usuari -> InterfícieComandes++: MostrarComandesActives()
 InterfícieComandes -> GestorComandes--++: ConsultarComandesActives()
@@ -23,7 +28,14 @@ DadesEnviament --> DadesComanda
 DadesComanda --> GestorComandes
 
 alt La comanda s'està repartint
-GestorComandes->InterfícieGPS--: MostrarUbicacio(c)
+DadesEnviament->DadesRepartidor++: getUbicacio()
+DadesRepartidor->GestorComptes++: getUbicacio()
+GestorComptes->InterfícieGPS++: getUbicacio()
+
+'aaa
+
+
+
 else La comanda no s'està repartint
 GestorComandes->InterfícieComandes: NotificarClient("Error: “No s'està repartint la comanda")
 end

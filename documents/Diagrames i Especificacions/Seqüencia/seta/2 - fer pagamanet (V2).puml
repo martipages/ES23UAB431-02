@@ -1,0 +1,44 @@
+@startuml
+
+actor Client
+
+boundary InterfícieComandes
+
+control GestorComandes
+entity DadesComanda
+
+entity DadesClient
+
+boundary InterfícieExternaBanc
+
+
+Client -> InterfícieComandes++:FerPagament(comanda)
+InterfícieComandes -> GestorComandes++: import = getImport(comanda)
+GestorComandes -> DadesComanda++: import = getImport()
+DadesComanda -> GestorComandes--
+GestorComandes-->InterfícieComandes--
+
+'InterfícieComandes->GestorComptes++:FerPagament(import,client)
+InterfícieComandes->GestorComandes++:SuficientsDinersAlCompte(comanda, import)
+GestorComandes->DadesComanda++:getDataClient(comanda)
+
+DadesComanda->DadesClient++:getDataClient(comanda)
+DadesClient-->DadesComanda--
+DadesComanda-->GestorComandes--
+
+GestorComandes->InterfícieExternaBanc++:GetDinersAlCompte(compte_bancari)
+InterfícieExternaBanc-->GestorComandes--
+alt No suficients diners al compte
+GestorComandes -> InterfícieComandes: NotificarClient("Error: No hi han prou diners al compte")
+else Suficients diners al compte
+GestorComandes -> InterfícieExternaBanc++:TransferirDiners(import)
+InterfícieExternaBanc--
+GestorComandes ->InterfícieComandes--:NotificarClient("S'ha efectuar la transferència")
+InterfícieComandes--
+end
+
+
+
+
+
+@enduml

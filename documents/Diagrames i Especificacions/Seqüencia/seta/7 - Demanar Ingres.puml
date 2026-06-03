@@ -6,9 +6,9 @@ actor Cuiner
 
 boundary InterfícieEnviaments
 boundary InterfícieComandes
+control GestorComandes
 
 boundary InterfícieExternaBanc
-control GestorComandes
 entity DadesEnviament
 entity DadesComandes
 
@@ -37,9 +37,12 @@ GestorComandes -> InterfícieEnviaments--: NotificaClient("No hi han enviaments 
 end
 
 
-Repartidor --> InterfícieEnviaments++: DemanarIngres(ingres)
-InterfícieEnviaments->InterfícieExternaBanc++: DemanarIngres(ingres)
-InterfícieExternaBanc->InterfícieEnviaments--: NotificaUsuari("S'ha efectuat el pagament")
+Repartidor -> InterfícieEnviaments++: DemanarIngres(ingres)
+
+InterfícieEnviaments->GestorComandes++: DemanarIngres(ingres,repartidor)
+GestorComandes->InterfícieExternaBanc++:DemanarIngres(ingres,compte)
+GestorComandes->InterfícieEnviaments++: NotificaUsuari("S'ha efectuat el pagament")
+
 
 
 
@@ -70,8 +73,11 @@ end
 
 
 Cuiner --> InterfícieComandes++: DemanarIngres(ingres)
-InterfícieComandes->InterfícieExternaBanc++: DemanarIngres(ingres)
-InterfícieExternaBanc->InterfícieComandes--: NotificaUsuari("S'ha efectuat el pagament")
+InterfícieComandes->GestorComandes++: DemanarIngres(ingres,cuiner)
+GestorComandes->InterfícieExternaBanc: DemanarIngres(ingres,compte)
+
+InterfícieExternaBanc--
+GestorComandes-->InterfícieComandes--: NotificaUsuari("S'ha efectuat el pagament")
 
 
 
