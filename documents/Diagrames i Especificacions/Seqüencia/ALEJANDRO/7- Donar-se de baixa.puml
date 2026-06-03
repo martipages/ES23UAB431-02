@@ -1,0 +1,24 @@
+@startuml
+
+actor Usuari_General as Usuari
+boundary InterficieMenuPrincipal as interficie
+control gestor_comptes as gestor
+entity DadesUsuariGeneral as dades
+
+Usuari -> interficie ++ : 1.1 Acces_donar_baixa()
+interficie -> gestor --++ : 1.2 Acces_donar_baixa()
+
+gestor -> interficie -- : 2.1 demanar_contrassenya()
+Usuari -> interficie ++  : 2.2 introduir_contrassenya(contr)
+interficie -> gestor --++ : 2.3 introduir_contrassenya(contr)
+gestor -> dades ++ : 2.4 verificar_contrassenya(contr)
+dades --> gestor -- : 2.5 return
+alt contrassenya incorecta
+gestor -> interficie : 2.alt NotificaError(contrasseya)
+note over interficie : torna a 2.2
+end
+gestor -> interficie : 3.1 missatgeConfirmacio(eliminarCompte)
+gestor -> dades --: 3.2 eliminar_compte()
+
+
+@enduml
