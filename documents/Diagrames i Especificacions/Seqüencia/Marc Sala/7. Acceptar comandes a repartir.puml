@@ -1,0 +1,47 @@
+@startuml
+
+actor Repartidor
+boundary InterfícieComandes
+control GestorComandes
+control GestorComptes
+entity DadesRepartidor
+entity DadesComanda
+entity DadesEnviament
+boundary InterfícieEnviaments
+actor Client
+
+
+ref over Repartidor, InterfícieComandes: CU Veure comandes pendents a repartir
+
+Repartidor -> InterfícieComandes: interactuaComanda()
+
+alt Acceptar
+InterfícieComandes -> GestorComandes: acceptarComandaRepartir(c,idR)
+GestorComandes -> GestorComptes: nom = getNomRepartidor(idR)
+GestorComptes -> DadesRepartidor: nom = getNom()
+GestorComandes -> DadesComanda: assignarRepartidor(nom, idR)
+DadesComanda -> DadesEnviament: assignarRepartidor(nom, idR)
+GestorComandes -> InterfícieEnviaments: comandaEnEnviament(nom)
+
+else Descartar
+InterfícieComandes -> GestorComandes: descartarComandaRepartir()
+GestorComandes -> InterfícieEnviaments: enviamentEnEspera()
+
+InterfícieComandes -> GestorComandes: NotificarSeguentRepartidor(c, localitzacioCuiner)
+
+GestorComandes -> GestorComptes: getLocalitzacions()
+
+
+loop
+GestorComptes -> DadesRepartidor: getLocalitzacio(i)
+DadesRepartidor --> GestorComptes
+end
+
+GestorComandes -> GestorComptes: next = repartidorMesProper(localitzacioCuiner)
+
+GestorComandes -> InterfícieComandes: enviarNotificacioAcceptarRepartir(next)
+
+end
+
+
+@enduml

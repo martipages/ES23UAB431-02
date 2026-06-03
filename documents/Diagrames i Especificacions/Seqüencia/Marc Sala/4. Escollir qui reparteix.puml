@@ -1,0 +1,76 @@
+@startuml
+
+actor Client
+boundary InterfícieComandes
+control GestorComandes
+control GestorComptes
+entity DadesComanda
+entity DadesEnviament
+entity DadesUsuariGeneral
+entity DadesRepartidor
+boundary InterfícieEnviaments
+actor Cuiner
+boundary InterfícieEnviaments2
+actor Repartidor
+
+ref over Client, InterfícieComandes: CU Fer comanda
+
+Client -> InterfícieComandes: escollirRepartidor()
+InterfícieComandes -> GestorComandes: escollirRepartidor(c, opcio)
+GestorComandes -> DadesComanda: opcioRepartidor(opcio)
+DadesComanda -> DadesEnviament: opcioRepartidor(opcio)
+GestorComandes -> DadesComanda: nom = getNomCuiner()
+DadesComanda --> GestorComandes
+
+GestorComandes -> GestorComptes: localitzacio = getUbiUsuari(nom)
+GestorComptes -> DadesUsuariGeneral: localitzacio = getUbi()
+DadesUsuariGeneral --> GestorComptes
+GestorComptes --> GestorComandes
+
+
+alt Opcio: Client
+GestorComandes -> GestorComandes: setCostEnviament(c,0)
+GestorComandes -> DadesComanda: assignarRepartidor(client, idCl)
+DadesComanda -> DadesEnviament: assignarRepartidor(client, idCl)
+GestorComandes -> InterfícieComandes: repartidorAssignat(localitzacio)
+
+else Opcio: Cuiner
+GestorComandes -> GestorComptes: ubiC = getUbiUsuari(client)
+GestorComptes -> DadesUsuariGeneral: ubiC = getUbi()
+DadesUsuariGeneral --> GestorComptes
+GestorComptes --> GestorComandes
+GestorComandes -> GestorComptes: plaMensual = getPlaMensual(client)
+GestorComptes -> DadesUsuariGeneral: plaMensual = getPlaMensual()
+DadesUsuariGeneral --> GestorComptes
+GestorComptes --> GestorComandes
+
+GestorComandes -> GestorComandes: setCostEnviament(c,localitzacio,ubiC,plaMensual)
+GestorComandes -> InterfícieEnviaments: novaComandaARepartir(ubiC)
+Cuiner -> InterfícieEnviaments: interactua()
+
+alt Cuiner accepta
+InterfícieEnviaments -> GestorComandes: acceptarRepartir()
+GestorComandes -> DadesComanda: assignarRepartidor(nom, idCu)
+DadesComanda -> DadesEnviament: assignarRepartidor(nom, idCu)
+GestorComandes -> InterfícieComandes: repartidorAssignat()
+
+else Cuiner rebutja, opcio Repartidor
+InterfícieEnviaments -> GestorComandes: denegarRepartir()
+GestorComandes -> GestorComptes: getLocalitzacions()
+
+loop
+GestorComptes -> DadesRepartidor: getLocalitzacio(i)
+DadesRepartidor --> GestorComptes
+end
+
+GestorComandes -> GestorComptes: repartidor = repartidorMesProper(localitzacio)
+GestorComptes --> GestorComandes
+GestorComandes -> InterfícieEnviaments2: enviarNotificacioAcceptarRepartir(repartidor)
+GestorComandes -> InterfícieComandes: repartidorAssignat()
+end
+end
+
+
+
+
+@enduml

@@ -1,0 +1,28 @@
+@startuml
+
+actor Repartidor
+boundary InterfícieComandes
+control GestorComandes
+entity DadesComanda
+entity DadesEnviament
+
+Repartidor -> InterfícieComandes: comandesPendents()
+InterfícieComandes -> GestorComandes: comandesPendents()
+
+loop
+GestorComandes -> DadesComanda: llista = getComandaPendent()
+end
+
+DadesComanda --> GestorComandes
+GestorComandes --> InterfícieComandes
+
+Repartidor -> InterfícieComandes: veureInfoEnviament()
+InterfícieComandes -> GestorComandes: veureInfoEnviament(a)
+GestorComandes -> DadesComanda: info = infoEnviament()
+DadesComanda -> DadesEnviament: info = getInformacio()
+
+DadesEnviament --> DadesComanda
+DadesComanda --> GestorComandes
+GestorComandes --> InterfícieComandes
+
+@enduml
