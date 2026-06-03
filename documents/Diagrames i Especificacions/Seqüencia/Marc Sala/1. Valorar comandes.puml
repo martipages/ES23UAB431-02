@@ -16,12 +16,10 @@ GestorComandes -> DadesComanda: v=valoracio()
 
 alt Valorat anteriorment
 GestorComandes -> InterfícieComandes: denegarValoració()
-note over InterfícieComandes #Yellow : Error, no es pot modificar la valoració.
 
 else Valoració pendent
 alt Valoració fora de rang
 GestorComandes -> InterfícieComandes: puntuacióForaDeRang()
-note over InterfícieComandes #Yellow : Error, la puntuació ha de ser entre 0 i 10.
 
 else Valoració correcte
 GestorComandes -> DadesComanda: valorar(val)

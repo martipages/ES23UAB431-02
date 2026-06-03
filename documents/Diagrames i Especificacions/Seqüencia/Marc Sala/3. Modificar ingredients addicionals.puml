@@ -4,27 +4,33 @@ actor Client
 boundary InterfícieComandes
 control GestorComandes
 entity DadesComanda
+entity Plat
+entity Ingredients
 
 ref over Client,InterfícieComandes: CU Fer comanda
 
 Client -> InterfícieComandes: mostrarIngredientsPlat()
 InterfícieComandes -> GestorComandes: mostrarIngredientsPlat(comanda,plat)
 
-loop 
-GestorComandes -> DadesComanda: ingredients = getIngredients(comanda,plat)
+GestorComandes -> DadesComanda: ingredients = getIngredients(plat)
+DadesComanda -> Plat: ingredients = getIngredients()
+loop
+Plat -> Ingredients: ingredients = getIngredient()
 end
 
 GestorComandes -> InterfícieComandes: mostrarIngredientsPlat(ingredients)
 Client -> InterfícieComandes: modificarIngredients()
-InterfícieComandes -> GestorComandes: modificarIngredients(ing)
+InterfícieComandes -> GestorComandes: modificarIngredients(comanda,plat,ing)
 
-alt Modificació no permesa
+alt Modificació d'ingredient obligatori
 GestorComandes -> InterfícieComandes: denegarModificació()
-note over InterfícieComandes #Yellow : Error, s'ha intenta modificar un ingredient que no és opcional.
 
 else Modificació acceptada
-GestorComandes -> DadesComanda: modificarIngredients(comanda,plat,ing)
-GestorComandes -> DadesComanda: remarcarIngredients(comanda,plat,ing)
+GestorComandes -> DadesComanda: modificarPlat(plat,ing)
+DadesComanda -> Plat: modificarIngredients(ing)
+loop
+Plat -> Ingredients: setIngredient(i)
+end
 GestorComandes -> InterfícieComandes: modificacióCorrecte()
 end
 
