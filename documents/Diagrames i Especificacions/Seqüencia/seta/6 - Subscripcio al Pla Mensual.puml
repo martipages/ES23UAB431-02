@@ -1,0 +1,43 @@
+@startuml
+
+actor Client
+boundary InterfícieMenuPrincipal
+boundary InterfícieExternaBanc
+control GestorComptes
+entity DadesClient
+
+Client -> InterfícieMenuPrincipal++: SubscriurePlaMensual()
+InterfícieMenuPrincipal -> GestorComptes++: SubscriurePlaMensual(usuari)
+GestorComptes->DadesClient++: ValidarCompteBancari(usuari)
+DadesClient --> GestorComptes
+GestorComptes->DadesClient: ValidarPerfil(usuari)
+DadesClient --> GestorComptes
+
+
+alt El compte bancari és vàlid
+
+else El compte bancari associat no és vàlid o no n'hi ha cap
+GestorComptes-->InterfícieMenuPrincipal: NotificarClient("El compte bancari associat no és vàlid o no n'hi ha cap")
+
+
+end
+
+alt L'Usuari està registrat com a client
+GestorComptes->DadesClient:InscriureAlPlaMensual()
+DadesClient--
+GestorComptes->InterfícieMenuPrincipal:NotificarClient("Has estat inscrit al pla mensual")
+else L'Usuari no està registrat com a client
+GestorComptes->InterfícieMenuPrincipal: NotificarClient("Error: L'Usuari ha d'estar registrat com a client.")
+InterfícieMenuPrincipal--
+end
+
+Group Subflux: Import mensual
+GestorComptes -> InterfícieExternaBanc++:DepositarIngres(usuari)
+
+
+InterfícieExternaBanc--
+GestorComptes--
+
+end
+
+@enduml
