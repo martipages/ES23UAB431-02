@@ -24,34 +24,44 @@ else No hi ha cuiners disponibles
 GestorComptes->InterfícieMenuPrincipal--: NotificarClient("No hi ha cuiners disponibles")
 end
 
-Client->InterfícieMenuPrincipal++:SeleccionarCuiner()
+Client->InterfícieMenuPrincipal:SeleccionarCuiner()
 GestorComptes->DadesCuiner++:SeleccionarCuiner()
 DadesCuiner-->GestorComptes
+DadesCuiner--
 GestorComptes-->InterfícieMenuPrincipal--
 
 InterfícieMenuPrincipal->GestorPlat++:ProposarPlat()
+InterfícieMenuPrincipal--
+
 GestorPlat->InterfíciePropostes++:NovaProposta()
 InterfíciePropostes->InterfíciePlat++:NouPlat()
 InterfíciePlat-->InterfíciePropostes
+InterfíciePlat--
+
 GestorPlat->DadesPlat++: NouPlat()
 loop Per cada ingredient que es vulgui
 DadesPlat->DadesIngredient++:AfegirIngredient()
 DadesIngredient-->DadesPlat--
 end
 DadesPlat-->GestorPlat
-Client->InterfíciePropostes++:EnviarProposta()
+GestorPlat--
+DadesPlat--
+Client->InterfíciePropostes:EnviarProposta()
 InterfíciePropostes->GestorPlat++:EnviarProposta()
 GestorPlat->DadesComanda++:FerComanda()
+GestorPlat--
+DadesComanda--
 ref over DadesComanda,GestorPlat: CU Fer Comanda
 
 Cuiner->InterfícieComandes++:AcceptarProposta()
+InterfícieComandes--
 ref over Cuiner, InterfícieComandes: AcceptarPropostes de plats
 
 alt Si el cuiner ha acceptat la proposta
 InterfíciePropostes->Client++:NotificarClient("El cuiner ha accpetat la proposta")
 else Si no
-InterfíciePropostes->Client++:NotificarClient("El cuiner ha rebutjat la proposta")
-
+InterfíciePropostes->Client--:NotificarClient("El cuiner ha rebutjat la proposta")
+Client--
 
 
 @enduml
