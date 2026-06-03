@@ -6,7 +6,6 @@ boundary InterfícieXat
 control GestorXat
 entity Xat
 entity Missatge
-control ServeiNotificacions
 
 ref over Usuari,InterfícieXat: CU Veure Xats
 
@@ -49,9 +48,7 @@ end
 Usuari -> InterfícieXat++: enviarMissatge()
 InterfícieXat -> GestorXat--++: enviarMissatge(x, mId)
 GestorXat->Xat++: afegirMissatge(mId)
-Xat--
-GestorXat->ServeiNotificacions++: enviarNotificació(mId)
-ServeiNotificacions--
+Xat->GestorXat--: enviarNotificació(mId)
 GestorXat->InterfícieXat--: enviat(mId)
 
 @enduml

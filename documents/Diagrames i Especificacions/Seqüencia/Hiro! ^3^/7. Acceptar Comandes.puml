@@ -1,0 +1,43 @@
+@startuml
+
+actor Cuiner
+boundary InterfícieComandes
+control GestorComandes
+entity Plat
+entity DadesCuiner
+entity DadesComanda
+
+ref over Cuiner,InterfícieComandes: CU Veure reserves de comandes
+
+note over Cuiner: Assumim que està dins d'una comanda
+
+alt Acceptar Comanda
+
+Cuiner->InterfícieComandes++: AcceptarComanda()
+InterfícieComandes->GestorComandes--++: AcceptarComanda(c)
+GestorComandes->DadesComanda++: AcceptarComanda()
+DadesComanda-->GestorComandes--
+
+GestorComandes->InterfícieComandes--: NotificarClient("Comanda acceptada!", c)
+
+...
+
+Cuiner->InterfícieComandes++: AcabarComanda()
+InterfícieComandes->GestorComandes--++: AcabarComanda(c)
+GestorComandes->DadesComanda++: AcabarComanda()
+DadesComanda-->GestorComandes--
+
+note over GestorComandes: El Gestor marca aquesta comanda com a pendent de repartir.
+
+GestorComandes->InterfícieComandes--: NotificarClient("Comanda pendent de repartir!", c)
+
+else Rebutjar comanda
+Cuiner->InterfícieComandes++: RebutjarComanda()
+
+InterfícieComandes->GestorComandes--++: RebutjarComanda(c)
+GestorComandes->DadesComanda: RebutjarComanda()
+GestorComandes->InterfícieComandes--: NotificarClient("Comanda rebutjada!", c)
+
+end
+
+@enduml

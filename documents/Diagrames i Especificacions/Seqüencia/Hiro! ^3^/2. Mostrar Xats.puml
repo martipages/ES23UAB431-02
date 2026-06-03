@@ -17,11 +17,8 @@ Xat-->GestorXat--
 end
 alt Hi ha xats actius
 GestorXat->InterfícieXat--: MostrarXats() 
-else No hi ha xats actius
-GestorXat->InterfícieXat: NotificarClient("Error: “No hi ha xats actius")
-end
 
-
+opt Entrar a Xat
 Usuari -> InterfícieXat++: EntrarXat(x)
 InterfícieXat -> GestorXat--++: GetDadesXat(x)
 GestorXat->Xat++: GetDadesXat()
@@ -29,5 +26,10 @@ Xat->DadesComanda: GetDadesComanda()
 DadesComanda-->Xat--
 Xat-->GestorXat--
 GestorXat->InterfícieXat--: MostrarXat(x) 
+end
+
+else No hi ha xats actius
+GestorXat->InterfícieXat: NotificarClient("Error: “No hi ha xats actius")
+end
 
 @enduml
