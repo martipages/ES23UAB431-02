@@ -1,0 +1,43 @@
+@startuml
+
+actor Cuiner
+boundary InterfíciePropostes
+control GestorPlat
+entity Plat
+entity DadesCuiner
+entity DadesComanda
+
+ref over Cuiner,InterfíciePropostes: CU Veure menú de propostes
+
+note over Cuiner: Assumim que està dins d'una proposta
+
+alt Acceptar proposta
+Cuiner->InterfíciePropostes++: AcceptarProposta()
+InterfíciePropostes->GestorPlat--++: AcceptarProposta(p)
+GestorPlat->Plat--++: AcceptarProposta()
+Plat->DadesCuiner: AfegirPlat(self)
+Plat->DadesComanda--: AfegirPlat(self)
+
+opt Acceptar Comanda Automàticament
+ref over DadesComanda: CU Acceptar Comandes
+end
+
+opt Xatejar sobre la proposta
+ref over DadesComanda: CU Xatejar entre cuiner i client
+end
+
+GestorPlat->InterfíciePropostes: NotificarClient("Proposta acceptada!", proposta)
+
+else Rebutjar proposta
+Cuiner->InterfíciePropostes++: RebutjarProposta()
+
+opt Afegir Motiu
+Cuiner->InterfíciePropostes: AfegirMotiuRebuig(m)
+end
+
+InterfíciePropostes->GestorPlat--++: RebutjarProposta(p, m="")
+GestorPlat->Plat--: RebutjarProposta()
+GestorPlat->InterfíciePropostes: NotificarClient("Proposta rebutjada!", p, m)
+
+end
+@enduml

@@ -18,11 +18,8 @@ Plat-->GestorPlat--
 end
 alt Hi ha propostes sense confirmar
 GestorPlat->InterfíciePropostes--: MostrarPropostes() 
-else No hi ha propostes actives
-GestorPlat->InterfíciePropostes: NotificarClient("Error: “No hi ha propostes actives")
-end
 
-
+opt Entrar a Proposta
 Cuiner -> InterfíciePropostes++: EntrarProposta(p)
 InterfíciePropostes -> GestorPlat--++: GetDadesPlat(p)
 GestorPlat->Plat++: GetDades()
@@ -32,5 +29,10 @@ Ingredient-->Plat--
 end
 Plat-->GestorPlat--
 GestorPlat->InterfíciePropostes--: MostrarProposta(p) 
+end
+
+else No hi ha propostes actives
+GestorPlat->InterfíciePropostes: NotificarClient("Error: “No hi ha propostes actives")
+end
 
 @enduml

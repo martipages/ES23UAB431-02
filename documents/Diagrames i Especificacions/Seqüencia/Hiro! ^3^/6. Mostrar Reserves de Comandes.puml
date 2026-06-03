@@ -1,0 +1,47 @@
+@startuml
+
+actor Cuiner
+boundary InterfícieComandes
+control GestorComandes
+entity DadesComanda
+entity Plat
+entity Ingredient
+
+Cuiner -> InterfícieComandes++: PestanyaComandes()
+InterfícieComandes -> GestorComandes--++: GetDadesReserves()
+loop
+GestorComandes->DadesComanda++: GetDadesComanda(i)
+loop
+DadesComanda->Plat++: GetDades(j)
+loop
+Plat->Ingredient: GetDades(k)
+Ingredient-->Plat--
+end
+Plat-->DadesComanda--
+end
+DadesComanda-->GestorComandes--
+end
+
+alt Hi ha reserves de comandes [nReserves > 0]
+GestorComandes->InterfícieComandes--: MostrarReserves() 
+
+opt Entrar a Reserva
+Cuiner -> InterfícieComandes++: EntrarReserva(r)
+InterfícieComandes -> GestorComandes--++: GetDadesReserva(r)
+GestorComandes->DadesComanda++: GetDadesComanda()
+loop
+DadesComanda->Plat++: GetDades(i)
+loop
+Plat->Ingredient: GetDades(j)
+Ingredient-->Plat--
+end
+Plat-->DadesComanda--
+end
+DadesComanda-->GestorComandes--
+GestorComandes->InterfícieComandes--: MostrarReserva(r) 
+end
+
+else No hi ha reserves actives [nReserves <= 0]
+GestorComandes->InterfícieComandes: NotificarClient("Error: No hi ha reserves actives.")
+end
+@enduml
