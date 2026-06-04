@@ -1,6 +1,6 @@
 @startuml
 
-actor Usuari
+actor UsuariGeneral
 boundary InterfícieMenuPrincipal
 boundary InterfícieExternaBanc
 
@@ -9,8 +9,10 @@ entity DadesUsuariGeneral
 'estaria be fer ref a la generalitzacio?
 
 
-Usuari -> InterfícieMenuPrincipal++: VincularCompteBancari()
+UsuariGeneral -> InterfícieMenuPrincipal++: VincularCompteBancari()
+UsuariGeneral++
 InterfícieMenuPrincipal -> GestorComptes++: VincularCompteBancari()
+InterfícieMenuPrincipal--
 GestorComptes -> DadesUsuariGeneral++: GetData()
 DadesUsuariGeneral --> GestorComptes
 
@@ -23,14 +25,17 @@ end
 
 
 loop Fins que IBAN sigui vàlid
-Usuari -> InterfícieExternaBanc++: IntroduïrIBAN(i)
+UsuariGeneral -> InterfícieExternaBanc++: IntroduïrIBAN(i)
+UsuariGeneral--
 InterfícieExternaBanc -> GestorComptes++: IntroduïrIBAN(i)
 alt el IBAN és vàlid
 
-GestorComptes -> DadesUsuariGeneral++: ModificarIBAN(i)
-GestorComptes -> InterfícieExternaBanc--: NotificaUsuari("El IBAN ha estat modificat.")
+GestorComptes -> DadesUsuariGeneral: ModificarIBAN(i)
+DadesUsuariGeneral--
+GestorComptes -> InterfícieExternaBanc: NotificaUsuari("El IBAN ha estat modificat.")
 else
 GestorComptes -> InterfícieExternaBanc--: NotificaUsuari("El IBAN no és vàlid.")
+InterfícieExternaBanc--
 end
 end 
 

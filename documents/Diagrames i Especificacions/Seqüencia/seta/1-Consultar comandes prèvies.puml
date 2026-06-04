@@ -1,21 +1,24 @@
 @startuml
-actor Usuari
+actor Client
 boundary InterfícieComandes
 control GestorComandes
 entity DadesComanda
 
-Usuari -> InterfícieComandes++: ConsultarComandesPrèvies()
-InterfícieComandes -> GestorComandes--++: GetNComandes()
+Client++
+Client -> InterfícieComandes++: ConsultarComandesPrèvies()
+InterfícieComandes -> GestorComandes++: GetNComandes()
 alt Alguna comanda ha estat realitzada abans
-GestorComandes->InterfícieComandes--: MostrarComandesPrèvies() 
+GestorComandes->InterfícieComandes: MostrarComandesPrèvies() 
 else No s'ha fet mai cap comanda
-GestorComandes->InterfícieComandes: NotificarClient("Error: “Mai s'ha fet cap comanda")
+GestorComandes->InterfícieComandes--: NotificarClient("Error: “Mai s'ha fet cap comanda")
 end
 
-Usuari -> InterfícieComandes ++: VeureComandesPrèvies()
+Client -> InterfícieComandes: VeureComandesPrèvies()
 InterfícieComandes -> GestorComandes ++: VeureComandesPrèvies()
+Client--
 GestorComandes -> DadesComanda ++: GetDades()
 DadesComanda --> GestorComandes --
-GestorComandes --> InterfícieComandes --:
+GestorComandes --> InterfícieComandes--:
+InterfícieComandes--
 
 @enduml

@@ -16,32 +16,35 @@ entity DadesComandes
 alt L'usuari no té un compte bancari vinculat
 ref over Repartidor,InterfícieExternaBanc: CU Vincular compte bancari
 end
-
 Repartidor -> InterfícieEnviaments++: MostrarHistòricEnviaments()
+Repartidor++
+
 InterfícieEnviaments -> GestorComandes++: getIngressosPendents(usuari)
 loop per cada enviament associat al repartidor "usuari"
 GestorComandes -> DadesEnviament++: getImport(usuari)
 DadesEnviament --> GestorComandes
+DadesEnviament--
 
 end
 
 alt Hi ha ingressos pendents
-GestorComandes -> InterfícieEnviaments--:MostrarHistòricEnviaments() 
+GestorComandes -> InterfícieEnviaments:MostrarHistòricEnviaments() 
 alt Hi ha suficients diners a cobrar
-GestorComandes -> InterfícieEnviaments--:MostrarBotoCobrarIngressos()
+GestorComandes -> InterfícieEnviaments:MostrarBotoCobrarIngressos()
 else No hi ha suficients diners a cobrar
-GestorComandes -> InterfícieEnviaments--:NotificarUsuari("No hi han prous diners a cobrar per a solicitar l'ingrés")
+GestorComandes -> InterfícieEnviaments:NotificarUsuari("No hi han prous diners a cobrar per a solicitar l'ingrés")
 end
 else No hi ha ingressos pendents de cobrar
-GestorComandes -> InterfícieEnviaments--: NotificaClient("No hi han enviaments a cobrar") 
+GestorComandes -> InterfícieEnviaments: NotificaClient("No hi han enviaments a cobrar") 
 end
 
 
-Repartidor -> InterfícieEnviaments++: DemanarIngres(ingres)
-
-InterfícieEnviaments->GestorComandes++: DemanarIngres(ingres,repartidor)
+Repartidor -> InterfícieEnviaments: DemanarIngres(ingres)
+Repartidor--
+InterfícieEnviaments->GestorComandes: DemanarIngres(ingres,repartidor)
 GestorComandes->InterfícieExternaBanc++:DemanarIngres(ingres,compte)
-GestorComandes->InterfícieEnviaments++: NotificaUsuari("S'ha efectuat el pagament")
+GestorComandes->InterfícieEnviaments: NotificaUsuari("S'ha efectuat el pagament")
+InterfícieEnviaments--
 
 
 
@@ -51,33 +54,36 @@ GestorComandes->InterfícieEnviaments++: NotificaUsuari("S'ha efectuat el pagame
 
 
 
-
+Cuiner++
 Cuiner -> InterfícieComandes++: MostrarHistòricComandes()
-InterfícieComandes -> GestorComandes++: getIngressosPendents(usuari)
+InterfícieComandes -> GestorComandes: getIngressosPendents(usuari)
 loop per cada comanda associada al repartidor "usuari"
 GestorComandes -> DadesComandes++: getImport(usuari)
 DadesComandes --> GestorComandes
+DadesComandes--
 
 end
 
 alt Hi ha ingressos pendents
-GestorComandes -> InterfícieComandes--:MostrarHistòricComandes() 
+GestorComandes -> InterfícieComandes:MostrarHistòricComandes() 
 alt Hi ha suficients diners a cobrar
-GestorComandes -> InterfícieComandes--:MostrarBotoCobrarIngressos()
+GestorComandes -> InterfícieComandes:MostrarBotoCobrarIngressos()
 else No hi ha suficients diners a cobrar
-GestorComandes -> InterfícieComandes--:NotificarUsuari("No hi han prous diners a cobrar per a solicitar l'ingrés")
+GestorComandes -> InterfícieComandes:NotificarUsuari("No hi han prous diners a cobrar per a solicitar l'ingrés")
 end
 else No hi ha ingressos pendents de cobrar
-GestorComandes -> InterfícieComandes--: NotificaClient("No hi han enviaments a cobrar") 
+GestorComandes -> InterfícieComandes: NotificaClient("No hi han enviaments a cobrar") 
 end
 
 
-Cuiner --> InterfícieComandes++: DemanarIngres(ingres)
-InterfícieComandes->GestorComandes++: DemanarIngres(ingres,cuiner)
+Cuiner --> InterfícieComandes: DemanarIngres(ingres)
+Cuiner--
+InterfícieComandes->GestorComandes: DemanarIngres(ingres,cuiner)
 GestorComandes->InterfícieExternaBanc: DemanarIngres(ingres,compte)
 
 InterfícieExternaBanc--
 GestorComandes-->InterfícieComandes--: NotificaUsuari("S'ha efectuat el pagament")
+InterfícieComandes--
 
 
 

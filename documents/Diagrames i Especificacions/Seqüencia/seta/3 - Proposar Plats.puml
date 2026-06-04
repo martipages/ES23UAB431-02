@@ -16,12 +16,13 @@ entity DadesComanda
 boundary InterfícieComandes
 
 Client->InterfícieMenuPrincipal++:MostrarCuiners()
+Client++
 InterfícieMenuPrincipal -> GestorComptes++:getCuinersDisponibles()
 alt Hi ha cuiners disponibles
-GestorComptes->InterfícieMenuPrincipal--:MostrarCuinersDisponibles()
+GestorComptes->InterfícieMenuPrincipal:MostrarCuinersDisponibles()
 
 else No hi ha cuiners disponibles
-GestorComptes->InterfícieMenuPrincipal--: NotificarClient("No hi ha cuiners disponibles")
+GestorComptes->InterfícieMenuPrincipal: NotificarClient("No hi ha cuiners disponibles")
 end
 
 Client->InterfícieMenuPrincipal:SeleccionarCuiner()
@@ -47,6 +48,7 @@ DadesPlat-->GestorPlat
 GestorPlat--
 DadesPlat--
 Client->InterfíciePropostes:EnviarProposta()
+Client--
 InterfíciePropostes->GestorPlat++:EnviarProposta()
 GestorPlat->DadesComanda++:FerComanda()
 GestorPlat--
@@ -54,6 +56,9 @@ DadesComanda--
 ref over DadesComanda,GestorPlat: CU Fer Comanda
 
 Cuiner->InterfícieComandes++:AcceptarProposta()
+Cuiner++
+Cuiner--
+
 InterfícieComandes--
 ref over Cuiner, InterfícieComandes: AcceptarPropostes de plats
 

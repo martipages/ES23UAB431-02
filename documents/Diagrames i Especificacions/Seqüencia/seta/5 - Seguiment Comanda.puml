@@ -11,7 +11,7 @@ entity DadesEnviament
 entity DadesRepartidor
 boundary InterfícieGPS
 
-
+Client++
 Client -> InterfícieComandes++: MostrarComandesActives()
 InterfícieComandes -> GestorComandes--++: ConsultarComandesActives()
 alt Hi ha comandes actives
@@ -21,6 +21,7 @@ GestorComandes->InterfícieComandes: NotificarClient("Error: “No hi ha comande
 end
 
 Client -> InterfícieComandes++: MostrarUbicacióComandaEspecífica()
+Client--
 InterfícieComandes -> GestorComandes++: MostrarUbicacióComandaEspecífica(c)
 GestorComandes -> DadesComanda++: GetData(c)
 DadesComanda -> DadesEnviament++: GetUbication(c)
@@ -43,8 +44,9 @@ GestorComptes--
 
 else La comanda no s'està repartint
 GestorComandes->InterfícieComandes: NotificarClient("Error: “No s'està repartint la comanda")
-GestorComandes++
 
+GestorComandes++
+InterfícieComandes--
 GestorComandes--
 end
 

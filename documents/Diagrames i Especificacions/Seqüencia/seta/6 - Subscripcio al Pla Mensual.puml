@@ -7,6 +7,8 @@ control GestorComptes
 entity DadesClient
 
 Client -> InterfícieMenuPrincipal++: SubscriurePlaMensual()
+Client++
+Client--
 InterfícieMenuPrincipal -> GestorComptes++: SubscriurePlaMensual(usuari)
 GestorComptes->DadesClient++: ValidarCompteBancari(usuari)
 DadesClient --> GestorComptes

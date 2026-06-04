@@ -1,17 +1,21 @@
 @startuml
 
-actor Usuari
+actor Client
 boundary InterfícieComandes
 control GestorComandes
 entity DadesComanda
 
-ref over Usuari,InterfícieComandes,GestorComandes,DadesComanda: CU Consultar Comandes Prèvies
+ref over Client,InterfícieComandes,GestorComandes,DadesComanda: CU Consultar Comandes Prèvies
 loop
 note over InterfícieComandes: El loop gran es fa tants cops com el client vulgui repetir una comanda,\n (respectant el límit de 3 comandes actives)
 
-Usuari -> InterfícieComandes++: RepetirComanda(c)
+Client++
+Client -> InterfícieComandes++: RepetirComanda(c)
+Client--
 InterfícieComandes -> GestorComandes--++: RepetirComanda(c)
-GestorComandes -> DadesComanda : FerComanda()
+GestorComandes -> DadesComanda++: FerComanda()
+DadesComanda--
+
 ref over DadesComanda : CU Fer Comandes
 'DadesComanda -> GestorComandes --: 
 
