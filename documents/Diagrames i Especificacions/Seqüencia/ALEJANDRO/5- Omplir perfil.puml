@@ -11,16 +11,15 @@ interficie -> gestor --++: 1.2 confirmar_registre(contr, correu)
 gestor -> dades : 1.3 guardar_dades(contr, correu)
 gestor -> interficie--: 1.4 mostrar_opcions_omplir()
 
+
+loop fins que les dades siguin vàlides
 Usuari -> interficie ++: 2.1 omplir_dades(dades)
-alt afegir compte al registre
+opt afegir compte al registre
 ref over Usuari : CU OmplirCompteBancari
 end
 interficie -> gestor --++: 2.2 omplir_dades(dades)
-alt no s'han omplert les dades obligatories
 gestor -> interficie : 2.alt NotificaError(errorOmplirPerfil)
-note over interficie : torna a 2.1
 end
 gestor -> dades : guardar_dades_perfil(dades)
 gestor -> interficie --: 2.3 missatgeConfimacio(OmplirPerfil)
-
 @enduml

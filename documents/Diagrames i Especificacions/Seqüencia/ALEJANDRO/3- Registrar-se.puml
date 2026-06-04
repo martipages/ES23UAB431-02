@@ -6,16 +6,18 @@ control gestor_comptes as gestor
 boundary IntertficieExt_Correu as correu
 
 UsuariN -> interficie ++: 1.1 registre_compte(correu, contr)
-interficie -> gestor --++: 1.2 registe_compte(correu, contr)
+interficie -> gestor --++: 1.2 registre_compte(correu, contr)
 gestor -> correu ++: 2.1 verificar_dades(correu, contr)
 correu --> gestor --: 2.2 <<Return>>
 alt Correu no existeix/ \nContrasenya no cumpleix requisits
    gestor -> interficie : 2.alt.1 NotificaError(ErrorRegistre)
-end
-alt Correu ja hi es a l'app
+else Correu ja hi es a l'app
    gestor -> interficie : 2.alt.2 NotificaError(ErrorCorreu)
-end
+
+else correu assignable
 gestor -> interficie --: 2.3 realitzarRegistre()
+end
+
 
 
 @enduml

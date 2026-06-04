@@ -12,10 +12,8 @@ gestor -> correu ++: 2.1 verificar_dades(correu, contr)
 correu --> gestor --: 2.2 <<Return>>
 alt Correu no existeix/ \nContrasenya incorrecta
    gestor -> interficie : 2.alt.1 NotificaError(ErrorLogin)
-   note over interficie #yellow : Despres de notificar l'error\nes repeteix la sequencia (1.1)
-end
-
+else login correcte
 gestor -> interficie --: 2.3 realitzarRegistre()
-
+end
 
 @enduml
