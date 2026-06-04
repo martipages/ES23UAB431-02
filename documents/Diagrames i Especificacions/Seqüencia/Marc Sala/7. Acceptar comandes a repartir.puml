@@ -11,8 +11,6 @@ boundary InterfícieEnviaments
 actor Client
 
 
-ref over Repartidor, InterfícieComandes: CU Veure comandes pendents a repartir
-
 Repartidor -> InterfícieComandes: interactuaComanda()
 
 alt Acceptar
@@ -27,19 +25,6 @@ else Descartar
 InterfícieComandes -> GestorComandes: descartarComandaRepartir()
 GestorComandes -> InterfícieEnviaments: enviamentEnEspera()
 
-InterfícieComandes -> GestorComandes: NotificarSeguentRepartidor(c, localitzacioCuiner)
-
-GestorComandes -> GestorComptes: getLocalitzacions()
-
-
-loop
-GestorComptes -> DadesRepartidor: getLocalitzacio(i)
-DadesRepartidor --> GestorComptes
-end
-
-GestorComandes -> GestorComptes: next = repartidorMesProper(localitzacioCuiner)
-
-GestorComandes -> InterfícieComandes: enviarNotificacioAcceptarRepartir(next)
 
 end
 
