@@ -11,13 +11,9 @@ note over InterfícieComandes: El loop gran es fa tants cops com el client vulgu
 
 Usuari -> InterfícieComandes++: RepetirComanda(c)
 InterfícieComandes -> GestorComandes--++: RepetirComanda(c)
-GestorComandes -> DadesComanda++: FerComanda()
-'DadesComanda -> GestorComandes--: 
+GestorComandes -> DadesComanda : FerComanda()
+ref over DadesComanda : CU Fer Comandes
+'DadesComanda -> GestorComandes --: 
 
 GestorComandes -> InterfícieComandes--: NotificaClient("S'ha repetit la comanda")
 end
-
-
-
-
-@enduml
