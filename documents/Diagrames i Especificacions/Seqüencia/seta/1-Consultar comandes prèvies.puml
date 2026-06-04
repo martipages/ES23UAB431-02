@@ -1,5 +1,4 @@
 @startuml
-
 actor Usuari
 boundary InterfícieComandes
 control GestorComandes
@@ -13,12 +12,10 @@ else No s'ha fet mai cap comanda
 GestorComandes->InterfícieComandes: NotificarClient("Error: “Mai s'ha fet cap comanda")
 end
 
-Usuari -> InterfícieComandes++: VeureComandesPrèvies()
-InterfícieComandes -> GestorComandes++: VeureComandesPrèvies()
-GestorComandes -> DadesComanda--++: GetDades()
-DadesComanda --> GestorComandes
-GestorComandes --> InterfícieComandes
-
-
+Usuari -> InterfícieComandes ++: VeureComandesPrèvies()
+InterfícieComandes -> GestorComandes ++: VeureComandesPrèvies()
+GestorComandes -> DadesComanda ++: GetDades()
+DadesComanda --> GestorComandes --
+GestorComandes --> InterfícieComandes --:
 
 @enduml
