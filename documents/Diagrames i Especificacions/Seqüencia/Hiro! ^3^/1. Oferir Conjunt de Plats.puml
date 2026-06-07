@@ -5,16 +5,14 @@ control GestorPlat
 entity Plat
 entity Ingredient
 
-loop as LoopGran
+loop fins que el cuiner deixi d'afegir plats
 
-note over InterfíciePlat: El loop gran es pot fer tantes vegades com es vulgui,\n fins que el cuiner deixi d'afegir plats
 Cuiner -> InterfíciePlat++: CrearNouPlat()
 InterfíciePlat -> GestorPlat--++: nouPlat = CrearNouPlat(c)
 GestorPlat -> Plat: nouPlat = plat(c)
 GestorPlat --> InterfíciePlat--
 ...
-loop
-note over InterfíciePlat: Loop fins que el nom no sigui igual
+loop fins que el nom no sigui igual
 Cuiner -> InterfíciePlat++: AfegirInformació(n,d)
 InterfíciePlat -> GestorPlat--++: ConsultarNomIguals(nouPlat,n)
 GestorPlat -> Plat: getNom()
@@ -29,8 +27,7 @@ InterfíciePlat -> GestorPlat--++: AfegirInformació(nouPlat,n,d)
 GestorPlat -> Plat: AfegirInformació(n,d)
 GestorPlat--
 
-loop
-note over InterfíciePlat: Loop fins que el cuiner deixi d'afegir imatges
+loop fins que el cuiner deixi d'afegir imatges
 Cuiner -> InterfíciePlat++: AfegirImatge(img)
 InterfíciePlat -> GestorPlat--++: AfegirImatge(nouPlat,img)
 GestorPlat -> Plat: AfegirImatge(img)
