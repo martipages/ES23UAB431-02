@@ -16,7 +16,7 @@ skinparam package<<Layout>> {
 
 
 namespace Perfils{
-class GestorComptes
+enum GestorComptes
 class DadesRepartidor
 class DadesCuiner
 class DadesClient
@@ -27,7 +27,7 @@ interface InterfícieExternaGPS
 
 namespace Comanda {
  package p2 <<Layout>>{
-class GestorComandes
+enum GestorComandes
 class DadesComanda
 class DadesPagament
 class DadesEnviament
@@ -39,7 +39,7 @@ interface InterfícieComandes
 
 namespace Menú {
 package p4 <<Layout>>{
-class GestorPlat
+enum GestorPlat
 }
 class Plat
 class Ingredient
@@ -53,7 +53,7 @@ namespace Xats {
 class Xat
 }
 class Missatge
-class GestorXat
+enum GestorXat
 interface InterfícieXat
 } 
 
