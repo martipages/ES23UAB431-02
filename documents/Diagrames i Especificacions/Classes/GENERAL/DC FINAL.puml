@@ -18,9 +18,16 @@ skinparam package<<Layout>> {
 namespace Perfils{
 enum GestorComptes
 class DadesRepartidor
-class DadesCuiner
+
+class DadesCuiner {
+
+}
+
 class DadesClient
-class DadesUsuariGeneral
+class DadesUsuariGeneral {
+-nom: String
++String getNom()
+}
 interface InterfícieExternaCorreu
 interface InterfícieExternaGPS
 }
@@ -28,7 +35,19 @@ interface InterfícieExternaGPS
 namespace Comanda {
  package p2 <<Layout>>{
 enum GestorComandes
-class DadesComanda
+
+class DadesComanda {
+-nomClient: String
+-nomCuiner: String
+-preuTotal: float
+-idComanda: String
++String getNomClient()
++String getNomCuiner()
++float getPreuTotal()
++String getId()
++(String nom1, String nom2, float preu, String id) getDades()
+}
+
 class DadesPagament
 class DadesEnviament
 }
@@ -39,22 +58,72 @@ interface InterfícieComandes
 
 namespace Menú {
 package p4 <<Layout>>{
-enum GestorPlat
+
+enum GestorPlat {
++Plat crearNouPlat(Cuiner c)
++void ConsultarNomsIguals(Plat p, String nom)
++void AfegirInformació(Plat p, String nom, String desc)
++void AfegirImatge(Plat p, Image img)
++void afegirIngredients(Plat p, (Ingredient ing, bool opcional)[])
 }
-class Plat
-class Ingredient
+
+}
+
+class Plat {
+-nom: String
+-imgs[]: Image
+-ings[]: (Ingredient, bool)
+-void getImgs(&Image[])
+-preu: float
++String getNom()
++plat(Cuiner c)
++void afegirIngredients((Ingredient ing, bool opcional)[])
++float getPreu()
+}
+
+class Ingredient {
+-nom: String
+-alèrgens[]: String
++(nom, alèrgens[]) getDades()
+}
+
 interface InterfícieMenuPrincipal
 interface InterfíciePropostes
-interface InterfíciePlat
+
+interface InterfíciePlat {
++void NotificarClient(String missatge)
++void crearNouPlat()
++void AfegirInformació(String nom, String desc)
++void AfegirImatge(Image img)
++void afegirIngredients((Ingredient ing, bool opcional)[])
+}
+
 }
 
 namespace Xats {
  package p1 <<Layout>>{
-class Xat
+class Xat {
+-comandaID: String
+-XatID: String
+-missatges[]: Missatge
++(String nom1, String nom2, String XatID) getDades()
+}
+
 }
 class Missatge
-enum GestorXat
-interface InterfícieXat
+
+enum GestorXat {
++void GetXats()
++void GetDadesXat(x)
+}
+
+interface InterfícieXat {
++void NotificarClient(String missatge)
++void PestanyaXats()
++void MostrarXats(Xats[] xs)
++void MostrarXat(Xat x)
+}
+
 } 
 
 InterfícieXat -right- GestorXat

@@ -21,7 +21,7 @@ GestorXat->InterfícieXat--: MostrarXats()
 opt Entrar a Xat
 Usuari -> InterfícieXat++: EntrarXat(x)
 InterfícieXat -> GestorXat--++: GetDadesXat(x)
-GestorXat->Xat++: GetDadesXat()
+GestorXat->Xat++: GetDades()
 Xat->DadesComanda: GetDadesComanda()
 DadesComanda-->Xat--
 Xat-->GestorXat--
