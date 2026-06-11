@@ -22,21 +22,24 @@ _El cuiner ha d'estar disponible_
 _1. El cuiner accedeix a la llista de cuiners disponibles<br>
 2. En cas que n'hi hagi algun, podrà proposar-li un plat per a que li faci<br>
 3. El cuiner podrà acceptar-lo o no acceptarlo (cas d'ús propi)<br>
-3.1. Si el cuiner l'accepta, es crearà una instància nova de plat en una comanda i si li notificarà al client. Passarà a ser una comanda activa_
+4. Si el cuiner l'accepta, es crearà una instància nova de plat en una comanda i si li notificarà al client. Passarà a ser una comanda activa_
 
 
 ## Subfluxos: 
+**Cuiner no accepta**
 _Si el cuiner rebutja el plat, se li notifacrà al client._
-## Fluxos alternatius: 
+## Fluxos alternatius:
+**Cuiner no disponible**
 _Si no hi ha cap cuiner disponible, no es podràn proposar plats._
 
 ## Postcondició: 
 
 ## Requeriments no funcionals: 
-_Restricció de rendiment estàtic: només es poden tenir tres comandes actives simultànicament_
+_RNF-2-02: (Màxim 3 comandes actives simultàniament)
+RNF-6-01: (Els cuiners són els únics que poden accedir a aquest menú específic)_
 
 ## Prioritat: 
-_no prioritari_
+_No prioritari_
 
 ## Comentaris: 
 
