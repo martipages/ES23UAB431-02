@@ -21,11 +21,9 @@ _El client ha de tenir com a mínim una comanda ja feta per a poder consultar-la
 
 ## Flux principal: 
 _1. El client accedeix a la llista a la llista de comandes ja realitzades i que ja no estàn actives.<br>
-2. Pot veure la llista de comandes ja realitzades. _<br>
+2. Pot veure la llista de comandes ja realitzades i, de cada comanda, pot veure si està disponible o no. _<br>
 
 ## Subfluxos: 
-_Al consultar cada comanda ,es podrà veure si està disponible. <br>
-Si està disponible, es podrà repetir la comanda (tornar-la a demanar). Si no, no._ <br>
 ## Fluxos alternatius: _Variacions en els fluxos principals o casos d’excepció_
 _Si no existeixen comandes prèvies, no es podrà consultar res._
 

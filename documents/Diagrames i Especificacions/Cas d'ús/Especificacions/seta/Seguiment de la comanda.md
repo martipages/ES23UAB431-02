@@ -26,17 +26,17 @@ per seguir la ubicació del repartidor en temps real._ <br>
 
 ## Subfluxos: 
 ## Fluxos alternatius:
+**Fluxos alternatius**
 _Si la comanda no està sent repartida (encara s'està cuinant) no es podrà veure la seva ubicació._
 
 ## Postcondició:
 
 ## Requeriments no funcionals: 
-_1. El seguiment es farà desde la pàgina web (Decisió de disseny)
-2. Per a fer el seguiment, dins de la pàgina s'utilitzarà google maps_ 
+_RNF-3-01 (Accés a seguiment)
+RNF-3-02 (Mapa utilitza Google Maps)_
 
 ## Prioritat: 
-_normal_
+_Normal_
 
 ## Comentaris: 
-_(Una comanda està activa si està pagada pel client, i acceptada i fent-se per un cuiner)._
 

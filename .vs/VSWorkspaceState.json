@@ -4,11 +4,13 @@
     "\\documents",
     "\\documents\\Diagrames i Especificacions",
     "\\documents\\Diagrames i Especificacions\\Cas d'ús",
-    "\\documents\\Diagrames i Especificacions\\Seqüencia",
+    "\\documents\\Diagrames i Especificacions\\Cas d'ús\\Especificacions",
+    "\\documents\\Diagrames i Especificacions\\Cas d'ús\\Especificacions\\seta",
     "\\documents\\Diagrames i Especificacions\\Seqüencia\\seta",
     "\\documents\\Sprint2",
-    "\\documents\\Sprint4"
+    "\\documents\\Sprint4",
+    "\\requirements"
   ],
-  "SelectedNode": "\\documents\\Diagrames i Especificacions\\Seqüencia\\seta\\2 - fer pagament.puml",
+  "SelectedNode": "\\documents\\Diagrames i Especificacions\\Cas d'ús\\Especificacions\\seta\\Subscripció pla mensual.md",
   "PreviewInSolutionExplorer": false
 }

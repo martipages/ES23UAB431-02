@@ -28,6 +28,7 @@ _**Extensions point:** CU consultar comandes prèvies.
 _**Extension point:** Cu consultar comandes prèvies.
 Si no s'ha fet cap comanda, no es podrà veure cap comanda prèvia.<br>
 
+**Res Disponible**
 Si cap comanda prèvia està disponible, no es podrà repetir<br>_
 
 ## Fluxos alternatius: 
@@ -36,10 +37,10 @@ Si cap comanda prèvia està disponible, no es podrà repetir<br>_
 _El client tindrà una nova comanda activa._
 
 ## Requeriments no funcionals: 
-_Restricció de rendiment estàtic: Cada client té un màxim de 3 comandes actives simultànices_
+_RNF-2-02: (Màxim 3 comandes actives simultàniament)_
 
 ## Prioritat: 
-_no prioritari_
+_No prioritari_
 
 ## Comentaris: 
 
