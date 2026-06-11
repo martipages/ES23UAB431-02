@@ -42,12 +42,19 @@ class DadesRepartidor {
 
 class DadesCuiner {
 -plats[]: Plat
+-nom: String
+-horari[]: Hour
 -disp: bool
+-ranking: int
+-repercussio: float
 +void AfegirPlat(Plat p)
 +void getPlats(&Plat[])
 +void getDades()
 +void SetDisp(bool disp)
 +void SetHoraDisp(Date h)
++void aplicarValoracio(DadesComanda c, int valoracio)
++void actualitzarRepercussio()
++Hour getHorari()
 }
 
 class DadesClient {
@@ -101,12 +108,23 @@ location ubi2, bool plaMensual)
 }
 
 class DadesComanda {
+-data: Date
+-hora: Hour
 -nomClient: String
 -nomCuiner: String
+-nomRepartidor: String
+-idRepartidor: int
+-costEnviament: float
 -preuTotal: float
 -idComanda: String
+-valoracio: int
 -plats[]: Plat
 -status: String
+-pendentRepartir: bool
+-pendentPagament: bool
+-dadesPagament: DadesPagament
+-dadesEnviament: DadesEnviament
++DadesComanda crearComanda(Plat p[])
 +String getNomClient()
 +String getNomCuiner()
 +float getPreuTotal()
@@ -117,6 +135,19 @@ class DadesComanda {
 +void AcceptarComanda()
 +void AcabarComanda()
 +void RebutjarComanda()
++void assignarRepartidor(String nom, int idRepartidor)
++bool getPendentRepartir()
++bool getPendentPagament()
++void modificarDataHora(Date data, Hour hora)
++void opcioRepartidor(int opcio)
++Ingredient getIngredients(Plat p)
++void modificarPlat(Plat p, Ingredient ing[])
++void modificarCaracteristiques(Date data, Hour hora,
+Ingredient ing[], String nomRepartidor)
++void setCostEnviament()
++void calcularPreuTotal()
++void setValoracio(int v)
++int getValoracio()
 }
 
 class DadesPagament
@@ -193,10 +224,13 @@ class Plat {
 -nom: String
 -imgs[]: Image
 -{field} ings[]: (Ingredient, bool)
--void getImgs(&Image[])
 -preu: float
 -esProposta: bool
 +String getNom()
++Ingredient getIngredients()
++void modificarIngredients(Ingredient ing[])
++String getInfo()
++void getImgs(&Image[])
 +plat(Cuiner c)
 +void afegirIngredients((Ingredient ing, bool opcional)[])
 +float getPreu()
@@ -208,7 +242,9 @@ class Plat {
 class Ingredient {
 -nom: String
 -alèrgens[]: String
+-opcional: bool
 +(nom, alèrgens[]) getDades()
++bool getOpcional()
 }
 
 interface InterfíciePropostes {
