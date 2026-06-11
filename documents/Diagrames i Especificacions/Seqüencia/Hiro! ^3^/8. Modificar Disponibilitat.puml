@@ -22,7 +22,7 @@ alt Disponible [disp == true]
 Cuiner -> InterfícieMenúPrincipal++: IndicarDisponibilitat(disp)
 InterfícieMenúPrincipal -> GestorComptes++: SetDisp(p, disp)
 GestorComptes->DadesUsuariGeneral++: SetDisp(disp)
-DadesUsuariGeneral->DadesCuiner: SetDisp()
+DadesUsuariGeneral->DadesCuiner: SetDisp(disp)
 
 DadesUsuariGeneral --> GestorComptes--
 GestorComptes -> InterfícieMenúPrincipal--: NotificarUsuari("Modificada Disponibilitat!")
@@ -33,7 +33,7 @@ else No disponible [disp == false]
 Cuiner -> InterfícieMenúPrincipal++: IndicarDisponibilitat(disp)
 InterfícieMenúPrincipal -> GestorComptes++: SetDisp(p, disp)
 GestorComptes->DadesUsuariGeneral++: SetDisp(disp)
-DadesUsuariGeneral->DadesCuiner: SetDisp()
+DadesUsuariGeneral->DadesCuiner: SetDisp(disp)
 
 DadesUsuariGeneral --> GestorComptes--
 GestorComptes -> InterfícieMenúPrincipal--: NotificarUsuari("Modificada Disponibilitat!")
