@@ -42,6 +42,8 @@ enum GestorComandes {
 +void valorarComanda(DadesComanda c, int valoracio)
 +void mostrarIngredientsPlat(DadesComanda c, Plat p)
 +void modificarIngredients(DadesComanda c, Plat p)
++void getDadesComandes()
++void getDadesComanda(DadesComanda c)
 }
 
 class DadesComanda {
@@ -68,6 +70,11 @@ interface InterfícieComandes {
 +void valorarComanda()
 +void mostrarIngredientsPlat()
 +void modificarIngredients()
++void PestanyaComandes()
++void MostrarReserves()
++void EntrarReserva(DadesComanda r)
++void MostrarReserva(DadesComanda r)
++void NotificarClient(String m)
 }
 }
 
