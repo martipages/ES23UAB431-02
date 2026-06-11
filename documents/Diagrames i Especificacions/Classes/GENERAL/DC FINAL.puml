@@ -75,6 +75,8 @@ enum GestorPlat {
 +void AfegirInformació(Plat p, String nom, String desc)
 +void AfegirImatge(Plat p, Image img)
 +void afegirIngredients(Plat p, (Ingredient ing, bool opcional)[])
++void getDadesPropostes()
++void getDadesPlat(Plat p)
 }
 
 }
@@ -85,10 +87,12 @@ class Plat {
 -ings[]: (Ingredient, bool)
 -void getImgs(&Image[])
 -preu: float
+-esProposta: bool
 +String getNom()
 +plat(Cuiner c)
 +void afegirIngredients((Ingredient ing, bool opcional)[])
 +float getPreu()
++void setEsProposta(bool p)
 }
 
 class Ingredient {
@@ -98,7 +102,13 @@ class Ingredient {
 }
 
 interface InterfícieMenuPrincipal
-interface InterfíciePropostes
+
+interface InterfíciePropostes {
++void getDadesPropostes()
++void MostrarPropostes()
++void EntrarProposta(Plat p)
++void MostrarProposta(Plat p)
+}
 
 interface InterfíciePlat {
 +void NotificarClient(String missatge)
