@@ -44,6 +44,9 @@ enum GestorComandes {
 +void modificarIngredients(DadesComanda c, Plat p)
 +void getDadesComandes()
 +void getDadesComanda(DadesComanda c)
++void AcceptarComanda(DadesComanda c)
++void AcabarComanda(DadesComanda c)
++void RebutjarComanda(DadesComanda c)
 }
 
 class DadesComanda {
@@ -52,6 +55,7 @@ class DadesComanda {
 -preuTotal: float
 -idComanda: String
 -plats[]: Plat
+-status: String
 +String getNomClient()
 +String getNomCuiner()
 +float getPreuTotal()
@@ -59,6 +63,9 @@ class DadesComanda {
 +(String nom1, String nom2, float preu, String id) getDades()
 +void AfegirPlat(Plat p)
 +void getPlats(&Plat[])
++void AcceptarComanda()
++void AcabarComanda()
++void RebutjarComanda()
 }
 
 class DadesPagament
@@ -74,7 +81,10 @@ interface InterfícieComandes {
 +void MostrarReserves()
 +void EntrarReserva(DadesComanda r)
 +void MostrarReserva(DadesComanda r)
-+void NotificarClient(String m)
++void NotificarClient(String m, DadesComanda c=NULL)
++void AcceptarComanda()
++void AcabarComanda()
++void RebutjarComanda()
 }
 }
 
