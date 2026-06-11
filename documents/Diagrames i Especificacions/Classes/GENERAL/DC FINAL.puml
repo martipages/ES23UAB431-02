@@ -36,6 +36,8 @@ class DadesCuiner {
 class DadesClient {
 
 }
+
+class DadesClient
 class DadesUsuariGeneral {
 -nom: String
 +void getDadesPerfil()
@@ -79,7 +81,12 @@ class DadesComanda {
 class DadesPagament
 class DadesEnviament
 }
-interface InterfícieEnviaments
+interface InterfícieEnviaments {
++void modificarDataHora(data,hora)
++void dataErronea()
++void horaNoDisponible(horari)
++void modificacioCorrecte()
+}
 interface InterfícieExternaBanc
 interface InterfícieComandes {
 +void valorarComanda()
@@ -93,6 +100,18 @@ interface InterfícieComandes {
 +void AcceptarComanda()
 +void AcabarComanda()
 +void RebutjarComanda()
++void denegarValoracio()
++void puntuacioForaDeRang()
++void valoracioCorrecte()
++void mostrarIngredientsPlat(ingredients)
++void modificarIngredients(comanda,plat,ing)
++void denegarModificacio()
++void modificacioCorrecte()
++void escollirRepartidor()
++void repartidorAssignat(localitzacio)
++void comandesPendents()
++void veureInfoEnviament()
++void interactuaComanda()
 }
 }
 
@@ -152,6 +171,14 @@ interface InterfíciePropostes {
 +void AcceptarProposta()
 +void RebutjarProposta()
 +void AfegirMotiuRebuig(String motiu)
+interface InterfícieMenuPrincipal {
++void iniciarComanda()
++void mostrarPlats(listP)
++void escollirPlats(plats)
++void maximComandesActives(nc)
++void comandaCreadaCorrectament(nc)
++void modificarCaracteristiques(c,data,hora,ingredients,repartidor)
++void comandaProcessadaCorrectament()
 }
 
 interface InterfíciePlat {
