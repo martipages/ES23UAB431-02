@@ -7,8 +7,6 @@ control GestorXat
 entity Xat
 entity Missatge
 
-ref over Usuari,InterfícieXat: CU Veure Xats
-
 Usuari -> InterfícieXat++: CrearNouMissatge()
 InterfícieXat -> GestorXat--++: mId=CrearNouMissatge(x)
 GestorXat->Xat++: mId=CrearNouMissatge()
