@@ -20,7 +20,9 @@ enum GestorComptes
 class DadesRepartidor
 
 class DadesCuiner {
-
+-plats[]: Plat
++void AfegirPlat(Plat p)
++void getPlats(&Plat[])
 }
 
 class DadesClient {
@@ -47,11 +49,14 @@ class DadesComanda {
 -nomCuiner: String
 -preuTotal: float
 -idComanda: String
+-plats[]: Plat
 +String getNomClient()
 +String getNomCuiner()
 +float getPreuTotal()
 +String getId()
 +(String nom1, String nom2, float preu, String id) getDades()
++void AfegirPlat(Plat p)
++void getPlats(&Plat[])
 }
 
 class DadesPagament
@@ -77,6 +82,8 @@ enum GestorPlat {
 +void afegirIngredients(Plat p, (Ingredient ing, bool opcional)[])
 +void getDadesPropostes()
 +void getDadesPlat(Plat p)
++void AcceptarProposta(Plat p)
++void RebutjarProposta(Plat p, String m="")
 }
 
 }
@@ -84,7 +91,7 @@ enum GestorPlat {
 class Plat {
 -nom: String
 -imgs[]: Image
--ings[]: (Ingredient, bool)
+-{field} ings[]: (Ingredient, bool)
 -void getImgs(&Image[])
 -preu: float
 -esProposta: bool
@@ -93,6 +100,8 @@ class Plat {
 +void afegirIngredients((Ingredient ing, bool opcional)[])
 +float getPreu()
 +void setEsProposta(bool p)
++void AcceptarProposta()
++void RebutjarProposta()
 }
 
 class Ingredient {
@@ -104,10 +113,14 @@ class Ingredient {
 interface InterfícieMenuPrincipal
 
 interface InterfíciePropostes {
++void NotificarClient(String notif, Plat p, String missatge="")
 +void getDadesPropostes()
 +void MostrarPropostes()
-+void EntrarProposta(Plat p)
++void EntrarProposta()
 +void MostrarProposta(Plat p)
++void AcceptarProposta()
++void RebutjarProposta()
++void AfegirMotiuRebuig(String motiu)
 }
 
 interface InterfíciePlat {
