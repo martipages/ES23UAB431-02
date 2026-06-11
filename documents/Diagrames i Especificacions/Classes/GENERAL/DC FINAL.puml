@@ -20,6 +20,10 @@ enum GestorComptes {
 +void getDadesPerfil(DadesUsuariGeneral u)
 +void SetDisp(DadesCuiner c, bool disp)
 +void SetHoraDisp(DadesCuiner c, Date h)
++int verificarDades(correu, contrassenya)
++bool login(correu, contrassenya)
++void guardarDades(query)
++void EliminarCompte(correu, contrassenya)
 }
 class DadesRepartidor
 
@@ -40,6 +44,11 @@ class DadesClient {
 class DadesClient
 class DadesUsuariGeneral {
 -nom: String
+-correu_electrònic: String
+-contrassenya: String
+-telefon: int
+-ubicació: String
+
 +void getDadesPerfil()
 }
 interface InterfícieExternaCorreu
@@ -82,13 +91,16 @@ class DadesPagament
 class DadesEnviament
 }
 interface InterfícieEnviaments {
-+void modificarDataHora(Date data, Hour hora)
++void modificarDataHora(data,hora)
 +void dataErronea()
-+void horaNoDisponible(Hour horari[])
++void horaNoDisponible(horari)
 +void modificacioCorrecte()
 }
 interface InterfícieExternaBanc
 interface InterfícieComandes {
++void valorarComanda()
++void mostrarIngredientsPlat()
++void modificarIngredients()
 +void PestanyaComandes()
 +void MostrarReserves()
 +void EntrarReserva(DadesComanda r)
@@ -97,16 +109,15 @@ interface InterfícieComandes {
 +void AcceptarComanda()
 +void AcabarComanda()
 +void RebutjarComanda()
-+void valorarComanda(DadesComanda c, int valoracio)
 +void denegarValoracio()
 +void puntuacioForaDeRang()
 +void valoracioCorrecte()
-+void mostrarIngredientsPlat(Ingredient i[])
-+void modificarIngredients(Dades c, Plat p, Ingredient i[])
++void mostrarIngredientsPlat(ingredients)
++void modificarIngredients(comanda,plat,ing)
 +void denegarModificacio()
 +void modificacioCorrecte()
 +void escollirRepartidor()
-+void repartidorAssignat(location localizacion)
++void repartidorAssignat(localitzacio)
 +void comandesPendents()
 +void veureInfoEnviament()
 +void interactuaComanda()
@@ -126,6 +137,8 @@ enum GestorPlat {
 +void getDadesPlat(Plat p)
 +void AcceptarProposta(Plat p)
 +void RebutjarProposta(Plat p, String m="")
++Plat* MostrarPlatsFeed()
++Plat[] MostrarPlatsMenu()
 }
 
 }
@@ -152,6 +165,29 @@ class Ingredient {
 +(nom, alèrgens[]) getDades()
 }
 
+interface InterfícieMenuPrincipal {
++void PestanyaPerfil()
++void NotificarUsuari(String m)
++void MostrarPerfil()
++void IndicarDisponibilitat(bool disp)
++void IndicarHoraDisponible(Date h)
++void Acces_Menu_Principal()
++void InteractuarPlatMenu
++DadesUsuariGeneral[] cercarCuiner(query)
++void NotificaError(option)
++void mostrarCuiners()
++void registreCompte(correu, contrassenya)
++void login(correu, contrassenya)
++void realitzarRegistre()
++void confirmarRegistre()
++void mostrarOpcionsOmplirPerfil()
++void omplirDades(query)
++void MissatgeConfirmacio(query)
++void AccessModificarPerfil()
++void IntroduirContrassenya(contrassenya)
++void AccessDonarBaixa()
+}
+
 interface InterfíciePropostes {
 +void NotificarClient(String notif, Plat p, String missatge="")
 +void getDadesPropostes()
@@ -161,21 +197,14 @@ interface InterfíciePropostes {
 +void AcceptarProposta()
 +void RebutjarProposta()
 +void AfegirMotiuRebuig(String motiu)
-}
-
 interface InterfícieMenuPrincipal {
 +void iniciarComanda()
-+void mostrarPlats(Plat listP[])
-+void escollirPlats(Plat plats[])
-+void maximComandesActives(int numComandes)
-+void comandaCreadaCorrectament(int numComandes)
-+void modificarCaracteristiques(DadesComandes c, Date data, Hour hora, Ingredient i[], String repartidor)
++void mostrarPlats(listP)
++void escollirPlats(plats)
++void maximComandesActives(nc)
++void comandaCreadaCorrectament(nc)
++void modificarCaracteristiques(c,data,hora,ingredients,repartidor)
 +void comandaProcessadaCorrectament()
-+void PestanyaPerfil()
-+void NotificarUsuari(String m)
-+void MostrarPerfil()
-+void IndicarDisponibilitat(bool disp)
-+void IndicarHoraDisponible(Date h)
 }
 
 interface InterfíciePlat {
@@ -185,6 +214,7 @@ interface InterfíciePlat {
 +void AfegirImatge(Image img)
 +void afegirIngredients((Ingredient ing, bool opcional)[])
 }
+
 }
 
 namespace Xats {
