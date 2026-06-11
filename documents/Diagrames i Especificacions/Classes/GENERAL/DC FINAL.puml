@@ -23,7 +23,9 @@ class DadesCuiner {
 
 }
 
-class DadesClient
+class DadesClient {
++ void BorraPLS
+}
 class DadesUsuariGeneral {
 -nom: String
 +String getNom()
