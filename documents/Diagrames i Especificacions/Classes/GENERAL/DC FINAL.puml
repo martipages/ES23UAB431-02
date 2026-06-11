@@ -16,13 +16,21 @@ skinparam package<<Layout>> {
 
 
 namespace Perfils{
-enum GestorComptes
+enum GestorComptes {
++void getDadesPerfil(DadesUsuariGeneral u)
++void SetDisp(DadesCuiner c, bool disp)
++void SetHoraDisp(DadesCuiner c, Date h)
+}
 class DadesRepartidor
 
 class DadesCuiner {
 -plats[]: Plat
+-disp: bool
 +void AfegirPlat(Plat p)
 +void getPlats(&Plat[])
++void getDades()
++void SetDisp(bool disp)
++void SetHoraDisp(Date h)
 }
 
 class DadesClient {
@@ -30,7 +38,7 @@ class DadesClient {
 }
 class DadesUsuariGeneral {
 -nom: String
-+String getNom()
++void getDadesPerfil()
 }
 interface InterfícieExternaCorreu
 interface InterfícieExternaGPS
@@ -127,7 +135,13 @@ class Ingredient {
 +(nom, alèrgens[]) getDades()
 }
 
-interface InterfícieMenuPrincipal
+interface InterfícieMenuPrincipal {
++void PestanyaPerfil()
++void NotificarUsuari(String m)
++void MostrarPerfil()
++void IndicarDisponibilitat(bool disp)
++void IndicarHoraDisponible(Date h)
+}
 
 interface InterfíciePropostes {
 +void NotificarClient(String notif, Plat p, String missatge="")
