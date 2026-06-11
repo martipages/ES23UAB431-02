@@ -117,14 +117,37 @@ class Xat {
 -XatID: String
 -missatges[]: Missatge
 +(String nom1, String nom2, String XatID) getDades()
++String CrearNouMissatge()
++void UpdateMissatge(String mId, String txt)
++void adjuntarImatges(String mId, Image imgs[])
++void adjuntarMissatgeDeVeu(String mId, VoiceMessage vMsg)
++void afegirMissatge(String mId)
 }
 
 }
-class Missatge
+class Missatge {
+-mId: String
+-text: String
+-imgs[]: Image
+-voiceMsg: VoiceMessage
+-status: String
++Missatge()
++String getID()
++void updateText(String txt)
++void adjuntarImatges(Image img[])
++void adjuntarMissatgeDeVeu(VoiceMessage vMsg)
++void setStatus(String status)
+}
 
 enum GestorXat {
 +void GetXats()
 +void GetDadesXat(x)
++String CrearNouMissatge(Xat x)
++void UpdateMissatge(Xat X, String mId, String txt)
++void adjuntarImatges(Xat X, String mId, Image imgs[])
++void adjuntarMissatgeDeVeu(Xat X, String mId, VoiceMessage vMsg)
++void enviarMissatge(Xat X, String mId)
++void enviarNotificació(String mId)
 }
 
 interface InterfícieXat {
@@ -132,6 +155,12 @@ interface InterfícieXat {
 +void PestanyaXats()
 +void MostrarXats(Xats[] xs)
 +void MostrarXat(Xat x)
++void CrearNouMissatge()
++void UpdateMissatge(String txt)
++void adjuntarImatge(Image img)
++void adjuntarMissatgeDeVeu(VoiceMessage vMsg)
++void enviarMissatge()
++void enviat(String mId)
 }
 
 } 
