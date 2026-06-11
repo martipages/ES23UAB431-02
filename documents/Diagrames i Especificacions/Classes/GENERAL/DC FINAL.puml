@@ -34,7 +34,11 @@ interface InterfícieExternaGPS
 
 namespace Comanda {
  package p2 <<Layout>>{
-enum GestorComandes
+enum GestorComandes {
++void valorarComanda(DadesComanda c, int valoracio)
++void mostrarIngredientsPlat(DadesComanda c, Plat p)
++void modificarIngredients(DadesComanda c, Plat p)
+}
 
 class DadesComanda {
 -nomClient: String
@@ -53,7 +57,11 @@ class DadesEnviament
 }
 interface InterfícieEnviaments
 interface InterfícieExternaBanc
-interface InterfícieComandes
+interface InterfícieComandes {
++void valorarComanda()
++void mostrarIngredientsPlat()
++void modificarIngredients()
+}
 }
 
 namespace Menú {
