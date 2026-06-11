@@ -82,16 +82,13 @@ class DadesPagament
 class DadesEnviament
 }
 interface InterfícieEnviaments {
-+void modificarDataHora(data,hora)
++void modificarDataHora(Date data, Hour hora)
 +void dataErronea()
-+void horaNoDisponible(horari)
++void horaNoDisponible(Hour horari[])
 +void modificacioCorrecte()
 }
 interface InterfícieExternaBanc
 interface InterfícieComandes {
-+void valorarComanda()
-+void mostrarIngredientsPlat()
-+void modificarIngredients()
 +void PestanyaComandes()
 +void MostrarReserves()
 +void EntrarReserva(DadesComanda r)
@@ -100,15 +97,16 @@ interface InterfícieComandes {
 +void AcceptarComanda()
 +void AcabarComanda()
 +void RebutjarComanda()
++void valorarComanda(DadesComanda c, int valoracio)
 +void denegarValoracio()
 +void puntuacioForaDeRang()
 +void valoracioCorrecte()
-+void mostrarIngredientsPlat(ingredients)
-+void modificarIngredients(comanda,plat,ing)
++void mostrarIngredientsPlat(Ingredient i[])
++void modificarIngredients(Dades c, Plat p, Ingredient i[])
 +void denegarModificacio()
 +void modificacioCorrecte()
 +void escollirRepartidor()
-+void repartidorAssignat(localitzacio)
++void repartidorAssignat(location localizacion)
 +void comandesPendents()
 +void veureInfoEnviament()
 +void interactuaComanda()
@@ -154,14 +152,6 @@ class Ingredient {
 +(nom, alèrgens[]) getDades()
 }
 
-interface InterfícieMenuPrincipal {
-+void PestanyaPerfil()
-+void NotificarUsuari(String m)
-+void MostrarPerfil()
-+void IndicarDisponibilitat(bool disp)
-+void IndicarHoraDisponible(Date h)
-}
-
 interface InterfíciePropostes {
 +void NotificarClient(String notif, Plat p, String missatge="")
 +void getDadesPropostes()
@@ -171,14 +161,21 @@ interface InterfíciePropostes {
 +void AcceptarProposta()
 +void RebutjarProposta()
 +void AfegirMotiuRebuig(String motiu)
+}
+
 interface InterfícieMenuPrincipal {
 +void iniciarComanda()
-+void mostrarPlats(listP)
-+void escollirPlats(plats)
-+void maximComandesActives(nc)
-+void comandaCreadaCorrectament(nc)
-+void modificarCaracteristiques(c,data,hora,ingredients,repartidor)
++void mostrarPlats(Plat listP[])
++void escollirPlats(Plat plats[])
++void maximComandesActives(int numComandes)
++void comandaCreadaCorrectament(int numComandes)
++void modificarCaracteristiques(DadesComandes c, Date data, Hour hora, Ingredient i[], String repartidor)
 +void comandaProcessadaCorrectament()
++void PestanyaPerfil()
++void NotificarUsuari(String m)
++void MostrarPerfil()
++void IndicarDisponibilitat(bool disp)
++void IndicarHoraDisponible(Date h)
 }
 
 interface InterfíciePlat {
@@ -188,7 +185,6 @@ interface InterfíciePlat {
 +void AfegirImatge(Image img)
 +void afegirIngredients((Ingredient ing, bool opcional)[])
 }
-
 }
 
 namespace Xats {
