@@ -125,6 +125,7 @@ class Missatge
 enum GestorXat {
 +void GetXats()
 +void GetDadesXat(x)
++void MarcSala()
 }
 
 interface InterfícieXat {
