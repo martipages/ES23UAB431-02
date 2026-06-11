@@ -77,14 +77,16 @@ enum GestorComandes {
 +Plat getLlistaPlats()
 +DadesComanda crearComanda(Plat plats[])
 +int getNComandesActives()
-+void modificarCaracteristiques(DadesComandes c, Date data, Hour hora, Ingredient i[], String repartidor)
++void modificarCaracteristiques(DadesComandes c, Date data,
+Hour hora, Ingredient i[], String repartidor)
 +int getCostEnviament(DadesComanda c)
 +void comandaPendentPagament(DadesComanda c)
 +void mostrarIngredientsPlat(DadesComanda c, Plat p)
 +void modificarIngredients(DadesComanda c, Plat p, Ingredient i[])
 +void escollirRepartidor(DadesComanda c, int opcio)
 +void setCostEnviament(DadesComanda c, float n)
-+void setCostEnviament(DadesComanda c, location ubi1, location ubi2, bool plaMensual)
++void setCostEnviament(DadesComanda c, location ubi1,
+location ubi2, bool plaMensual)
 +void acceptarRepartir(DadesComanda c, int idRepartidor)
 +void denegarRepartir()
 +void modificarDataHora(Date data, Hour hora)
@@ -226,7 +228,8 @@ interface InterfícieMenuPrincipal {
 +void escollirPlats(Plat plats[])
 +void maximComandesActives(int numComandes)
 +void comandaCreadaCorrectament(int numComandes)
-+void modificarCaracteristiques(DadesComandes c, Date data, Hour hora, Ingredient i[], String repartidor)
++void modificarCaracteristiques(DadesComandes c,
+Date data, Hour hora, Ingredient i[], String repartidor)
 +void comandaProcessadaCorrectament()
 +void PestanyaPerfil()
 +void NotificarUsuari(String m)
@@ -256,6 +259,7 @@ interface InterfíciePlat {
 +void AfegirInformació(String nom, String desc)
 +void AfegirImatge(Image img)
 +void afegirIngredients((Ingredient ing, bool opcional)[])
+}
 }
 }
 
