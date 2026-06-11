@@ -3,9 +3,21 @@
 actor Client
 boundary InterfícieMenuPrincipal
 control GestorComandes
+control GestorPlat
+entity Plat
+entity Ingredient
 entity DadesComanda
 
-
+Client -> InterfícieMenuPrincipal: iniciarComanda()
+InterfícieMenuPrincipal -> GestorComandes: getLlistaPlats()
+GestorComandes -> GestorPlat: listP = getLlistaPlats()
+loop
+GestorPlat -> Plat: listP = getInfo()
+loop
+Plat -> Ingredient: listI = getInfo()
+end
+end
+GestorComandes -> InterfícieMenuPrincipal: mostrarPlats(listP)
 Client -> InterfícieMenuPrincipal: escollirPlats()
 InterfícieMenuPrincipal -> GestorComandes: crearComanda(plats)
 GestorComandes -> GestorComandes: nc = getNComandesActives()

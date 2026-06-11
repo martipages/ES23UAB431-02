@@ -13,7 +13,6 @@ actor Cuiner
 boundary InterfícieEnviaments2
 actor Repartidor
 
-ref over Client, InterfícieComandes: CU Fer comanda
 
 Client -> InterfícieComandes: escollirRepartidor()
 InterfícieComandes -> GestorComandes: escollirRepartidor(c, opcio)

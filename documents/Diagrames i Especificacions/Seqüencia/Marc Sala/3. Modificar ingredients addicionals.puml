@@ -7,7 +7,6 @@ entity DadesComanda
 entity Plat
 entity Ingredients
 
-ref over Client,InterfícieComandes: CU Fer comanda
 
 Client -> InterfícieComandes: mostrarIngredientsPlat()
 InterfícieComandes -> GestorComandes: mostrarIngredientsPlat(comanda,plat)
