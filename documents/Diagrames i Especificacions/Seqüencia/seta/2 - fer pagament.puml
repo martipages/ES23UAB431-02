@@ -19,15 +19,15 @@ Client--
 InterfícieComandes -> GestorComandes++:getImport(comanda)
 GestorComandes -> DadesComanda++:getImport()
 DadesComanda -> GestorComandes--
-GestorComandes -> InterfícieComandes--: MostrarImport()
+GestorComandes -> InterfícieComandes--: MostrarImport(import)
 
 
 
 'InterfícieComandes->GestorComptes++:FerPagament(import,client)
 InterfícieComandes->GestorComandes++:EfectuarTransferència(comanda, import)
-GestorComandes->DadesComanda++:getDataClient(comanda)
+GestorComandes->DadesComanda++:getDataClient()
 
-DadesComanda->DadesClient++:getDataClient(comanda)
+DadesComanda->DadesClient++:getDataClient()
 DadesClient-->DadesComanda--
 DadesComanda-->GestorComandes--
 

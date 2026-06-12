@@ -66,12 +66,14 @@ class DadesUsuariGeneral {
 -correu_electrònic: String
 -contrassenya: String
 -telefon: int
+-id: int
 -nom: String
 -ubicacio: location
 -plaMensual: bool
 +void getDadesPerfil()
 +location getUbi()
 +bool getPlaMensual()
++int getDadesClient()
 }
 interface InterfícieExternaCorreu
 interface InterfícieExternaGPS
@@ -101,10 +103,12 @@ location ubi2, bool plaMensual)
 +DadesEnviament veureInfoEnviament(DadesComanda c)
 +void acceptarComandaRepartir(DadesComanda c, int idRepartidor)
 +void descartarComandaRepartir(DadesComanda c, int idRepartidor)
-+void getDadesComanda(DadesComanda c)
++string getDadesComanda(DadesComanda c)
 +void AcceptarComanda(DadesComanda c)
 +void AcabarComanda(DadesComanda c)
 +void RebutjarComanda(DadesComanda c)
++void getComandesPrèvies()
++int getImport(comanda)
 }
 
 class DadesComanda {
@@ -114,6 +118,7 @@ class DadesComanda {
 -nomCuiner: String
 -nomRepartidor: String
 -idRepartidor: int
+-idClient: int
 -costEnviament: float
 -preuTotal: float
 -idComanda: String
@@ -148,6 +153,9 @@ Ingredient ing[], String nomRepartidor)
 +void calcularPreuTotal()
 +void setValoracio(int v)
 +int getValoracio()
++string getDades()
++int getImport()
++int getDataClient()
 }
 
 class DadesPagament
@@ -200,6 +208,12 @@ interface InterfícieComandes {
 +void comandesPendents()
 +void veureInfoEnviament()
 +void interactuaComanda()
++void consultarComandesPrevies()
++void mostrarComandesPrevies()
++void ferPagamaent(comanda)
++void mostrarImport(int import)
++void efectuarTransferencia(int compte_bancari)
++void acceptarRebutjarTransferencia()
 }
 }
 

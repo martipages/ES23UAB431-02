@@ -3,43 +3,46 @@
 actor Client
 actor Cuiner
 
-boundary InterfÃ­cieMenuPrincipal
+boundary InterfícieMenuPrincipal
 control GestorComptes
 entity DadesCuiner
 
 control GestorPlat
-boundary InterfÃ­ciePropostes
-boundary InterfÃ­ciePlat
+boundary InterfíciePropostes
+boundary InterfíciePlat
 entity DadesPlat
 entity DadesIngredient
 entity DadesComanda
-boundary InterfÃ­cieComandes
+boundary InterfícieComandes
 
-Client->InterfÃ­cieMenuPrincipal++:MostrarCuiners()
+Client->InterfícieMenuPrincipal++:MostrarCuiners()
 Client++
-InterfÃ­cieMenuPrincipal -> GestorComptes++:getCuinersDisponibles()
+InterfícieMenuPrincipal -> GestorComptes++:getCuinersDisponibles()
+GestorComptes->DadesCuiner++:getData()
+DadesCuiner-->GestorComptes--
 alt Hi ha cuiners disponibles
-GestorComptes->InterfÃ­cieMenuPrincipal:MostrarCuinersDisponibles()
+GestorComptes->InterfícieMenuPrincipal:MostrarCuinersDisponibles()
 
 else No hi ha cuiners disponibles
-GestorComptes->InterfÃ­cieMenuPrincipal: NotificarClient("No hi ha cuiners disponibles")
+GestorComptes->InterfícieMenuPrincipal: NotificarClient("No hi ha cuiners disponibles")
 end
 
-Client->InterfÃ­cieMenuPrincipal:SeleccionarCuiner()
-GestorComptes->DadesCuiner++:SeleccionarCuiner()
-DadesCuiner-->GestorComptes
+Client->InterfícieMenuPrincipal:SeleccionarCuiner()
+InterfícieMenuPrincipal-->GestorComptes:SeleccionarCuiner(int id)
+
+
 DadesCuiner--
-GestorComptes-->InterfÃ­cieMenuPrincipal--
+GestorComptes-->InterfícieMenuPrincipal--
 
-InterfÃ­cieMenuPrincipal->GestorPlat++:ProposarPlat()
-InterfÃ­cieMenuPrincipal--
+InterfícieMenuPrincipal->GestorPlat++:ProposarPlat(DadesCuiner cuiner)
+InterfícieMenuPrincipal--
 
-GestorPlat->InterfÃ­ciePropostes++:NovaProposta()
-InterfÃ­ciePropostes->InterfÃ­ciePlat++:NouPlat()
-InterfÃ­ciePlat-->InterfÃ­ciePropostes
-InterfÃ­ciePlat--
+GestorPlat->InterfíciePropostes++:NovaProposta()
+InterfíciePropostes->InterfíciePlat++:NouPlat()
+InterfíciePlat-->InterfíciePropostes
+InterfíciePlat--
 
-GestorPlat->DadesPlat++: NouPlat()
+GestorPlat->DadesPlat++: crearNouPlat(Cuiner c)
 loop Per cada ingredient que es vulgui
 DadesPlat->DadesIngredient++:AfegirIngredient()
 DadesIngredient-->DadesPlat--
@@ -47,25 +50,25 @@ end
 DadesPlat-->GestorPlat
 GestorPlat--
 DadesPlat--
-Client->InterfÃ­ciePropostes:EnviarProposta()
+Client->InterfíciePropostes:EnviarProposta()
 Client--
-InterfÃ­ciePropostes->GestorPlat++:EnviarProposta()
+InterfíciePropostes->GestorPlat++:EnviarProposta()
 GestorPlat->DadesComanda++:FerComanda()
 GestorPlat--
 DadesComanda--
 ref over DadesComanda,GestorPlat: CU Fer Comanda
 
-Cuiner->InterfÃ­cieComandes++:AcceptarProposta()
+Cuiner->InterfícieComandes++:AcceptarProposta()
 Cuiner++
 Cuiner--
 
-InterfÃ­cieComandes--
-ref over Cuiner, InterfÃ­cieComandes: AcceptarPropostes de plats
+InterfícieComandes--
+ref over Cuiner, InterfícieComandes: AcceptarPropostes de plats
 
 alt Si el cuiner ha acceptat la proposta
-InterfÃ­ciePropostes->Client++:NotificarClient("El cuiner ha accpetat la proposta")
+InterfíciePropostes->Client++:NotificarClient("El cuiner ha accpetat la proposta")
 else Si no
-InterfÃ­ciePropostes->Client--:NotificarClient("El cuiner ha rebutjat la proposta")
+InterfíciePropostes->Client--:NotificarClient("El cuiner ha rebutjat la proposta")
 Client--
 
 

@@ -6,19 +6,20 @@ entity DadesComanda
 
 Client++
 Client -> InterfícieComandes++: ConsultarComandesPrèvies()
-InterfícieComandes -> GestorComandes++: GetNComandes()
+Client--
+
+InterfícieComandes -> GestorComandes ++: GetComandesPrèvies()
+loop per totes les comandes
+GestorComandes -> DadesComanda ++: GetDades()
+DadesComanda --> GestorComandes --
+end loop
 alt Alguna comanda ha estat realitzada abans
 GestorComandes->InterfícieComandes: MostrarComandesPrèvies() 
 else No s'ha fet mai cap comanda
 GestorComandes->InterfícieComandes--: NotificarClient("Error: “Mai s'ha fet cap comanda")
 end
 
-Client -> InterfícieComandes: VeureComandesPrèvies()
-InterfícieComandes -> GestorComandes ++: VeureComandesPrèvies()
-Client--
-GestorComandes -> DadesComanda ++: GetDades()
-DadesComanda --> GestorComandes --
-GestorComandes --> InterfícieComandes--:
+
 InterfícieComandes--
 
 @enduml
