@@ -31,6 +31,8 @@ enum GestorComptes {
 +location getLocalitzacions()
 +DadesRepartidor repartidorMesProper(location l[])
 +void valoracioCuiner(String nomCuiner, DadesComanda c, int valoracio)
++DadesCuiners getCuinersDisponibles()
++void seleccionarCuiner(int id)
 }
 
 class DadesRepartidor {
@@ -109,6 +111,8 @@ location ubi2, bool plaMensual)
 +void RebutjarComanda(DadesComanda c)
 +void getComandesPrèvies()
 +int getImport(comanda)
++void efectuarTransferencia(DadesComanda comanda, int import)
+
 }
 
 class DadesComanda {
@@ -156,6 +160,7 @@ Ingredient ing[], String nomRepartidor)
 +string getDades()
 +int getImport()
 +int getDataClient()
++void ferComanda()
 }
 
 class DadesPagament
@@ -232,6 +237,8 @@ enum GestorPlat {
 +void RebutjarProposta(Plat p, String m="")
 +Plat* MostrarPlatsFeed()
 +Plat[] MostrarPlatsMenu()
++void ProposarPlat(DadesCuiner cuiner)
++void enviarProposta()
 }
 
 class Plat {
@@ -259,6 +266,7 @@ class Ingredient {
 -opcional: bool
 +(nom, alèrgens[]) getDades()
 +bool getOpcional()
++Ingredient afegirIngredients()
 }
 
 interface InterfíciePropostes {
@@ -270,6 +278,7 @@ interface InterfíciePropostes {
 +void AcceptarProposta()
 +void RebutjarProposta()
 +void AfegirMotiuRebuig(String motiu)
++void novaProposta()
 }
 
 interface InterfícieMenuPrincipal {
@@ -309,6 +318,7 @@ interface InterfíciePlat {
 +void AfegirInformació(String nom, String desc)
 +void AfegirImatge(Image img)
 +void afegirIngredients((Ingredient ing, bool opcional)[])
+
 }
 }
 }
