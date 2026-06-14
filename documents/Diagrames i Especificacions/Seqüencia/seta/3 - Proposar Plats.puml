@@ -18,8 +18,10 @@ boundary InterfícieComandes
 Client->InterfícieMenuPrincipal++:MostrarCuiners()
 Client++
 InterfícieMenuPrincipal -> GestorComptes++:getCuinersDisponibles()
-GestorComptes->DadesCuiner++:getData()
+loop per tots els cuiners:
+GestorComptes->DadesCuiner++:getSiDisponible()
 DadesCuiner-->GestorComptes--
+end loop
 alt Hi ha cuiners disponibles
 GestorComptes->InterfícieMenuPrincipal:MostrarCuinersDisponibles()
 
@@ -64,11 +66,7 @@ Cuiner--
 
 InterfícieComandes--
 ref over Cuiner, InterfícieComandes: AcceptarPropostes de plats
-
-alt Si el cuiner ha acceptat la proposta
-InterfíciePropostes->Client++:NotificarClient("El cuiner ha accpetat la proposta")
-else Si no
-InterfíciePropostes->Client--:NotificarClient("El cuiner ha rebutjat la proposta")
+InterfíciePropostes--
 Client--
 
 

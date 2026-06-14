@@ -37,9 +37,9 @@ EntitatBancària --> InterfícieExternaBanc:Acceptar/RebutjarTransferència()
 EntitatBancària++
 EntitatBancària--
 InterfícieExternaBanc-->GestorComandes--
-alt No suficients diners al compte
-GestorComandes -> InterfícieComandes: NotificarClient("Error: No hi han prou diners al compte")
-else Suficients diners al compte
+alt Si l'entiat bancària no realitza la transferència
+GestorComandes -> InterfícieComandes: NotificarClient("Error: no s'ha pogut efectuar la transferència")
+else l'entiat bancària ha relaitzat amv èxit la transferència
 GestorComandes ->InterfícieComandes--:NotificarClient("S'ha efectuar la transferència")
 InterfícieComandes--
 end

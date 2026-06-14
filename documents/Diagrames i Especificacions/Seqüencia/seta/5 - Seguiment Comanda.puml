@@ -14,10 +14,14 @@ boundary InterfícieGPS
 Client++
 Client -> InterfícieComandes++: MostrarComandesActives()
 InterfícieComandes -> GestorComandes--++: ConsultarComandesActives()
+
+GestorComandes->DadesComanda++:GetDadesSiNoActiva()
+DadesComanda-->GestorComandes--
+
 alt Hi ha comandes actives
-GestorComandes->InterfícieComandes--: MostrarComandesActives() 
+GestorComandes->InterfícieComandes: MostrarComandesActives() 
 else No hi ha comandes actives
-GestorComandes->InterfícieComandes: NotificarClient("Error: “No hi ha comandes actives")
+GestorComandes->InterfícieComandes--: NotificarClient("Error: “No hi ha comandes actives")
 end
 
 Client -> InterfícieComandes++: MostrarUbicacióComandaEspecífica()

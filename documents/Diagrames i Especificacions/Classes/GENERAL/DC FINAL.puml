@@ -49,6 +49,7 @@ class DadesCuiner {
 -disp: bool
 -ranking: int
 -repercussio: float
+-disponible: bool 
 +void AfegirPlat(Plat p)
 +void getPlats(&Plat[])
 +void getDades()
@@ -57,7 +58,8 @@ class DadesCuiner {
 +void aplicarValoracio(DadesComanda c, int valoracio)
 +void actualitzarRepercussio()
 +Hour getHorari()
-}
++getSiDisponible(Hour horaActual)
+}<
 
 class DadesClient {
 
@@ -112,7 +114,9 @@ location ubi2, bool plaMensual)
 +void getComandesPrèvies()
 +int getImport(comanda)
 +void efectuarTransferencia(DadesComanda comanda, int import)
-
++void repetirComanda(DadesComanda comanda)
++consultarComandesActives()
++void mostrarUbicacioComandaEspecifica
 }
 
 class DadesComanda {
@@ -161,6 +165,9 @@ Ingredient ing[], String nomRepartidor)
 +int getImport()
 +int getDataClient()
 +void ferComanda()
++void getData(DadesComanda c)
++void getDadesSiNoActiva(DadesComanda c)
+
 }
 
 class DadesPagament
@@ -219,6 +226,9 @@ interface InterfícieComandes {
 +void mostrarImport(int import)
 +void efectuarTransferencia(int compte_bancari)
 +void acceptarRebutjarTransferencia()
++void repetirComanda()
++mostrarComandesActives()
+
 }
 }
 

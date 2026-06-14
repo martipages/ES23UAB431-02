@@ -4,13 +4,15 @@ boundary InterfícieComandes
 control GestorComandes
 entity DadesComanda
 
+
 Client++
 Client -> InterfícieComandes++: ConsultarComandesPrèvies()
 Client--
 
+
 InterfícieComandes -> GestorComandes ++: GetComandesPrèvies()
 loop per totes les comandes
-GestorComandes -> DadesComanda ++: GetDades()
+GestorComandes -> DadesComanda ++: GetDadesSiNoActiva()
 DadesComanda --> GestorComandes --
 end loop
 alt Alguna comanda ha estat realitzada abans
