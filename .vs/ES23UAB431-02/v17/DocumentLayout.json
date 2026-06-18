@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\hugca\\OneDrive\\Escriptori\\scrum dels ous\\ES23UAB431-02\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\hugca\\OneDrive\\Escriptori\\scrum dels ous\\ES23UAB431-02\\documents\\Diagrames i Especificacions\\Classes\\GENERAL\\DC FINAL.puml||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:documents\\Diagrames i Especificacions\\Classes\\GENERAL\\DC FINAL.puml||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\hugca\\OneDrive\\Escriptori\\scrum dels ous\\ES23UAB431-02\\documents\\Diagrames i Especificacions\\Classes\\GENERAL\\DC FINAL.png||{58961B49-13E0-48C0-9258-13CBC4D40279}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:documents\\Diagrames i Especificacions\\Classes\\GENERAL\\DC FINAL.png||{58961B49-13E0-48C0-9258-13CBC4D40279}"
     }
@@ -14,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,14 +34,27 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "DC FINAL.png",
               "DocumentMoniker": "C:\\Users\\hugca\\OneDrive\\Escriptori\\scrum dels ous\\ES23UAB431-02\\documents\\Diagrames i Especificacions\\Classes\\GENERAL\\DC FINAL.png",
               "RelativeDocumentMoniker": "documents\\Diagrames i Especificacions\\Classes\\GENERAL\\DC FINAL.png",
               "ToolTip": "C:\\Users\\hugca\\OneDrive\\Escriptori\\scrum dels ous\\ES23UAB431-02\\documents\\Diagrames i Especificacions\\Classes\\GENERAL\\DC FINAL.png",
               "RelativeToolTip": "documents\\Diagrames i Especificacions\\Classes\\GENERAL\\DC FINAL.png",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
-              "WhenOpened": "2026-06-18T17:26:39.287Z",
+              "WhenOpened": "2026-06-18T17:35:57.672Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DC FINAL.puml",
+              "DocumentMoniker": "C:\\Users\\hugca\\OneDrive\\Escriptori\\scrum dels ous\\ES23UAB431-02\\documents\\Diagrames i Especificacions\\Classes\\GENERAL\\DC FINAL.puml",
+              "RelativeDocumentMoniker": "documents\\Diagrames i Especificacions\\Classes\\GENERAL\\DC FINAL.puml",
+              "ToolTip": "C:\\Users\\hugca\\OneDrive\\Escriptori\\scrum dels ous\\ES23UAB431-02\\documents\\Diagrames i Especificacions\\Classes\\GENERAL\\DC FINAL.puml",
+              "RelativeToolTip": "documents\\Diagrames i Especificacions\\Classes\\GENERAL\\DC FINAL.puml",
+              "ViewState": "AgIAALQBAAAAAAAAAAAUwNcBAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-06-18T17:35:54.272Z",
               "EditorCaption": ""
             }
           ]

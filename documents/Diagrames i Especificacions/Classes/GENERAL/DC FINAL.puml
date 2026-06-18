@@ -64,7 +64,7 @@ class DadesCuiner {
 +void actualitzarRepercussio()
 +Hour getHorari()
 +getSiDisponible(Hour horaActual)
-}<
+}
 
 class DadesClient {
 +bool getPlaMensual()
