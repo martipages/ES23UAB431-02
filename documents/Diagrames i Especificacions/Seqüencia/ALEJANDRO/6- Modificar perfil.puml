@@ -10,9 +10,7 @@ interficie -> gestor --++ : 1.2 Acces_Modif_perfil()
 gestor -> interficie-- : 1.3 mostrar_opcions_omplir()
 
 Usuari -> interficie ++ : 2.1 omplir_dades(dades)
-opt afegir compte en modificacio
 ref over Usuari : CU OmplirCompteBancari
-end
 interficie -> gestor --++ : 2.2 omplir_dades(dades)
 
 loop fins a que contrassenya sigui valida
