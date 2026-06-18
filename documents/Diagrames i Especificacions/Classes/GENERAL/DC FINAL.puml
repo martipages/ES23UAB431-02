@@ -25,7 +25,7 @@ enum GestorComptes {
 +void guardarDades(query)
 +void EliminarCompte(correu, contrassenya)
 +String getNomRepartidor(int idRepartidor)
-+Hour getHorariCuiner(String nomCuiner)
++Date getHorariCuiner(String nomCuiner)
 +location getUbiUsuari(String nom)
 +bool getPlaMensual(string nom)
 +location getLocalitzacions()
@@ -33,10 +33,10 @@ enum GestorComptes {
 +void valoracioCuiner(String nomCuiner, DadesComanda c, int valoracio)
 +DadesCuiners getCuinersDisponibles()
 +void seleccionarCuiner(int id)
-+void getUbicacio(DadesRepartidor repartidor)
++location getUbicacioRepartidor(DadesRepartidor repartidor)
 +void SubscriurePlaMensual(usuari)
 +void vincularCompteBancari()
-+void introudirIBAN(int iban)
++void introudirIBAN(String IBAN)
 
 }
 
@@ -50,7 +50,7 @@ class DadesRepartidor {
 class DadesCuiner {
 -plats[]: Plat
 -nom: String
--horari[]: Hour
+-horari[]: Date
 -disp: bool
 -ranking: int
 -repercussio: float
@@ -62,8 +62,8 @@ class DadesCuiner {
 +void SetHoraDisp(Date h)
 +void aplicarValoracio(DadesComanda c, int valoracio)
 +void actualitzarRepercussio()
-+Hour getHorari()
-+getSiDisponible(Hour horaActual)
++Date getHorari()
++getSiDisponible(Date horaActual)
 }
 
 class DadesClient {
@@ -84,15 +84,16 @@ class DadesUsuariGeneral {
 -iban: int
 +void getDadesPerfil()
 +void modificarIBAN()
-+void validarCompteBancari(int IBAN)
++void validarCompteBancari(String IBAN)
 +bool validarPerfil()
 
 }
-interface InterfícieExternaCorreu
+interface InterfícieExternaCorreu {
++void vincularCompte(DadesUsuari)  
+}
+
 interface InterfícieExternaGPS{
 +location getUbi()
-+void getUbicacio()
-
 }
 
 namespace Comanda {
@@ -103,7 +104,7 @@ enum GestorComandes {
 +DadesComanda crearComanda(Plat plats[])
 +int getNComandesActives()
 +void modificarCaracteristiques(DadesComandes c, Date data,
-Hour hora, Ingredient i[], String repartidor)
+Date hora, Ingredient i[], String repartidor)
 +int getCostEnviament(DadesComanda c)
 +void comandaPendentPagament(DadesComanda c)
 +void mostrarIngredientsPlat(DadesComanda c, Plat p)
@@ -114,7 +115,7 @@ Hour hora, Ingredient i[], String repartidor)
 location ubi2, bool plaMensual)
 +void acceptarRepartir(DadesComanda c, int idRepartidor)
 +void denegarRepartir()
-+void modificarDataHora(Date data, Hour hora)
++void modificarDataHora(Date dataIHora)
 +DadesComanda comandesPendents()
 +DadesEnviament veureInfoEnviament(DadesComanda c)
 +void acceptarComandaRepartir(DadesComanda c, int idRepartidor)
@@ -137,8 +138,7 @@ location ubi2, bool plaMensual)
 }
 
 class DadesComanda {
--data: Date
--hora: Hour
+-dataIHora: Date
 -nomClient: String
 -nomCuiner: String
 -nomRepartidor: String
@@ -168,11 +168,11 @@ class DadesComanda {
 +void assignarRepartidor(String nom, int idRepartidor)
 +bool getPendentRepartir()
 +bool getPendentPagament()
-+void modificarDataHora(Date data, Hour hora)
++void modificarDataHora(Date dataIHora)
 +void opcioRepartidor(int opcio)
 +Ingredient getIngredients(Plat p)
 +void modificarPlat(Plat p, Ingredient ing[])
-+void modificarCaracteristiques(Date data, Hour hora,
++void modificarCaracteristiques(Date dataIHora,
 Ingredient ing[], String nomRepartidor)
 +void setCostEnviament()
 +void calcularPreuTotal()
@@ -184,12 +184,18 @@ Ingredient ing[], String nomRepartidor)
 +void ferComanda()
 +void getData(DadesComanda c)
 +void getDadesSiNoActiva(DadesComanda c)
-+void getImport(int cuiner)
++float getImport(DadesCuiner cuiner)
 
 
 }
 
-class DadesPagament
+class DadesPagament {
+-IBAN: String
++String getIBAN()
+-dataPagament: Date
++Date getDataPagament()
+}
+
 
 
 class DadesEnviament {
@@ -208,9 +214,9 @@ class DadesEnviament {
 }
 
 interface InterfícieEnviaments {
-+void modificarDataHora(Date data, Hour hora)
++void modificarDataHora(Date dataIHora)
 +void dataErronea()
-+void horaNoDisponible(Hour horari[])
++void horaNoDisponible(Date horari[])
 +void modificacioCorrecte()
 +void comandaEnEnviament(String nomRepartidor)
 +void enviamentEnEspera()
@@ -342,7 +348,7 @@ interface InterfícieMenuPrincipal {
 +void maximComandesActives(int numComandes)
 +void comandaCreadaCorrectament(int numComandes)
 +void modificarCaracteristiques(DadesComandes c,
-Date data, Hour hora, Ingredient i[], String repartidor)
+Date dataIHora, Ingredient i[], String repartidor)
 +void comandaProcessadaCorrectament()
 +void PestanyaPerfil()
 +void NotificarUsuari(String m)
@@ -350,7 +356,7 @@ Date data, Hour hora, Ingredient i[], String repartidor)
 +void IndicarDisponibilitat(bool disp)
 +void IndicarHoraDisponible(Date h)
 +void Acces_Menu_Principal()
-+void InteractuarPlatMenu
++void InteractuarPlatMenu()
 +DadesUsuariGeneral[] cercarCuiner(query)
 +void NotificaError(option)
 +void mostrarCuiners()
