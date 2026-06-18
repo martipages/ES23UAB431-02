@@ -33,6 +33,11 @@ enum GestorComptes {
 +void valoracioCuiner(String nomCuiner, DadesComanda c, int valoracio)
 +DadesCuiners getCuinersDisponibles()
 +void seleccionarCuiner(int id)
++void getUbicacio(DadesRepartidor repartidor)
++void SubscriurePlaMensual(usuari)
++void vincularCompteBancari()
++void introudirIBAN(int iban)
+
 }
 
 class DadesRepartidor {
@@ -62,10 +67,12 @@ class DadesCuiner {
 }<
 
 class DadesClient {
-
++bool getPlaMensual()
++int getDadesClient()
++void inscriurePlaMensual()
 }
 
-class DadesClient
+
 class DadesUsuariGeneral {
 -correu_electrònic: String
 -contrassenya: String
@@ -74,13 +81,18 @@ class DadesUsuariGeneral {
 -nom: String
 -ubicacio: location
 -plaMensual: bool
+-iban: int
 +void getDadesPerfil()
-+location getUbi()
-+bool getPlaMensual()
-+int getDadesClient()
++void modificarIBAN()
++void validarCompteBancari(int IBAN)
++bool validarPerfil()
+
 }
 interface InterfícieExternaCorreu
-interface InterfícieExternaGPS
+interface InterfícieExternaGPS{
++location getUbi()
++void getUbicacio()
+
 }
 
 namespace Comanda {
@@ -116,7 +128,12 @@ location ubi2, bool plaMensual)
 +void efectuarTransferencia(DadesComanda comanda, int import)
 +void repetirComanda(DadesComanda comanda)
 +consultarComandesActives()
-+void mostrarUbicacioComandaEspecifica
++void mostrarUbicacioComandaEspecifica()
++void getIngressosPendents(DadesUsuariGeneral usuari)
++void demanarIngres(float ingres, DadesUsuariGeneral usuari)
+
+
+
 }
 
 class DadesComanda {
@@ -167,6 +184,8 @@ Ingredient ing[], String nomRepartidor)
 +void ferComanda()
 +void getData(DadesComanda c)
 +void getDadesSiNoActiva(DadesComanda c)
++void getImport(int cuiner)
+
 
 }
 
@@ -179,9 +198,12 @@ class DadesEnviament {
 -idRepartidor: int
 -desti: location
 -origen: location
+-import: int
 +void opcioRepartidor(int opcio)
 +void assignarRepartidor(String nom, int idRepartidor)
 +location getInformacio()
++getImport(int repartidor)
+
 }
 }
 
@@ -194,9 +216,27 @@ interface InterfícieEnviaments {
 +void enviamentEnEspera()
 +void novaComandaARepartir(location ubiClient)
 +void interactuaCuiner()
++void mostrarHistoricEnviaments()
++void demanarIngres()
++void mostrarBotoCobrarIngressos()
++void mostrarHistoricComandes()
++void mostrarBotoCobrarIngressos()
 }
 
-interface InterfícieExternaBanc
+interface InterfícieExternaBanc{
++void depositarIngres(int IBAN)
++void mostrarBotoCobrarIngressos()
++void validarCompteBancari(usuari)
++void validarPerfil(usuari)
++void inscriurePlaMensual()
++void introuditIBAN(int i)
+
++void introduirIBAN()
++void demanarIngres(float ingres, int compte)
++void efectuarTransferencia(int compte_bancari)
++void acceptarRebutjarTransferencia()
++void depositarIngres(DadesClient usuari)
+}
 
 interface InterfícieComandes {
 +void PestanyaComandes()
@@ -224,10 +264,14 @@ interface InterfícieComandes {
 +void mostrarComandesPrevies()
 +void ferPagamaent(comanda)
 +void mostrarImport(int import)
-+void efectuarTransferencia(int compte_bancari)
-+void acceptarRebutjarTransferencia()
 +void repetirComanda()
-+mostrarComandesActives()
++void mostrarComandesActives()
++void mostrarUbicacioComandaEspecifica()
++void mostrarHistoricEnviaments()
++void mostrarBotoCobrarIngressos()
++void mostrarHistoricComandes()
++void mostrarMenu()
+
 
 }
 }
@@ -320,6 +364,8 @@ Date data, Hour hora, Ingredient i[], String repartidor)
 +void AccessModificarPerfil()
 +void IntroduirContrassenya(contrassenya)
 +void AccessDonarBaixa()
++void SubscriurePlaMensual()
++void vincularCompteBancari()
 }
 
 interface InterfíciePlat {

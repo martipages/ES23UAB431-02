@@ -28,20 +28,23 @@ Client -> InterfícieComandes++: MostrarUbicacióComandaEspecífica()
 Client--
 InterfícieComandes -> GestorComandes++: MostrarUbicacióComandaEspecífica(c)
 GestorComandes -> DadesComanda++: GetData(c)
-DadesComanda -> DadesEnviament++: GetUbication(c)
-DadesComanda --> GestorComandes
-GestorComandes--
+DadesComanda -> DadesEnviament++: GetInformacio(c)
 
 alt La comanda s'està repartint
-DadesEnviament->DadesRepartidor++: getUbicacio()
+DadesEnviament->DadesRepartidor++: getLocalitzacio()
 DadesRepartidor-->DadesEnviament--
 
 DadesEnviament-->DadesComanda--
-DadesComanda->GestorComptes++: getUbicacio()
-DadesComanda--
+DadesComanda->GestorComptes++: getUbicacio(DadesRepartidor repartidor)
+
 GestorComptes->InterfícieGPS++: getUbicacio()
 InterfícieGPS-->GestorComptes
 InterfícieGPS--
+GestorComptes --> DadesComanda--
+DadesComanda --> GestorComandes
+GestorComandes--
+DadesComanda--
+
 GestorComptes--
 
 
